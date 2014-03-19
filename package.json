@@ -1,0 +1,23 @@
+{
+  "name": "Billing",
+  "version": "0.0.1",
+  "description": "Billing module for APICoin and related user-currencies",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/faizkhan00/Billing.git"
+  },
+  "keywords": [
+    "billing",
+    "mastercoin",
+    "bitcoin",
+    "git"
+  ],
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "d9c9597115d9f28e744a9e16190036def50e0daf"
+}

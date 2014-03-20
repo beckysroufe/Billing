@@ -9,7 +9,7 @@ app.configure(function () {
     app.use(express.static(__dirname+'/public'));
 });
  
-app.get('/bill', bill.findAll);
+app.get('/bills', bill.findAll);
 app.get('/bills/:id', bill.findById);
 app.post('/bills', bill.addBill);
 app.put('/bills/:id', bill.updateBill);

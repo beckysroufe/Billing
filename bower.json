@@ -1,6 +1,6 @@
 {
-  "name": "Engine-Billing",
-  "version": "0.0.0",
+  "name": "engine-billing",
+  "version": "0.0.1",
   "private": true,
   "ignore": [
     "**/.*",
@@ -12,7 +12,34 @@
   "dependencies": {
     "marionette": "~1.6.4",
     "requirejs": "~2.1.11",
-    "requirejs-hogan-plugin": "~0.3.1"
+    "requirejs-hogan-plugin": "~0.3.1",
+    "font-awesome": "~4.0.3",
+    "bootstrap": "~3.1.1",
+    "parsleyjs": "~1.2.4"
   },
-  "__comment": "Note: Marionette includes jquery, backbone, and underscore."
+  "exportsOverride": {
+    "backbone.wreqr": {
+      ".": "lib/backbone.wreqr.js"
+    },
+    "bootstrap": {
+      ".": "dist/js/bootstrap.js",
+      "js": "js",
+      "less": "less"
+    },
+    "requirejs-hogan-plugin": {
+      ".": [
+        "hgn.js",
+        "hogan.js",
+        "text.js"
+      ]
+    },
+    "font-awesome": {
+      "less": "less",
+      "font": "fonts"
+    },
+    "parsleyjs": {
+      ".": "parsley.js"
+    }
+  },
+  "__comment": "Note: Marionette implies jquery, backbone, and underscore."
 }

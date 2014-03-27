@@ -1,14 +1,14 @@
 {
-  "name": "engine-billing",
+  "name": "billing",
   "version": "0.0.1",
-  "description": "Billing module for APICoin and related user-currencies",
+  "description": "Generic Billing Module, supporting credit card, bitcoin, and other cryptocurrency payments.",
   "main": "server.js",
   "scripts": {
     "test": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/faizkhan00/Billing.git"
+    "url": "git://github.com/LDEngine/Billing.git"
   },
   "keywords": [
     "billing",

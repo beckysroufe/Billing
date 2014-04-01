@@ -1,25 +1,26 @@
-define([ 'marionette', 'hgn!testTemplate' ],
+define([ "marionette", "hgn!testTemplate" ],
 function( Marionette ,  testTemplate      ) {
 
-	var Billing = new Marionette.Application();
+    Marionette.Renderer.render = function( template, data ) {
+        return template( data );
+    };
 
-	Billing.addRegions({
-		headerRegion: '#headerRegion',
-		mainRegion: '#mainRegion',
-		footerRegion: '#footerRegion'
-	});
+    var Billing = new Marionette.Application();
 
-	Billing.TestView = new Marionette.ItemView.extend({
-		template: testTemplate
-	});
+    Billing.addRegions({
+        headerRegion: "#header-region",
+        mainRegion: "#main-region",
+        footerRegion: "#footer-region"
+    });
 
-	Billing.Renderer.render = function( template, data ) {
-		return template( data );
-	};
+    Billing.TestView = Marionette.ItemView.extend({
+        template: testTemplate
+    });
 
-	Billing.on( 'initialize:after', function () {
-		var testView = new Billing.TestView();
-		Billing.mainRegion.show( testView );
-	});
+    Billing.on( "initialize:after", function () {
+        var testView = new Billing.TestView();
+        Billing.mainRegion.show( testView );
+    });
 
-})
+    return Billing;
+});

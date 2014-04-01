@@ -23,6 +23,7 @@ module.exports = function( grunt ) {
             image: "img",
             style: "less",
             temp: "tmp",
+            engineui: "engineui",
 
             // Output folder (entirely transient)
             public: "_public"
@@ -42,14 +43,14 @@ module.exports = function( grunt ) {
 
             precompile: {
                 files: {
-                    "tmp/engineui-grid-precompile.less": "<%- path.style %>/engineui-grid.less"
+                    "<%- path.temp %>/engineui-grid-precompile.less": "<%- path.style %>/engineui-grid.less"
                 }
             },
 
             app: {
                 files: {
                     "<%- path.public %>/css/billing.css": "<%- path.style %>/billing.less",
-                    "<%- path.public %>/css/engineui.css": "<%- path.style %>/engineui/engineui.less"
+                    "<%- path.public %>/css/engineui.css": "<%- path.engineui %>/less/engineui.less"
                 }
             }
         },
@@ -87,6 +88,14 @@ module.exports = function( grunt ) {
             sync_img: {
                 command: "rsync <%- path.image %> <%- path.public %> " +
                              "--update --delete --verbose --recursive"
+            },
+
+            sync_engineui: {
+                command: [
+                    "cd <%- path.engineui %>",
+                    "rsync ./ ../<%- path.public %>/vendor/engineui " +
+                        "--update --delete --verbose --recursive "
+                ].join( "&&" )
             }
         },
 
@@ -105,9 +114,14 @@ module.exports = function( grunt ) {
                 tasks: [ "shell:sync_img" ]
             },
 
+            engineui: {
+                files: [ "<%- path.engineui %>/**/*" ],
+                tasks: [ "shell:sync_engineui", "less:app" ]
+            },
+
             less: {
                 files: [ "<%- path.style %>/**/*" ],
-                tasks: [ "less" ]
+                tasks: [ "less:app" ]
             },
 
             // Start livereload server at http://localhost:35729/livereload.js
@@ -135,6 +149,6 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks( "grunt-contrib-less" );
 
     grunt.registerTask( "default", [
-        "clean", "bower", "shell:sync_src", "shell:sync_img", "less"
+        "clean", "bower", "shell:sync_src", "shell:sync_img", "shell:sync_engineui", "less"
     ]);
 }

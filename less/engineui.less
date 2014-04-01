@@ -7,56 +7,56 @@
 // -----------------
 
 // Core variables and mixins
-@import "engineui/variables.less";
-@import (reference) "engineui/mixins.less";
+@import "engineui/less/variables.less";
+@import (reference) "engineui/less/mixins.less";
 
 // Reset
-@import "engineui/normalize.less";
-@import "engineui/print.less";
+@import "engineui/less/normalize.less";
+@import "engineui/less/print.less";
 
 // Core CSS
-@import "engineui/scaffolding.less";
-@import "engineui/type.less";
-@import "engineui/code.less";
+@import "engineui/less/scaffolding.less";
+@import "engineui/less/type.less";
+@import "engineui/less/code.less";
 // precompiled--see below
-// @import (reference) "engineui/grid.less";
-@import (reference) "engineui/tables.less";
-@import (reference) "engineui/forms.less";
-@import (reference) "engineui/buttons.less";
+// @import (reference) "engineui/less/grid.less";
+@import (reference) "engineui/less/tables.less";
+@import (reference) "engineui/less/forms.less";
+@import (reference) "engineui/less/buttons.less";
 
 // Components
-@import (reference) "engineui/component-animations.less";
+@import (reference) "engineui/less/component-animations.less";
 // font-awesome used instead--see below
-// @import (reference) "engineui/glyphicons.less";
-@import (reference) "engineui/dropdowns.less";
-@import (reference) "engineui/button-groups.less";
-@import (reference) "engineui/input-groups.less";
-@import (reference) "engineui/navs.less";
-@import (reference) "engineui/navbar.less";
-@import (reference) "engineui/breadcrumbs.less";
-@import (reference) "engineui/pagination.less";
-@import (reference) "engineui/pager.less";
-@import (reference) "engineui/labels.less";
-@import (reference) "engineui/badges.less";
-@import (reference) "engineui/jumbotron.less";
-@import (reference) "engineui/thumbnails.less";
-@import (reference) "engineui/alerts.less";
-@import (reference) "engineui/progress-bars.less";
-@import (reference) "engineui/media.less";
-@import (reference) "engineui/list-group.less";
-@import (reference) "engineui/panels.less";
-@import (reference) "engineui/wells.less";
-@import (reference) "engineui/close.less";
+// @import (reference) "engineui/less/glyphicons.less";
+@import (reference) "engineui/less/dropdowns.less";
+@import (reference) "engineui/less/button-groups.less";
+@import (reference) "engineui/less/input-groups.less";
+@import (reference) "engineui/less/navs.less";
+@import (reference) "engineui/less/navbar.less";
+@import (reference) "engineui/less/breadcrumbs.less";
+@import (reference) "engineui/less/pagination.less";
+@import (reference) "engineui/less/pager.less";
+@import (reference) "engineui/less/labels.less";
+@import (reference) "engineui/less/badges.less";
+@import (reference) "engineui/less/jumbotron.less";
+@import (reference) "engineui/less/thumbnails.less";
+@import (reference) "engineui/less/alerts.less";
+@import (reference) "engineui/less/progress-bars.less";
+@import (reference) "engineui/less/media.less";
+@import (reference) "engineui/less/list-group.less";
+@import (reference) "engineui/less/panels.less";
+@import (reference) "engineui/less/wells.less";
+@import (reference) "engineui/less/close.less";
 
 // Components w/ JavaScript
-@import (reference) "engineui/modals.less";
-@import (reference) "engineui/tooltip.less";
-@import (reference) "engineui/popovers.less";
-@import (reference) "engineui/carousel.less";
+@import (reference) "engineui/less/modals.less";
+@import (reference) "engineui/less/tooltip.less";
+@import (reference) "engineui/less/popovers.less";
+@import (reference) "engineui/less/carousel.less";
 
 // Utility classes
-@import (reference) "engineui/utilities.less";
-@import (reference) "engineui/responsive-utilities.less";
+@import (reference) "engineui/less/utilities.less";
+@import (reference) "engineui/less/responsive-utilities.less";
 
 
 // engineui
@@ -64,6 +64,10 @@
 
 // engineui-grid.less is compiled to engineui-grid-precompile.less for import here
 @import (reference) "engineui-grid-precompile.less";
-@import (reference) "font-awesome/less/font-awesome.less";
+
+// Fonts
+@import "font-awesome.less";
+@import "engineui/less/engineui-font.less";
+
 // paths must come after font-awesome to properly override
-@import (reference) "paths.less";
+@import "paths.less";

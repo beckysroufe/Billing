@@ -43,14 +43,21 @@ module.exports = function( grunt ) {
 
             precompile: {
                 files: {
-                    "<%- path.temp %>/engineui-grid-precompile.less": "<%- path.style %>/engineui-grid.less"
+                    "<%- path.temp %>/engineui-grid-precompile.less":
+                        "<%- path.style %>/engineui-grid.less"
                 }
             },
 
             app: {
                 files: {
-                    "<%- path.public %>/css/billing.css": "<%- path.style %>/billing.less",
-                    "<%- path.public %>/css/engineui.css": "<%- path.engineui %>/less/engineui.less"
+                    "<%- path.public %>/css/billing.css": "<%- path.style %>/billing.less"
+                }
+            },
+
+            engineui: {
+                files: {
+                    "<%- path.public %>/vendor/engineui/css/engineui.css":
+                        "<%- path.public %>/vendor/engineui/less/engineui.less"
                 }
             }
         },
@@ -94,7 +101,8 @@ module.exports = function( grunt ) {
                 command: [
                     "cd <%- path.engineui %>",
                     "rsync ./ ../<%- path.public %>/vendor/engineui " +
-                        "--update --delete --verbose --recursive "
+                        "--update --delete --verbose --recursive " +
+                        "--exclude css"
                 ].join( "&&" )
             }
         },
@@ -116,7 +124,7 @@ module.exports = function( grunt ) {
 
             engineui: {
                 files: [ "<%- path.engineui %>/**/*" ],
-                tasks: [ "shell:sync_engineui", "less:app" ]
+                tasks: [ "shell:sync_engineui", "less:engineui", "less:app" ]
             },
 
             less: {
@@ -133,7 +141,9 @@ module.exports = function( grunt ) {
 
                 files: [
                     "css/**/*.css",
-                    "*.html"
+                    "index.html",
+                    "vendor/engineui/css/*.css",
+                    "vendor/engineui/index.html"
                 ]
             }
         }

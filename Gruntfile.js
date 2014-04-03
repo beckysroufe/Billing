@@ -8,127 +8,157 @@
  * - bower task copies targeted libraries/assets to {public}/vendor/<component_name>
  *
  * End goals:
- * - {public} will be operated in 2+ modes, at minimum 'dev' and 'prod'.
+ * - {public} will be operated in 2+ modes, at minimum "dev" and "prod".
  *   In each mode, especially prod, {public} will contain _only_ files that are necessary to run.
  *   + dev mode will run without any optimization
- *   + prod mode will run as a single, minified 'app.js'
+ *   + prod mode will run as a single, minified "app.js"
  */
 module.exports = function( grunt ) {
 
-	grunt.initConfig({
+    grunt.initConfig({
 
-		path: {
-			// Source folders
-			source: 'src',
-			image: 'img',
-			style: 'less',
+        path: {
+            // Source folders
+            source: "src",
+            image: "img",
+            style: "less",
+            temp: "tmp",
+            engineui: "engineui",
 
-			// Output folder (entirely transient)
-			public: '_public'
-		},
+            // Output folder (entirely transient)
+            public: "_public"
+        },
 
-		clean: {
-			public: [ '<%- path.public %>' ]
-		},
+        clean: {
+            public: [ "<%- path.public %>" ]
+        },
 
-		less: {
-			options: {
-				paths: '<%- path.public %>/vendor'
-			},
+        less: {
+            options: {
+                paths: [
+                    "<%- path.public %>/vendor",
+                    "<%- path.temp %>"
+                ]
+            },
 
-			app: {
-				files: {
-					'<%- path.public %>/css/app.css': '<%- path.style %>/app.less'
-				}
-			}
-		},
+            precompile: {
+                files: {
+                    "<%- path.temp %>/engineui-grid-precompile.less":
+                        "<%- path.style %>/engineui-grid.less"
+                }
+            },
 
-		bower: {
-			install: {
-				options: {
-					targetDir: '<%- path.public %>/vendor',
-					verbose: true,
-					cleanTargetDir: true,
-					layout: 'byComponent',
-					bowerOptions: {
-						production: true
-					}
-				}
-			}
-		},
+            app: {
+                files: {
+                    "<%- path.public %>/css/billing.css": "<%- path.style %>/billing.less"
+                }
+            },
 
-		shell: {
-			options: {
-				stdout: true,
-				stderr: true,
-				failOnError: true
-			},
+            engineui: {
+                files: {
+                    "<%- path.public %>/vendor/engineui/css/engineui.css":
+                        "<%- path.public %>/vendor/engineui/less/engineui.less"
+                }
+            }
+        },
 
-			sync_src: {
-				command: [
-					'cd <%- path.source %>',
-					'rsync ./ ../<%- path.public %> ' +
-						'--update --delete --verbose --recursive ' +
-						'--exclude vendor --exclude img --exclude css'
-				].join( '&&' )
-			},
+        bower: {
+            install: {
+                options: {
+                    targetDir: "<%- path.public %>/vendor",
+                    verbose: true,
+                    cleanTargetDir: true,
+                    layout: "byComponent",
+                    bowerOptions: {
+                        production: true
+                    }
+                }
+            }
+        },
 
-			sync_img: {
-				command: 'rsync <%- path.image %> <%- path.public %> ' +
-						     '--update --delete --verbose --recursive'
-			}
-		},
+        shell: {
+            options: {
+                stdout: true,
+                stderr: true,
+                failOnError: true
+            },
 
-		jshint: {
-			options: {
-				jshintrc: ".jshintrc"
-			},
+            sync_src: {
+                command: [
+                    "cd <%- path.source %>",
+                    "rsync ./ ../<%- path.public %> " +
+                        "--update --delete --verbose --recursive " +
+                        "--exclude vendor --exclude img --exclude css"
+                ].join( "&&" )
+            },
 
-			src: [ '<%- path.source %>/**/*.js' ]
-		},
+            sync_img: {
+                command: "rsync <%- path.image %> <%- path.public %> " +
+                             "--update --delete --verbose --recursive"
+            },
 
-		watch: {
-			src: {
-				files: [ '<%- path.source %>/**/*' ],
-				tasks: [ 'shell:sync_src' ]
-			},
+            sync_engineui: {
+                command: [
+                    "cd <%- path.engineui %>",
+                    "rsync ./ ../<%- path.public %>/vendor/engineui " +
+                        "--update --delete --verbose --recursive " +
+                        "--exclude css"
+                ].join( "&&" )
+            }
+        },
 
-			img: {
-				files: [ '<%- path.image %>/**/*' ],
-				tasks: [ 'shell:sync_img' ]
-			},
+        jshint: {
+            src: [ "<%- path.source %>/**/*.js" ]
+        },
 
-			less: {
-				files: [ '<%- path.style %>/**/*' ],
-				tasks: [ 'less' ]
-			},
+        watch: {
+            src: {
+                files: [ "<%- path.source %>/**/*" ],
+                tasks: [ "shell:sync_src" ]
+            },
 
-			// Start livereload server at http://localhost:35729/livereload.js
-			livereload: {
-				options: {
-					cwd: '<%- path.public %>',
-					livereload: true
-				},
+            img: {
+                files: [ "<%- path.image %>/**/*" ],
+                tasks: [ "shell:sync_img" ]
+            },
 
-				files: [
-					'css/**/*.css',
-					'apps/**/*.html',
-					'index.html'
-				]
-			}
-		}
+            engineui: {
+                files: [ "<%- path.engineui %>/**/*" ],
+                tasks: [ "shell:sync_engineui", "less:engineui", "less:app" ]
+            },
 
-	});
+            less: {
+                files: [ "<%- path.style %>/**/*" ],
+                tasks: [ "less:app" ]
+            },
 
-	grunt.loadNpmTasks( 'grunt-shell' );
-	grunt.loadNpmTasks( 'grunt-copy' );
-	grunt.loadNpmTasks( 'grunt-bower-task' );
-	grunt.loadNpmTasks( 'grunt-contrib-clean' );
-	grunt.loadNpmTasks( 'grunt-contrib-watch' );
-	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-	grunt.loadNpmTasks( 'grunt-contrib-less' );
+            // Start livereload server at http://localhost:35729/livereload.js
+            livereload: {
+                options: {
+                    cwd: "<%- path.public %>",
+                    livereload: true
+                },
 
-	grunt.registerTask( 'default', [
-		'clean', 'bower', 'shell:sync_src', 'shell:sync_img', 'less'
-	]);
+                files: [
+                    "css/**/*.css",
+                    "index.html",
+                    "vendor/engineui/css/*.css",
+                    "vendor/engineui/index.html"
+                ]
+            }
+        }
+
+    });
+
+    grunt.loadNpmTasks( "grunt-shell" );
+    grunt.loadNpmTasks( "grunt-copy" );
+    grunt.loadNpmTasks( "grunt-bower-task" );
+    grunt.loadNpmTasks( "grunt-contrib-clean" );
+    grunt.loadNpmTasks( "grunt-contrib-watch" );
+    grunt.loadNpmTasks( "grunt-contrib-jshint" );
+    grunt.loadNpmTasks( "grunt-contrib-less" );
+
+    grunt.registerTask( "default", [
+        "clean", "bower", "shell:sync_src", "shell:sync_img", "shell:sync_engineui", "less"
+    ]);
 }

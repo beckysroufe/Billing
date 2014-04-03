@@ -21,14 +21,26 @@
 1. `$ grunt watch`
 1. Edit folders img, less, or src and changes will appear in '_public'
 1. Install [LiveReload Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) to take advatage of automatic brower refreshing when editing .html and .less files.
+1. Prefer not to use Bootstrap classes in markup.  Instead, reference Bootstrap classes in less files using, e.g., "&:extend(.btn all, .btn-lg all);".  See http://lesscss.org/features/#import-options-reference.
+
+## engineui UI Toolkit Development
+
+1. Follow instructions for **Develop**
+1. Open http://localhost:3000/vendor/engineui/
+1. Copy-paste example Bootstrap code from getbootstrap.com into engineui/index.html
+1. Edit appropriate less files in engineui/less to override Bootstrap styles
+1. Note: override Bootstrap classes, but don't change them.  Add classes if necessary, but the idea is to keep as close to the Bootstrap docs as possible.
+1. Helpful hint: reference Bootstrap less files found under _public/vendor/bootstrap/less for guidance on what to override.  (Do not modify the Bootstrap sources, however, because changes will be lost.)
 
 **IMPORTANT**: '_public' is a transient output folder.  Do not edit any files here, since changes will be erased.
 
 ## Code Convention
 
-Front end Javascript is adhering the [jQuery Style Guide](https://contribute.jquery.org/style-guide/js/) to include linting by JSHint (grunt jshint).
+Front end Javascript is adhering to the [jQuery Style Guide](https://contribute.jquery.org/style-guide/js/) to include linting by JSHint (grunt jshint).
 
-Spacing and max-line-width of 100 characters are important.  The only exception to jQuery's guide is that we are using single quotes, not double quotes.
+CSS property order: http://codeguide.co/#css-declaration-order
+
+HTML attribute order: http://codeguide.co/#html-syntax (see Attribute Order)
 
 ## REST API Usage
 

@@ -34,9 +34,9 @@
 
 **IMPORTANT**: '_public' is a transient output folder.  Do not edit any files here, since changes will be erased.
 
-## Code Convention
+## Code Conventions
 
-Front end Javascript is adhering to the [jQuery Style Guide](https://contribute.jquery.org/style-guide/js/) to include linting by JSHint (grunt jshint).
+Javascript: https://github.com/airbnb/javascript (Line width 80 characters maximum)
 
 CSS property order: http://codeguide.co/#css-declaration-order
 

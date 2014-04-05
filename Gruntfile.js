@@ -146,7 +146,7 @@ module.exports = function(grunt) {
           'index.html',
           'vendor/engineui/css/*.css',
           'vendor/engineui/index.html'
-       s ]
+        ]
       }
     }
 

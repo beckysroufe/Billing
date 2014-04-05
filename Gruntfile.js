@@ -143,9 +143,9 @@ module.exports = function(grunt) {
 
         files: [
           'css/**/*.css',
-          'index.html',
+          '*.html',
           'vendor/engineui/css/*.css',
-          'vendor/engineui/index.html'
+          'vendor/engineui/*.html'
         ]
       }
     }

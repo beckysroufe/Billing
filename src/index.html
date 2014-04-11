@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-        <title>Engine API Billing Module</title>
-        <link href="css/billing.css" rel="stylesheet" />
+      <meta charset="utf-8" />
+      <title>Engine: Developer Billing</title>
+      <link href="css/billing.css" rel="stylesheet" />
+
+      <!-- Fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+      <link href="css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
     </head>
     <body>
-        <div id="wrap">
+        <div>
           <header>
             <nav class="navbar navbar-default" role="navigation">
-              <div class="container-fluid">
+              <div>
                 <div class="navbar-header">
-                  <a class="navbar-brand" href="#">Engine</a>
+                  <a class="navbar-brand" href="#">Engine Developer Billing</a>
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -19,7 +30,7 @@
                     <span class="icon-bar"></span>
                   </button>
                 </div><!-- /.navbar-header -->
-                <div class="collapse navbar-collapse" id="main-navigation">
+                <div id="main-navigation" class="collapse navbar-collapse">
                   <ul class="nav navbar-nav nav-pills navbar-right">
                     <li>
                       <a href="#">
@@ -65,35 +76,37 @@
             </nav>
           </header>
 
-          <main class="container-fluid">
-            <div class="row">
-              <ul class="nav nav-dash list-group col-xs-12 col-md-3">
-                <li class="list-group-item">
-                  <a href="#">
-                    <i class="fa fa-dashboard"></i> Dashboard
-                  </a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#">
-                    <i class="fa fa-money"></i>
-                    </i> Payments
-                  </a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#">
-                    <i class="fa fa-th-list"></i> Accounts
-                  </a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#">
-                    <i class="fa fa-code-fork"></i> API
-                  </a>
-                </li>
-              </ul>
-              <div class="col-xs-12 col-md-9">
-                <h2>
+          <main>
+            <div class="dashboard-wrapper">
+              <div class="nav-dashboard-wrapper">
+                <ul class="nav nav-dashboard list-group" >
+                  <li class="list-group-item">
+                    <a href="#">
+                      <i class="fa fa-dashboard"></i> Dashboard
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#">
+                      <i class="fa fa-money"></i> Payments
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#">
+                      <i class="fa fa-th-list"></i> Accounts
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#">
+                      <i class="fa fa-code-fork"></i> API
+                    </a>
+                  </li>
+                </ul><!-- /.nav-dashboard -->
+              </div><!-- /.nav-dashboard-wrapper -->
+
+              <div class="dashboard-content">
+                <h1>
                   Dashboard
-                </h2>
+                </h1>
                 <div class="alert alert-warning alert-dismissable">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                   <i class="fa fa-exclamation-triangle"></i>
@@ -104,13 +117,13 @@
                   <i class="fa fa-exclamation-triangle"></i>
                   You haven't purchased API Access yet. <a href="#" class="alert-link">Choose your API product!</a>
                 </div>
-              </div>
-            </div>
+              </div><!-- /.dashboard-content -->
+            </div><!-- /.dashboard-wrapper -->
           </main>
-        </div>
+        </div><!-- / #wrap -->
 
         <footer>
-          <div class="container-fluid">
+          <div>
             <p>
               Copyright &copy; 2014 Engine, Inc.
               <a href="">
@@ -127,6 +140,12 @@
               </a>
             </p>
           </div>
-        </footer><!-- / #footer -->
+        </footer>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.js"></script>
+        <script src="js/engine-plugins.js"></script>
     </body>
 </html>

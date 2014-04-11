@@ -8,7 +8,7 @@
 
 // Core variables and mixins
 @import "engineui/less/variables.less";
-@import (reference) "engineui/less/mixins.less";
+@import "engineui/less/mixins.less";                // (reference)
 
 // Reset
 @import "engineui/less/normalize.less";
@@ -19,20 +19,20 @@
 @import "engineui/less/type.less";
 @import "engineui/less/code.less";
 // precompiled--see below
-// @import (reference) "engineui/less/grid.less";
+@import "engineui/less/grid.less";                  // (reference)
 @import "engineui/less/tables.less";
 @import "engineui/less/forms.less";
 @import "engineui/less/buttons.less";
 
 // Components
-@import (reference) "engineui/less/component-animations.less";
+@import "engineui/less/component-animations.less";  // (reference)
 // font-awesome used instead--see below
 // @import (reference) "engineui/less/glyphicons.less";
-@import (reference) "engineui/less/dropdowns.less";
-@import (reference) "engineui/less/button-groups.less";
-@import (reference) "engineui/less/input-groups.less";
-@import (reference) "engineui/less/navs.less";
-@import (reference) "engineui/less/navbar.less";
+@import "engineui/less/dropdowns.less";             // (reference)
+@import "engineui/less/button-groups.less";         // (reference)
+@import "engineui/less/input-groups.less";          // (reference)
+@import "engineui/less/navs.less";                  // (reference)
+@import "engineui/less/navbar.less";                // (reference)
 @import (reference) "engineui/less/breadcrumbs.less";
 @import (reference) "engineui/less/pagination.less";
 @import (reference) "engineui/less/pager.less";
@@ -40,17 +40,19 @@
 @import (reference) "engineui/less/badges.less";
 @import (reference) "engineui/less/jumbotron.less";
 @import (reference) "engineui/less/thumbnails.less";
-@import (reference) "engineui/less/alerts.less";
-@import (reference) "engineui/less/progress-bars.less";
+@import "engineui/less/alerts.less";                // (reference)
+@import "engineui/less/progress-bars.less";         // (reference)
 @import (reference) "engineui/less/media.less";
-@import (reference) "engineui/less/list-group.less";
+@import "engineui/less/list-group.less";            // (reference)
 @import (reference) "engineui/less/panels.less";
 @import (reference) "engineui/less/wells.less";
-@import (reference) "engineui/less/close.less";
+@import "engineui/less/close.less";                 // (reference)
+// Custom component: Bars
+@import "engineui/less/bars.less";
 
 // Components w/ JavaScript
-@import (reference) "engineui/less/modals.less";
-@import (reference) "engineui/less/tooltip.less";
+@import "engineui/less/modals.less";                // (reference)
+@import "engineui/less/tooltip.less";               // (reference)
 @import (reference) "engineui/less/popovers.less";
 @import (reference) "engineui/less/carousel.less";
 
@@ -63,7 +65,7 @@
 // -----------------
 
 // engineui-grid.less is compiled to engineui-grid-precompile.less for import here
-@import (reference) "engineui-grid-precompile.less";
+@import "engineui-grid-precompile.less";
 
 // Fonts
 @import "font-awesome.less";

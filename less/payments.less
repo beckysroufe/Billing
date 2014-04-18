@@ -4,6 +4,7 @@
 // Payments View
 // --------------------------------------------------
 
+// Purchase API
 .payment-offerings {
   &:extend(.row);
 
@@ -65,4 +66,56 @@
 
 .key-points {
   height: 300px;
+}
+
+
+// Single Payments
+.table-actions {
+  &:extend(.row);
+
+  > h4 {
+    &:extend(.col-xs-12, .col-md-5, .col-lg-5);
+
+    > button {
+      &:extend(.btn, .btn-success, .btn-xs);
+
+      margin-left: 1%;
+    }
+  }
+
+  > form {
+    &:extend(.col-xs-12, .col-md-7, .col-lg-7);
+
+    .form-group {
+
+      > input,
+        div input,
+        select {
+          &:extend(.form-control, .input-sm);
+      }
+
+      > input,
+        div input {
+      }
+    }
+
+    .filter-data {
+      width: 100px;
+    }
+
+    .start-date,
+    .end-date {
+    }
+    .start-date {
+      width: 250px;
+    }
+    .end-date {
+      width: 235px;
+    }
+  }
+}
+
+// Search Results
+.search-keyword {
+  color: @brand-primary;
 }

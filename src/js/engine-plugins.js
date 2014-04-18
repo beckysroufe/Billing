@@ -2,5 +2,5 @@ $("#myModal").modal({
   show: false
 });
 $(".alert").alert();
-$("button").tooltip();
+$("[data-toggle='tooltip']").tooltip();
 $('.dropdown-toggle').dropdown()

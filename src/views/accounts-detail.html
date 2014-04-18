@@ -111,138 +111,67 @@
           <div class="dashboard-content">
             <div class="row">
               <h1 class="col-xs-12 col-md-2">
-                Accounts
+                devBitcoin
               </h1>
 
-              <button type="button" class="btn-add-account">Add Account</button>
+              <a href="#" class="nav-previous">
+                <i class="fa fa-list"></i> Back to Accounts
+              </a>
             </div><!-- /.row -->
-            <div class="accounts-list">
+            <div class="account-details">
+              <div class="account-info">
+                <h4>Account Details</h4>
+                <form class="form-account-info" role="form">
+                  <div class="form-group">
+                    <label for="accountBalance" class="control-label">Balance
+                      <div class="balance-actions btn-group btn-group-xs">
+                        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add Funds">
+                          <i class="fa fa-plus-circle"></i>
+                        </button>
+                        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Transfer Funds">
+                          <i class="fa fa-exchange"></i>
+                        </button>
+                      </div>
+                    </label>
 
-              <div class="account account-default">
-                <div class="select-default">
-                </div>
-                <div class="account-logo">
-                  Bitcoin
-                </div>
-                <div class="name">
-                  devBitcoin
-                </div>
-                <div class="address">
-                  1AQbaRey3...
-                </div>
-                <div class="balance">
-                  3
-                </div>
-                <div class="type">
-                  Type
-                </div>
-                <div class="actions">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Settings">
-                    <i class="fa fa-cog"></i>
-                  </a>
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Transfer Funds">
-                    <i class="fa fa-exchange"></i>
-                  </a>
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Add Funds">
-                    <i class="fa fa-plus-circle"></i>
-                  </a>
-                </div>
-              </div>
+                    <div>
+                      <p>
+                        3 BTC
+                      </p>
+                    </div>
+                  </div><!-- /.form-group -->
 
-              <div class="account">
-                <div class="select-default">
-                </div>
-                <div class="account-logo">
-                  Bitcoin
-                </div>
-                <div class="name">
-                  devBitcoin
-                </div>
-                <div class="address">
-                  1AQbaRey3...
-                </div>
-                <div class="balance">
-                  3
-                </div>
-                <div class="type">
-                  Type
-                </div>
-                <div class="actions">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Settings">
-                    <i class="fa fa-cog"></i>
-                  </a>
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Transfer Funds">
-                    <i class="fa fa-exchange"></i>
-                  </a>
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Add Funds">
-                    <i class="fa fa-plus-circle"></i>
-                  </a>
-                </div>
-              </div>
+                  <div class="form-group">
+                    <label for="accountName" class="control-label">Name</label>
+                    <div>
+                      <input type="text" class="form-control" id="accountName" placeholder="Account Name" value="devBitcoin">
+                    </div>
+                  </div><!-- /.form-group -->
 
-              <div class="account">
-                <div class="select-default">
-                </div>
-                <div class="account-logo">
-                  Bitcoin
-                </div>
-                <div class="name">
-                  devBitcoin
-                </div>
-                <div class="address">
-                  1AQbaRey3...
-                </div>
-                <div class="balance">
-                  3
-                </div>
-                <div class="type">
-                  Type
-                </div>
-                <div class="actions">
-                  <a href="#">
-                    <i class="fa fa-cog"></i>
-                  </a>
-                  <a href="#">
-                    <i class="fa fa-exchange"></i>
-                  </a>
-                  <a href="#">
-                    <i class="fa fa-plus-circle"></i>
-                  </a>
-                </div>
-              </div>
+                  <div class="form-group">
+                    <label for="accountType" class="control-label">Type</label>
+                    <div>
+                      <select class="form-control">
+                        <option>Bitcoin</option>
+                      </select>
+                    </div>
+                  </div><!-- /.form-group -->
 
-              <div class="account">
-                <div class="select-default">
-                </div>
-                <div class="account-logo">
-                  Bitcoin
-                </div>
-                <div class="name">
-                  devBitcoin
-                </div>
-                <div class="address">
-                  1AQbaRey3...
-                </div>
-                <div class="balance">
-                  3
-                </div>
-                <div class="type">
-                  Type
-                </div>
-                <div class="actions">
-                  <a href="#">
-                    <i class="fa fa-cog"></i>
-                  </a>
-                  <a href="#">
-                    <i class="fa fa-exchange"></i>
-                  </a>
-                  <a href="#">
-                    <i class="fa fa-plus-circle"></i>
-                  </a>
-                </div>
-              </div>
+                  <div class="form-group">
+                    <label for="accountAddress" class="control-label">Address</label>
+                    <div>
+                      <p>a1B2C3Po4TruIOd49fjgK</p>
+                    </div>
+                  </div><!-- /.form-group -->
 
-            </div><!-- /.accounts-list -->
+                  <div class="submit-button">
+                    <div>
+                      <button type="submit">Update Account Settings</button>
+                    </div>
+                  </div><!-- /.submit-button -->
+                </form><!-- /.form-account-info -->
+              </div><!-- /.account-info -->
+            </div><!-- /.account-details -->
 
           </div><!-- /.dashboard-content -->
         </div><!-- /.dashboard-wrapper -->

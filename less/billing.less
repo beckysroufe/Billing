@@ -2,8 +2,13 @@
 @import "document.less";
 @import "payments.less";
 @import "accounts.less";
+@import "accounts-detail.less";
 @import "api.less";
+@import "api-detail.less";
+@import "profile.less";
 
+// Main Elements & Classes
+// --------------------------------------------------
 body {
   width: 100%;
   padding: 0;
@@ -11,6 +16,12 @@ body {
   > div {
     &:extend(.wrap);
   }
+}
+
+.wrap {
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
 }
 
 header {
@@ -24,13 +35,17 @@ header {
 main {
   &:extend(.container-fluid);
 
-  height: 100%
+  overflow:auto;
+  padding-bottom: 60px;
+  height: 100%;
 }
 
-.wrap {
-    width: 100%;
-    height: 100%;
-  }
+a.nav-previous {
+  &:extend(.pull-right);
+
+  margin: 2.5% 2% 0;
+  text-decoration: none;
+}
 
 // Dashboard: Wrapper & Content styling
 // --------------------------------------------------
@@ -43,10 +58,86 @@ main {
 .dashboard-content {
   &:extend(.container-fluid, .col-xs-12, .col-md-9, .col-lg-9);
 
-  // position: relative;
-  // left: 25%;
   padding: 0 15px;
   height: 100%;
+
+  .row {
+    .dashboard-accounts,
+    .dashboard-api {
+      &:extend(.col-xs-12, .col-md-6, .col-lg-6);
+    }
+
+    .dashboard-api {
+      .api-list {
+        .api {
+          .name {
+            &:extend(.col-md-2);
+
+          }
+
+          .status {
+            &:extend(.col-md-2);
+
+          }
+
+          .data-usage {
+            &:extend(.col-md-3);
+
+          }
+
+          .billing-cycle {
+            &:extend(.col-md-3);
+
+          }
+
+          .actions {
+            &:extend(.col-md-2);
+
+          }
+        }
+      }
+
+    }
+
+    .dashboard-accounts {
+      .accounts-list {
+        .account {
+          .select-default {
+            &:extend(.col-md-1);
+
+          }
+
+          .name {
+            &:extend(.col-md-3);
+
+          }
+
+          .address {
+            &:extend(.col-md-3);
+
+          }
+
+          .balance {
+            &:extend(.col-md-2);
+
+          }
+
+          .actions {
+            &:extend(.col-md-3);
+
+          }
+        }
+      }
+    }
+
+    h4 {
+      border-bottom: 1px @gray-even-lighter solid;
+
+      > a {
+        font-size: @font-size-h6;
+      }
+    }
+  }
 }
 
 // Nav variations
@@ -134,11 +225,26 @@ main {
   margin-top: -7px;
 }
 
+// Status Icon
+// --------------------------------------------------
+i.fa-smile-o {
+  color: @brand-success;
+}
+
+i.fa-meh-o {
+  color: @brand-warning;
+}
+
+i.fa-frown-o {
+  color: @brand-danger;
+}
+
 // Footer
 // --------------------------------------------------
 footer {
-  position: fixed;
-  bottom: 0;
+  position: relative;
+  clear: both;
+  margin-top: -60px;
   width: 100%;
   height: 60px;
   color: #FFF;

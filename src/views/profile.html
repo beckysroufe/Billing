@@ -92,7 +92,7 @@
               </li>
               <li class="list-group-item">
                 <a href="#" class="active">
-                  <i class="fa fa-money"></i> Payments
+                  <i class="fa fa-money"></i> Payments &amp; Plans
                 </a>
               </li>
               <li class="list-group-item">
@@ -109,93 +109,39 @@
           </div><!-- /.nav-dashboard-wrapper -->
 
           <div class="dashboard-content">
-            <div class="row">
-              <h1 class="col-xs-12 col-md-2">
-                Payments
-              </h1>
-
-              <ul class="nav nav-pills nav-content">
-                <li>
-                  <a href="#">
-                    Purchase API
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    Single Payment
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    Subscriptions
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    Payment History
-                  </a>
-                </li>
-                <li>
-                  <form class="navbar-form navbar-right" role="search">
-                    <div class="input-group input-group-sm">
-                      <input type="text" class="form-control">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
-                            <i class="fa fa-search"></i>
-                        </button>
-                      </span>
-                    </div><!-- /input-group -->
-                  </form>
-                </li>
-              </ul>
-            </div><!-- /.row -->
-
-            <h3>Check out our available API plans:</h3>
-
-            <div class="payment-offerings">
-              <div class="single-payment">
-                <h4>No Commitment. Pay As You Go.</h4>
-                <ul>
-                  <li>
-                    Lorem ipsum dolor sit amet consetur.
-                  </li>
-                  <li>
-                    Phasellus condimentum ligula et metus eleifend varius.
-                  </li>
-                  <li>
-                    Quisque laoreet vel mauris ac congue.
-                  </li>
-                  <li>
-                    Curabitur ut ultrices sapien, in massa.
-                  </li>
-                </ul>
-                <button type="button" class="btn btn-primary btn-md btn-block">Single Payment</button>
+            <h1>
+              Profile Settings
+            </h1>
+            <div class="avatar-profile">
+              <i class="fa fa-circle fa-5x"></i>
+            </div><!-- /.avatar-profile -->
+            <form class="profile-form form-horizontal" role="form">
+              <div class="form-group">
+                <label for="Name" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="Name" placeholder="Name">
+                </div>
               </div>
-              <div class="subscription">
-                <h4>Start Your API Subscription</h4>
-                <ul>
-                  <li>
-                    Lorem ipsum dolor sit amet consetur.
-                  </li>
-                  <li>
-                    Phasellus condimentum ligula et metus eleifend varius.
-                  </li>
-                  <li>
-                    Quisque laoreet vel mauris ac congue.
-                  </li>
-                  <li>
-                    Curabitur ut ultrices sapien, in massa.
-                  </li>
-                  <li>
-                    Vestibulum sed elit volutpat interdum.
-                  </li>
-                  <li>
-                    Sed aliquet id lacus id pharetra.
-                  </li>
-                </ul>
-                <button type="button" class="btn btn-primary btn-md btn-block">Start Subscription</button>
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                </div>
               </div>
-            </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="********">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">
+                        <i class="fa fa-pencil"></i>
+                      </button>
+                    </span>
+                  </div><!-- /input-group -->
+                </div>
+              </div>
+            </form>
 
           </div><!-- /.dashboard-content -->
         </div><!-- /.dashboard-wrapper -->
@@ -225,8 +171,8 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bootstrap.min.js"></script>
-    <script src="engine-plugins.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/engine-plugins.js"></script>
 
   </body>
 </html>

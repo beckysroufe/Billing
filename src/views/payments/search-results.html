@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Engine: Developer Billing</title>
+
+    <!-- Bootstrap -->
+    <link href="../../css/billing.css" rel="stylesheet" />
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="../../css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div>
+      <header>
+        <nav class="navbar navbar-default" role="navigation">
+          <div>
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Engine Developer Billing</a>
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div><!-- /.navbar-header -->
+            <div id="main-navigation" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav nav-pills navbar-right">
+                <li>
+                  <a href="#">
+                    Tour
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    New Features
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    API Docs
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    Support
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    Contact
+                  </a>
+                </li>
+                <li class="dropdown avatar">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                    </span>
+                    becky@engine.co<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Account Settings</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Log Out</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /#main-navigation -->
+          </div><!-- /.container-fluid -->
+        </nav>
+      </header>
+
+      <main>
+        <div class="dashboard-wrapper">
+          <div class="nav-dashboard-wrapper">
+            <ul class="nav nav-dashboard list-group" >
+              <li class="list-group-item">
+                <a href="#">
+                  <i class="fa fa-dashboard"></i> Dashboard
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#" class="active">
+                  <i class="fa fa-money"></i> Payments &amp; Plans
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <i class="fa fa-th-list"></i> Accounts
+                </a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">
+                  <i class="fa fa-code-fork"></i> API
+                </a>
+              </li>
+            </ul><!-- /.nav-dashboard -->
+          </div><!-- /.nav-dashboard-wrapper -->
+
+          <div class="dashboard-content">
+            <div class="row">
+              <h1 class="col-xs-12 col-md-2">
+                Payments
+              </h1>
+
+              <ul class="nav nav-pills nav-content">
+                <li>
+                  <a href="#">
+                    Purchase API
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    Single Payment
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    Subscriptions
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    Payment History
+                  </a>
+                </li>
+                <li>
+                  <form class="navbar-form navbar-right" role="search">
+                    <div class="input-group input-group-sm">
+                      <input type="text" class="form-control">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                      </span>
+                    </div><!-- /input-group -->
+                  </form>
+                </li>
+              </ul>
+            </div><!-- /.row -->
+
+            <div class="table-actions">
+              <h4>
+                Search Results for <span class="search-keyword">BitCoin</span>
+              </h4>
+              <form class="form-inline" role="form">
+                <div class="form-group filter-data">
+                  <label class="sr-only" for="exampleInputEmail2">Choose Filter</label>
+                  <select>
+                    <option selected>Filter by ...</option>
+                    <option>Date</option>
+                    <option>Status</option>
+                    <option>Type</option>
+                    <option>...</option>
+                  </select>
+                </div>
+                <div class="form-group start-date">
+                  <label for="startDate" class="col-sm-2 control-label">From</label>
+                  <div class="col-sm-10">
+                    <div class="input-group">
+                      <input type="text" class="form-control">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default btn-sm" type="button">
+                          <i class="fa fa-calendar"></i>
+                        </button>
+                      </span>
+                    </div><!-- /input-group -->
+                  </div><!-- /col-sm-10 -->
+                </div><!-- /form-group start-date -->
+                <div class="form-group end-date">
+                  <label for="endDate" class="col-sm-2 control-label">to</label>
+                  <div class="col-sm-10">
+                    <div class="input-group">
+                      <input type="text" class="form-control">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default btn-sm" type="button">
+                          <i class="fa fa-calendar"></i>
+                        </button>
+                      </span>
+                    </div><!-- /input-group -->
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <table class="table table-striped">
+              <tr>
+                <th>
+                  Date
+                </th>
+                <th>
+                  Status
+                </th>
+                <th>
+                  Amount
+                </th>
+                <th>
+                  Payment Method
+                </th>
+                <th>
+                  Confirmation Number
+                </th>
+                <th>
+                  API Limit
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  Mar 03, 2014
+                </td>
+                <td>
+                  <i class="fa fa-smile-o"></i>
+                </td>
+                <td>
+                  3 BTC
+                </td>
+                <td>
+                  <i class="fa fa-btc"></i> Bitcoin - devBitcoin1
+                </td>
+                <td>
+                  ABCD123456789
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Apr 12, 2014
+                </td>
+                <td>
+                  <i class="fa fa-meh-o"></i>
+                </td>
+                <td>
+                  3 BTC
+                </td>
+                <td>
+                  <i class="fa fa-btc"></i> Bitcoin - devBitcoin1
+                </td>
+                <td>
+                  ABCD123456789
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  May 26, 2014
+                </td>
+                <td>
+                  <i class="fa fa-frown-o"></i>
+                </td>
+                <td>
+                  3 BTC
+                </td>
+                <td>
+                  <i class="fa fa-btc"></i> Bitcoin - devBitcoin1
+                </td>
+                <td>
+                  ABCD123456789
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Jun 30, 2014
+                </td>
+                <td>
+                  <i class="fa fa-smile-o"></i>
+                </td>
+                <td>
+                  3 BTC
+                </td>
+                <td>
+                  <i class="fa fa-btc"></i> Bitcoin - devBitcoin1
+                </td>
+                <td>
+                  ABCD123456789
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Jul 01, 2014
+                </td>
+                <td>
+                  <i class="fa fa-meh-o"></i>
+                </td>
+                <td>
+                  3 BTC
+                </td>
+                <td>
+                  <i class="fa fa-btc"></i> Bitcoin - devBitcoin1
+                </td>
+                <td>
+                  ABCD123456789
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Aug 25, 2014
+                </td>
+                <td>
+                  <i class="fa fa-frown-o"></i>
+                </td>
+                <td>
+                  3 BTC
+                </td>
+                <td>
+                  <i class="fa fa-btc"></i> Bitcoin - devBitcoin1
+                </td>
+                <td>
+                  ABCD123456789
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+            </table>
+
+          </div><!-- /.dashboard-content -->
+        </div><!-- /.dashboard-wrapper -->
+      </main>
+    </div><!-- / #wrap -->
+
+    <footer>
+      <div>
+        <p>
+          Copyright &copy; 2014 Engine, Inc.
+          <a href="">
+            Legal
+          </a>
+          <a href="">
+            Terms of Service
+          </a>
+          <a href="">
+            Privacy
+          </a>
+          <a href="">
+            Contact
+          </a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../js/bootstrap.js"></script>
+    <script src="../../js/engine-plugins.js"></script>
+
+  </body>
+</html>

@@ -2,41 +2,39 @@
 
 ## Install
 
-1. <Install latest Node.js>
-1. <Install latest MongoDB>
+1. Install latest Node.js
+1. Install latest MongoDB
 1. Ensure Mongo is running: `$ mongo` (Ctrl+C to quit)
-1. `$ sudo npm install -g grunt-cli`
-1. `$ sudo npm install -g bower`
+1. Install grunt comand line app `$ sudo npm install -g grunt-cli`
+1. Install bower command line app `$ sudo npm install -g bower`
 
 ## Run
 
 1. `$ npm install`
 1. `$ grunt`
-1. `$ node server.js`
-1. Access http://localhost:3000
+1. `$ node server`
+1. Access `http://localhost:3000`
 
-## Develop
+## Developing App (front end)
 
-1. First, run successfully (above)
-1. `$ grunt watch`
-1. Edit folders img, less, or src and changes will appear in '_public'
-1. Install [LiveReload Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) to take advatage of automatic brower refreshing when editing .html and .less files.
-1. Prefer not to use Bootstrap classes in markup.  Instead, reference Bootstrap classes in less files using, e.g., "&:extend(.btn all, .btn-lg all);".  See http://lesscss.org/features/#import-options-reference.
+1. Start Billing (see **Run**)
+1. Start watch command `$ grunt watch` (required to be running continually during front end development)
+1. `app` folder is compiled to `dist`, which is also the web server root.  Accessing `http://localhost:3000` reaches `dist/index.html`.
+1. Install [LiveReload Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) to take advatage of automatic brower refreshing when editing .html and .less files (optional)
 
-## engineui UI Toolkit Development
+**IMPORTANT**: `dist` and `temp` are transient folders and will be erased.
 
-1. Follow instructions for **Develop**
-1. Open http://localhost:3000/vendor/engineui/
-1. Copy-paste example Bootstrap code from getbootstrap.com into engineui/index.html
-1. Edit appropriate less files in engineui/less to override Bootstrap styles
-1. Note: override Bootstrap classes, but don't change them.  Add classes if necessary, but the idea is to keep as close to the Bootstrap docs as possible.
-1. Helpful hint: reference Bootstrap less files found under _public/vendor/bootstrap/less for guidance on what to override.  (Do not modify the Bootstrap sources, however, because changes will be lost.)
+## UI Toolkit Development
 
-**IMPORTANT**: '_public' is a transient output folder.  Do not edit any files here, since changes will be erased.
+1. Start development mode (see **Developing App**)
+1. Open `http://localhost:3000/assets/vendor/engineui/`
+1. Edit `engineui/index.html` with Bootstrap-compatible code (copy-paste from getbootstrap.com, for example)
+1. Edit appropriate less files in `engineui/less` to override Bootstrap styles
+1. Guideline: add custom classes if necessary, but attempt to stay as close to the Bootstrap class names as possible
 
 ## Code Conventions
 
-Javascript: https://github.com/airbnb/javascript (Line width 80 characters maximum)
+Javascript: https://github.com/airbnb/javascript (Line width target is 80 characters, no more than 100)
 
 CSS property order: http://codeguide.co/#css-declaration-order
 

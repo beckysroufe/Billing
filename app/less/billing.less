@@ -1,0 +1,384 @@
+@import "engineui-import.less";
+@import "document.less";
+@import "accounts.less";
+@import "accounts-detail.less";
+@import "admin-dashboard.less";
+@import "api.less";
+@import "api-detail.less";
+@import "datepicker.less";
+@import "modal.less";
+@import "payments.less";
+@import "profile.less";
+
+// Main Elements & Classes
+// --------------------------------------------------
+body {
+  width: 100%;
+  padding: 0;
+
+  // > div {
+  //   &:extend(.wrap);
+  // }
+
+  > table {
+    &:extend(.table all, .table-striped all);
+    background-color: #FF0000;
+  }
+}
+
+.wrap {
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+}
+
+header {
+  > nav {
+    > div {
+      &:extend(.container-fluid all);
+    }
+  }
+}
+
+main {
+  &:extend(.container-fluid all);
+
+  overflow:auto;
+  height: 100%;
+}
+
+a.nav-previous {
+  &:extend(.pull-right all);
+
+  margin: 2.5% 2% 0;
+  text-decoration: none;
+}
+
+.fa-twitter {
+  color: #55acee;
+}
+
+.fa-facebook-square {
+  color: #3b5998;
+}
+
+.fa-linkedin-square {
+  color: #0e76a8;
+}
+
+.fa-github {
+  color: #171515;
+}
+
+.fa-google-plus-square {
+  color: #dd4b39;
+}
+
+// Dashboard: Wrapper & Content styling
+// --------------------------------------------------
+.dashboard-wrapper {     // contains sidebar navigation + dashboard content
+  &:extend(.row all);
+
+  height: 100%;
+}
+
+.dashboard-content {
+  &:extend(.container-fluid all, .col-xs-12 all, .col-md-9 all, .col-lg-9 all);
+
+  padding: 0 15px;
+  height: 100%;
+
+  h1 {
+    // &:extend(.pull-left);
+  }
+
+  h3 {
+    clear: both;
+  }
+
+  h4 {
+    // border-bottom: 1px @gray-even-lighter solid;
+
+    > a {
+      font-size: @font-size-h6;
+    }
+  }
+
+  table
+   {
+    &:extend(.table all, .table-striped all);
+  }
+
+  .dashboard-accounts,
+  .dashboard-api {
+    &:extend(.col-xs-12 all, .col-md-6 all, .col-lg-6 all);
+  }
+
+  .dashboard-api {
+    .api-list {
+      &:extend(.row all);
+
+      .api {
+        .name {
+          &:extend(.col-md-2 all);
+
+        }
+
+        .status {
+          &:extend(.col-md-2 all);
+
+        }
+
+        .data-usage {
+          &:extend(.col-md-3 all);
+
+        }
+
+        .billing-cycle {
+          &:extend(.col-md-3 all);
+
+        }
+
+        .actions {
+          &:extend(.col-md-2 all);
+
+        }
+      }
+    }
+  }
+
+  .dashboard-accounts {
+    .accounts-list {
+      .account {
+        .select-default {
+          &:extend(.col-md-1 all);
+
+        }
+
+        .name {
+          &:extend(.col-md-3 all);
+
+        }
+
+        .address {
+          &:extend(.col-md-3 all);
+
+        }
+
+        .balance {
+          &:extend(.col-md-2 all);
+
+        }
+
+        .actions {
+          &:extend(.col-md-3 all);
+
+        }
+      }
+    }
+  }
+
+  /*
+  .row {
+
+  }
+  */
+}
+
+// Nav variations
+// --------------------------------------------------
+.nav-dashboard-wrapper {
+  &:extend(.col-xs-12 all, .col-md-3 all, .col-lg-3 all);
+
+  padding: 0;
+  height: 100%;
+  background-color: @gray-even-lighter;
+
+  .nav-dashboard {
+    padding: 0;
+    height: 100%;
+    background-color: @gray-even-lighter;
+  }
+
+  .list-group {
+    margin-bottom: 0;
+
+    > .list-group-item {
+      padding: 0;
+      background-color: @gray-even-lighter;
+      border-radius: 0;
+      border: none;
+    }
+
+    > li:first-child {
+        > a {
+          border-top: 0;
+        }
+      }
+
+    > li {
+      > a {
+        margin-bottom: 1px;
+        padding: 20px;
+        color: @gray-light;
+        font-size: @font-size-h4;
+        border-top: 1px @gray-lightest solid;
+        border-bottom: 1px @gray-lighter solid;
+        border-right: none;
+
+        &:hover, .active {
+          color: @brand-primary;
+          background-color: #fff;
+        }
+
+        i {
+          padding-right: 1%;
+        }
+
+      }
+
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+// Dashboard Content Subnavigation with Search (e.g. Payments - Purchase, Single, Subs, etc.)
+// -------------------------------------------------
+.nav-secondary {
+  &:extend(.pull-left);
+
+  padding: 20px;
+
+  a {
+    color: @gray-darker;
+  }
+
+  form {
+    width: 150px;
+
+    button {
+      background-color: #fff;
+    }
+  }
+}
+
+.nav-secondary-form {
+  margin: 2.25% auto;
+  width: 200px;
+}
+
+// Table Actions
+// --------------------------------------------------
+.table-actions {
+  //&:extend(.row);
+
+  display: block;
+  clear: both;
+
+  > h4 {
+    &:extend(.pull-left);
+
+    > button {
+      &:extend(.btn, .btn-success, .btn-xs);
+
+      margin-left: 1%;
+    }
+  }
+
+  .form-payments {
+    form {
+      .form-group {
+        text-align: right;
+      }
+    }
+  }
+
+  .table-actions-form {
+    &:extend(.pull-right all);
+
+    width: 50%;
+
+    form {
+
+      .form-group {
+        &:extend(.pull-left all);
+
+        > input,
+          div input,
+          select {
+            &:extend(.form-control all, .input-sm all);
+        }
+
+        > input,
+          div input {
+        }
+
+        .input-group {
+          input {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        }
+
+        .input-group-btn {
+          button {
+            &:extend(.input-sm all);
+
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Dropdown menus
+// --------------------------------------------------
+.avatar {
+  margin-top: -7px;
+}
+
+// Additional Buttons
+// --------------------------------------------------
+.btn-add {
+  &:extend(.btn, .btn-primary, .btn-md, .pull-right);
+
+  margin: 1.5em 1em auto auto;
+}
+
+// Status Icon
+// --------------------------------------------------
+i.fa-smile-o {
+  color: @brand-success;
+}
+
+i.fa-meh-o {
+  color: @brand-warning;
+}
+
+i.fa-frown-o {
+  color: @brand-danger;
+}
+
+// Footer
+// --------------------------------------------------
+footer {
+  position: relative;
+  clear: both;
+  margin-top: -60px;
+  width: 100%;
+  height: 60px;
+  color: #FFF;
+  background-color: #393939;
+
+  > div {
+    &:extend(.container-fluid all);
+
+    > p {
+      padding-top: 20px;
+    }
+  }
+}

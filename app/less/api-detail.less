@@ -1,0 +1,55 @@
+// API Detail View
+// --------------------------------------------------
+
+.api-details {
+  &:extend(.row);
+
+  .api-info {
+    &:extend(.col-xs-12, .col-md-12, .col-lg-12);
+
+    .form-api-info {
+      &:extend(.form-horizontal all);
+
+      padding-top: 1%;
+
+      .form-group {
+        label {
+          &:extend(.col-sm-2 all);
+        }
+
+        .control-label {
+          text-align: left;
+        }
+
+        > div {
+          &:extend(.col-sm-10 all);
+
+          > input,
+            p,
+            select,
+            .data-usage,
+            .billing-cycle {
+            width: 50%;
+          }
+
+          > p,
+            i,
+            .data-usage,
+            .billing-cycle {
+            &:extend(.form-control-static);
+
+            padding-top: 7px;
+          }
+
+          .data-usage,
+          .billing-cycle {
+
+            .progress {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

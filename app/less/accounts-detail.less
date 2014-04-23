@@ -1,0 +1,62 @@
+// Accounts Detail View
+// --------------------------------------------------
+
+.account-details {
+  &:extend(.row);
+
+  .account-info {
+    &:extend(.col-xs-12, .col-md-12, .col-lg-12);
+
+    .form-account-info {
+      &:extend(.form-horizontal all);
+
+      padding-top: 1%;
+
+      .form-group {
+        label {
+          &:extend(.col-sm-2 all);
+        }
+
+        .control-label {
+          text-align: left;
+        }
+
+        > div {
+          &:extend(.col-sm-10 all);
+
+          > input,
+            p,
+            select {
+            width: 50%;
+          }
+
+          > p {
+            &:extend(.form-control-static);
+
+            padding-top: 7px;
+          }
+        }
+      }
+
+      .submit-button {
+        &:extend(.form-group all, .row);
+
+        > div { // Note: Matches column classes for .form-group > label, div columns
+          &:extend(.col-sm-offset-2, .col-sm-10);
+
+          > button {
+            &:extend(.btn, .btn-primary);
+          }
+        }
+      }
+    }
+  }
+
+  .balance-actions {
+    margin-left: 8px;
+
+    > button {
+      background-color: #fff;
+    }
+  }
+}

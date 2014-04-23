@@ -1,65 +1,63 @@
-/*
- * Operating principles:
- * - {public} folder is absolutely transient, and is destroyed/rebuilt/updated
- * - {source|image|style} are ultimately copied/compiled to {public}
- *   + {source} => {public}
- *   + {image} => {public}/img
- *   + {style} => {public}/css
- * - bower task copies targeted libraries/assets to
- *     {public}/vendor/<component_name>
- *
- * End goals:
- * - {public} will be operated in 2+ modes, at minimum 'dev' and 'prod'.
- *   In each mode, especially prod, {public} will contain _only_ files that are
- *       necessary to run.
- *   + dev mode will run without any optimization
- *   + prod mode will run as a single, minified 'app.js'
- */
 module.exports = function(grunt) {
+
+  require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
 
     path: {
       // Source folders
-      source: 'src',
-      image: 'img',
-      style: 'less',
-      temp: 'tmp',
+      app: 'app',
+      billing: 'app/billing',
+      less: 'app/less',
       engineui: 'engineui',
 
-      // Output folder (entirely transient)
-      public: '_public'
+      // Intermediate folders (transient)
+      temp: 'temp',
+
+      // Output folders (transient)
+      dist: 'dist',
+      dist_style: 'dist/style',
+      dist_vendor: 'dist/vendor'
     },
 
     clean: {
-      public: ['<%- path.public %>']
+      dist: ['<%- path.dist %>', '<%- path.temp %>']
     },
 
     less: {
       options: {
         paths: [
-          '<%- path.public %>/vendor',
+          '<%- path.dist_vendor %>',
           '<%- path.temp %>'
         ]
       },
 
       precompile: {
+        options: {
+          sourceMapFilename: ''
+        },
         files: {
           '<%- path.temp %>/engineui-grid-precompile.less':
-            '<%- path.style %>/engineui-grid.less'
+              '<%- path.less %>/engineui-grid.less'
         }
       },
 
       app: {
+        options: {
+          sourceMap: true,
+          sourceMapFilename: '<%- path.dist_style %>/billing.css.map',
+          sourceMapBasepath: '<%- path.dist_style %>'
+        },
         files: {
-          '<%- path.public %>/css/billing.css': '<%- path.style %>/billing.less'
+          '<%- path.dist_style %>/billing.css':
+              '<%- path.less %>/billing.less'
         }
       },
 
       engineui: {
         files: {
-          '<%- path.public %>/vendor/engineui/css/engineui.css':
-            '<%- path.public %>/vendor/engineui/less/engineui.less'
+          '<%- path.dist_vendor %>/engineui/style/engineui.css':
+            '<%- path.dist_vendor %>/engineui/less/engineui.less'
         }
       }
     },
@@ -67,9 +65,8 @@ module.exports = function(grunt) {
     bower: {
       install: {
         options: {
-          targetDir: '<%- path.public %>/vendor',
+          targetDir: '<%- path.dist_vendor %>',
           verbose: true,
-          cleanTargetDir: true,
           layout: 'byComponent',
           bowerOptions: {
             production: true
@@ -85,43 +82,46 @@ module.exports = function(grunt) {
         failOnError: true
       },
 
-      sync_src: {
+      sync_app: {
         command: [
-          'cd <%- path.source %>',
-          'rsync ./ ../<%- path.public %> ' +
-            '--update --delete --verbose --recursive ' +
-            '--exclude vendor --exclude img --exclude css'
-        ].join('&&')
-      },
-
-      sync_img: {
-        command: 'rsync <%- path.image %> <%- path.public %> ' +
-               '--update --delete --verbose --recursive'
+          'cwd=$(pwd)',
+          'cd <%- path.app %>',
+          'rsync . $cwd/<%- path.dist %> ' +
+              '--update --delete --verbose --recursive ' +
+              '--exclude less --exclude style --exclude vendor' 
+        ].join('&&') 
       },
 
       sync_engineui: {
+        command: 'rsync <%- path.engineui %> <%- path.dist_vendor %> ' +
+                 '--update --delete --verbose --recursive '
+      },
+
+      sourcemap_links: {
         command: [
-          'cd <%- path.engineui %>',
-          'rsync ./ ../<%- path.public %>/vendor/engineui ' +
-            '--update --delete --verbose --recursive ' +
-            '--exclude css'
+          'cd dist/style',
+          'ln -s ../../app app',
+          'ln -s ../ dist'
         ].join('&&')
       }
     },
 
-    jshint: {
-      src: ['<%- path.source %>/**/*.js']
-    },
-
     watch: {
-      src: {
-        files: ['<%- path.source %>/**/*'],
-        tasks: ['shell:sync_src']
+      options: {
+        nospawn: true
       },
 
-      img: {
-        files: ['<%- path.image %>/**/*'],
-        tasks: ['shell:sync_img']
+      billing: {
+        files: [
+          '<%- path.app %>/**/*',
+          '!<%- path.less %>/**/*'
+        ],
+        tasks: ['shell:sync_app']
+      },
+
+      less: {
+        files: ['<%- path.less %>/**/*'],
+        tasks: ['less:app']
       },
 
       engineui: {
@@ -129,43 +129,33 @@ module.exports = function(grunt) {
         tasks: ['shell:sync_engineui', 'less:engineui', 'less:app']
       },
 
-      less: {
-        files: ['<%- path.style %>/**/*'],
-        tasks: ['less:app']
-      },
-
       // Start livereload server at http://localhost:35729/livereload.js
       livereload: {
         options: {
-          cwd: '<%- path.public %>',
+          cwd: '<%- path.dist %>',
           livereload: true
         },
 
         files: [
-          'css/**/*.css',
           '*.html',
-          'vendor/engineui/css/*.css',
+          'views/*.html',
+          'billing/**/*.html',
+          'style/*.css',
+          'vendor/engineui/style/*.css',
           'vendor/engineui/*.html'
         ]
       }
     }
-
   });
 
-  grunt.loadNpmTasks('grunt-shell');
-  grunt.loadNpmTasks('grunt-copy');
-  grunt.loadNpmTasks('grunt-bower-task');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-less');
-
-  grunt.registerTask('default', [
+  grunt.registerTask('dist-dev', [
     'clean',
-    'bower',
-    'shell:sync_src',
-    'shell:sync_img',
+    'shell:sync_app',
     'shell:sync_engineui',
-    'less'
+    'bower',
+    'less',
+    'shell:sourcemap_links'
   ]);
+
+  grunt.registerTask('default', ['dist-dev']);
 }

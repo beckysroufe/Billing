@@ -1,7 +1,5 @@
 module.exports = function(grunt) {
 
-  require('load-grunt-tasks')(grunt);
-
   grunt.initConfig({
 
     path: {
@@ -148,6 +146,9 @@ module.exports = function(grunt) {
     }
   });
 
+  // bring in all grunt plugins from package.json
+  require('load-grunt-tasks')(grunt);
+
   grunt.registerTask('dist-dev', [
     'clean',
     'shell:sync_app',
@@ -158,4 +159,4 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('default', ['dist-dev']);
-}
+};

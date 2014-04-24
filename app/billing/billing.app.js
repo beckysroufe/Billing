@@ -1,4 +1,4 @@
-define(function(require, exports, module) {
+define(function(require) {
   var billingRadio = require('billing.radio');
 
   var billingApp = new Backbone.Marionette.Application(),
@@ -44,5 +44,5 @@ define(function(require, exports, module) {
     }
   });
 
-  module.exports = billingApp;
+  return billingApp;
 });

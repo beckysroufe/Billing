@@ -104,6 +104,20 @@ module.exports = function(grunt) {
       }
     },
 
+    jshint: {
+      options: {
+        jshintrc: true
+      },
+      all: ['Gruntfile.js', 'app/billing/**/*.js']
+    },
+
+    jscs: {
+      options: {
+        config: 'app/billing/.jscsrc'
+      },
+      all: ['Gruntfile.js', 'app/billing/**/*.js']
+    },
+
     watch: {
       options: {
         nospawn: true

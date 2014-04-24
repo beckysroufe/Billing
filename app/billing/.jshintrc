@@ -15,8 +15,6 @@
     "define": false,
     "require": false,
     "_": false,
-    "settings": false,
-    "ga": false,
     "Backbone": false,
     "Marionette": false
   },
@@ -44,6 +42,7 @@
   "quotmark": "single",
 
   // Prohibit trailing whitespace.
+  // (not working? see disallowTrailingWhitespace in jscsrc)
   "trailing": true,
 
   // Prohibit use of explicitly undeclared variables.
@@ -53,5 +52,8 @@
   "unused": "vars",
 
   // Enforce line length to 80 characters
-  "maxlen": 100
+  "maxlen": 100,
+
+  // EcmaScript 3 compatibility (IE 9)
+  "es3": true
 }

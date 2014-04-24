@@ -1,36 +1,31 @@
-define(function(require) {
-  var billingRadio = require('billing.radio'),
-    ShowController = require('modules/dashboard/show/show.controller'),
+define(function (require) {
+  var appRadio = require('app.radio'),
+    ShowController = require('modules/dashboard/dashboard.controller'),
     DashboardRouter,
     API;
 
-  // dashboard router API hooks
   DashboardRouter = Backbone.Marionette.AppRouter.extend({
     appRoutes: {
       'dashboard': 'showDashboard'
     }
   });
 
-  // dashboard API
   API = {
-    showDashboard: function() {
+    _initialize: function () {
+      new DashboardRouter({
+        controller: API
+      });
+    },
+
+    showDashboard: function () {
       ShowController.showDashboard();
-      billingRadio.commands.execute('set:active:module', 'dashboard');
+      appRadio.vent.trigger('module:activated', 'dashboard');
+      appRadio.commands.execute('navigate', 'dashboard');
     }
   };
 
-  // dashboard event API hooks
-  billingRadio.vent.on('dashboard:show', function() {
-    billingRadio.commands.execute('billing:navigate', 'dashboard');
-    API.showDashboard();
-  });
-
-  // attach dashbaord module to app
-  billingRadio.commands.execute('billing:add:initializer', function() {
-    new DashboardRouter({
-      controller: API
-    });
-  });
+  appRadio.vent.on('dashboard:show', API.showDashboard);
+  appRadio.commands.execute('add:initializer', API._initialize);
 
   // No export--event API only
 });

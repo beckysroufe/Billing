@@ -1,4 +1,4 @@
-requirejs.config({
+require.config({
   paths: {
     'jquery':              '../vendor/jquery/jquery',
     'underscore':          '../vendor/underscore/underscore',
@@ -30,13 +30,20 @@ requirejs.config({
   }
 });
 
-// First load Marionette then continue loading app (implies Backbone)
-require(['marionette'], function(){
-  require([
-    'billing.app',
-    'modules/dashboard/dashboard.module'
-  ],
-  function(billingApp) {
-    billingApp.start();
-  });
+require([
+  'marionette',
+  'app',
+  'app.module',
+  'modules/header/header.module',
+  'modules/footer/footer.module',
+  'modules/menu/menu.module',
+  'modules/dashboard/dashboard.module'
+],
+function (Marionette, app) {
+  // Override templating method to use hgn templates
+  Marionette.Renderer.render = function (template, data) {
+    return template(data);
+  };
+
+  app.start();
 });

@@ -12,10 +12,14 @@
   "disallowSpacesInNamedFunctionExpression": {
     "beforeOpeningRoundBrace": true
   },
+  "requireSpacesInAnonymousFunctionExpression": {
+    "beforeOpeningRoundBrace": true
+  },
+  "disallowSpaceAfterObjectKeys": true,
   "disallowSpacesInsideArrayBrackets": true,
   "disallowSpacesInsideParentheses": true,
   "disallowEmptyBlocks": true,
-  "requireSpacesInsideObjectBrackets": true,
+  "requireSpacesInsideObjectBrackets": "allButNested",
   "requireCommaBeforeLineBreak": true,
   "requireOperatorBeforeLineBreak": ["?", "+", "-", "/", "*", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<=", "&&", "||"],
   "disallowLeftStickedOperators": ["?", "+", "-", "/", "*", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<=", "&&", "||"],
@@ -32,5 +36,7 @@
   "requireDotNotation": true
 
   // TODO: enforce space between closing bracket and "else", as in "} else" but not "}else"
-  // TODO: enforce space after object key's colon  
+  
+  // TODO: bug report: showing warning for lines containing only whitespace
+  // "disallowTrailingWhitespace": true,
 }

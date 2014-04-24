@@ -127,15 +127,119 @@
                   <div class="md-content-container">
                     <h3>Add Accounts</h3>
                     <p>Start by choosing the type of account you'd like to add:</p>
-                    <button class="btn btn-tile tile-striped">
+                    <button class="btn btn-tile tile-striped" href="#bitcoin" data-toggle="tab">
                       <i class="fa fa-btc fa-5x"></i>
                     </button>
-                    <button class="btn btn-tile tile-striped">
+                    <button class="btn btn-tile tile-striped" href="#mastercoin" data-toggle="tab">
                       <i class="fa fa-btc fa-5x"></i>
                     </button>
-                    <button class="btn btn-tile tile-striped">
+                    <button class="btn btn-tile tile-striped" href="#stripe" data-toggle="tab">
                       <i class="fa fa-btc fa-5x"></i>
                     </button>
+
+                    <div class="account-select tab-content">
+                      <div class="tab-pane fade in active" id="bitcoin">
+                        <h3>Enter Bitcoin Account Details</h3>
+                        <form role="form">
+                          <div class="form-group">
+                            <label class="sr-only" for="btcPrivateKey">Email address</label>
+                            <input type="email" class="form-control" id="btcPrivateKey" placeholder="Private Key">
+                          </div>
+                          <div class="form-group">
+                            <label class="sr-only" for="btcPassphrase">Passphrase</label>
+                            <input type="password" class="form-control" id="btcPassphrase" placeholder="Passphrase">
+                          </div>
+                          <div class="hr-or">
+                            OR
+                          </div>
+                          <p>
+                            Scan QR Code:
+                            <button class="btn btn-default">
+                              <i class="fa fa-cloud-upload"></i>
+                              Scan from Image
+                            </button>
+                            <button class="btn btn-default">
+                              <i class="fa fa-camera-retro"></i>
+                              Scan from Webcam
+                            </button>
+                          </p>
+                          <button class="btn btn-default btn-primary btn-block">
+                            Add Account
+                          </button>
+                        </form>
+                      </div>
+                      <div class="tab-pane fade" id="mastercoin">
+                        <h3>Enter Mastercoin Account Details</h3>
+                        <form role="form">
+                          <div class="form-group">
+                            <label class="sr-only" for="btcPrivateKey">Email address</label>
+                            <input type="email" class="form-control" id="btcPrivateKey" placeholder="Private Key">
+                          </div>
+                          <div class="form-group">
+                            <label class="sr-only" for="btcPassphrase">Passphrase</label>
+                            <input type="password" class="form-control" id="btcPassphrase" placeholder="Passphrase">
+                          </div>
+                          <div class="hr-or">
+                            OR
+                          </div>
+                          <p>
+                            Scan QR Code:
+                            <button class="btn btn-default">
+                              <i class="fa fa-cloud-upload"></i>
+                              Scan from Image
+                            </button>
+                            <button class="btn btn-default">
+                              <i class="fa fa-camera-retro"></i>
+                              Scan from Webcam
+                            </button>
+                          </p>
+                          <button class="btn btn-default btn-primary btn-block">
+                            Add Account
+                          </button>
+                        </form>
+                      </div>
+                      <div class="tab-pane fade" id="stripe">
+                        <h3>Enter Credit Card Details</h3>
+                        <form class="form-inline" role="form">
+                          <div class="form-group credit-card-number">
+                            <label class="sr-only" for="creditCardNumber">Credit Card Number</label>
+                            <input type="text" class="form-control" id="creditCardNumber" placeholder="Credit Card Number">
+                          </div>
+                          <div class="form-group name-on-card">
+                            <label class="sr-only" for="creditCardName">Name On Card</label>
+                            <input type="text" class="form-control" id="creditCardName" placeholder="Name on Card">
+                          </div>
+                          <div class="form-group exp-month">
+                            <label class="sr-only" for="expirationMonth">Expiration Month</label>
+                            <select class="form-control">
+                              <option>01 - January</option>
+                              <option>02 - February</option>
+                              <option>03 - March</option>
+                              <option>04 - April</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+                          <div class="form-group exp-year">
+                            <label class="sr-only" for="expirationYear">Expiration Year</label>
+                            <select class="form-control">
+                              <option>2014</option>
+                              <option>2015</option>
+                              <option>2016</option>
+                              <option>2017</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+                          <div class="form-group credit-card-csv">
+                            <label class="sr-only" for="creditCardCSV">CSV</label>
+                            <input type="text" class="form-control" id="creditCardCSV" placeholder="Name on Card">
+                          </div>
+                          <button class="btn btn-default btn-primary btn-block">
+                            Add Account
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+
                   </div><!-- /.md-content-container -->
                 </div><!-- /.md-content -->
               </div><!-- /.md-modal -->
@@ -176,10 +280,8 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../lib/bootstrap.min.js"></script>
-    <script src="../lib/engine-plugins.js"></script>
+    <script src="../lib/bootstrap.js"></script>
     <script src="../lib/modal.js"></script>
     <script src="../lib/bootstrap-datepicker.js"></script>
-
   </body>
 </html>

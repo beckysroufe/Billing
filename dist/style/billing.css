@@ -827,6 +827,7 @@ footer > div {
   padding-right: 15px;
 }
 .bar,
+.account-select #stripe form,
 .account-details,
 .account-details .account-info .form-account-info .submit-button,
 .modules .api-list,
@@ -4353,6 +4354,8 @@ body:before,
 body:after,
 .accounts-list:before,
 .accounts-list:after,
+.account-select #stripe form:before,
+.account-select #stripe form:after,
 .account-details:before,
 .account-details:after,
 .account-details .account-info .form-account-info .form-group:before,
@@ -4410,6 +4413,7 @@ footer > div:after,
 .bar:after,
 body:after,
 .accounts-list:after,
+.account-select #stripe form:after,
 .account-details:after,
 .account-details .account-info .form-account-info .form-group:after,
 .form-horizontal .account-details .account-info .form-account-info .submit-button:after,
@@ -4501,6 +4505,8 @@ body:before,
 body:after,
 .accounts-list:before,
 .accounts-list:after,
+.account-select #stripe form:before,
+.account-select #stripe form:after,
 .account-details:before,
 .account-details:after,
 .account-details .account-info .form-account-info .form-group:before,
@@ -4569,6 +4575,7 @@ footer > div:after,
 .bar:after,
 body:after,
 .accounts-list:after,
+.account-select #stripe form:after,
 .account-details:after,
 .account-details .account-info .form-account-info .form-group:after,
 .form-horizontal .account-details .account-info .form-account-info .submit-button:after,
@@ -4629,6 +4636,7 @@ footer > div {
 }
 .row,
 .bar,
+.account-select #stripe form,
 .account-details,
 .account-details .account-info .form-account-info .submit-button,
 .modules .api-list,
@@ -4698,6 +4706,20 @@ footer > div {
 .accounts-list .account .balance,
 .accounts-list .account .type,
 .accounts-list .account .actions,
+.account-select #stripe form .credit-card-number,
+.account-select #stripe form .credit-card-number,
+.account-select #stripe form .credit-card-number,
+.account-select #stripe form .name-on-card,
+.account-select #stripe form .name-on-card,
+.account-select #stripe form .name-on-card,
+.account-select #stripe form .exp-month,
+.account-select #stripe form .exp-month,
+.account-select #stripe form .exp-month,
+.account-select #stripe form .exp-year,
+.account-select #stripe form .exp-year,
+.account-select #stripe form .exp-year,
+.account-select #stripe form .credit-card-csv,
+.account-select #stripe form .credit-card-csv,
 .account-details .account-info,
 .account-details .account-info,
 .account-details .account-info,
@@ -4775,6 +4797,11 @@ footer > div {
 .col-xs-10,
 .col-xs-11,
 .col-xs-12,
+.account-select #stripe form .credit-card-number,
+.account-select #stripe form .name-on-card,
+.account-select #stripe form .exp-month,
+.account-select #stripe form .exp-year,
+.account-select #stripe form .credit-card-csv,
 .account-details .account-info,
 .modules,
 .recent-activity,
@@ -4788,6 +4815,11 @@ footer > div {
   float: left;
 }
 .col-xs-12,
+.account-select #stripe form .credit-card-number,
+.account-select #stripe form .name-on-card,
+.account-select #stripe form .exp-month,
+.account-select #stripe form .exp-year,
+.account-select #stripe form .credit-card-csv,
 .account-details .account-info,
 .modules,
 .recent-activity,
@@ -5158,6 +5190,11 @@ footer > div {
   .accounts-list .account .balance,
   .accounts-list .account .type,
   .accounts-list .account .actions,
+  .account-select #stripe form .credit-card-number,
+  .account-select #stripe form .name-on-card,
+  .account-select #stripe form .exp-month,
+  .account-select #stripe form .exp-year,
+  .account-select #stripe form .credit-card-csv,
   .account-details .account-info,
   .modules,
   .recent-activity,
@@ -5214,6 +5251,8 @@ footer > div {
     width: 58.33333333%;
   }
   .col-md-6,
+  .account-select #stripe form .credit-card-number,
+  .account-select #stripe form .name-on-card,
   .dashboard-content .dashboard-accounts,
   .dashboard-content .dashboard-api {
     width: 50%;
@@ -5222,6 +5261,9 @@ footer > div {
     width: 41.66666667%;
   }
   .col-md-4,
+  .account-select #stripe form .exp-month,
+  .account-select #stripe form .exp-year,
+  .account-select #stripe form .credit-card-csv,
   .recent-activity {
     width: 33.33333333%;
   }
@@ -5392,6 +5434,10 @@ footer > div {
   .col-lg-10,
   .col-lg-11,
   .col-lg-12,
+  .account-select #stripe form .credit-card-number,
+  .account-select #stripe form .name-on-card,
+  .account-select #stripe form .exp-month,
+  .account-select #stripe form .exp-year,
   .account-details .account-info,
   .modules,
   .recent-activity,
@@ -5431,6 +5477,8 @@ footer > div {
     width: 58.33333333%;
   }
   .col-lg-6,
+  .account-select #stripe form .credit-card-number,
+  .account-select #stripe form .name-on-card,
   .dashboard-content .dashboard-accounts,
   .dashboard-content .dashboard-api {
     width: 50%;
@@ -5439,6 +5487,8 @@ footer > div {
     width: 41.66666667%;
   }
   .col-lg-4,
+  .account-select #stripe form .exp-month,
+  .account-select #stripe form .exp-year,
   .recent-activity {
     width: 33.33333333%;
   }
@@ -6979,6 +7029,60 @@ a.nav-previous,
 .accounts-list .account-default .select-default:before {
   content: "\f005";
   color: #edca28;
+}
+.account-select {
+  padding: 3% 5%;
+  text-align: left;
+}
+.account-select p {
+  padding-bottom: 2%;
+}
+.account-select > form {
+  padding-top: 1%;
+}
+.account-select #stripe form .form-group,
+.account-select #stripe form .account-details .account-info .form-account-info .submit-button {
+  padding-bottom: 1%;
+}
+.account-select #stripe form .credit-card-number input,
+.account-select #stripe form .name-on-card input,
+.account-select #stripe form .exp-month input,
+.account-select #stripe form .exp-year input,
+.account-select #stripe form .credit-card-csv input,
+.account-select #stripe form .credit-card-number select,
+.account-select #stripe form .name-on-card select,
+.account-select #stripe form .exp-month select,
+.account-select #stripe form .exp-year select,
+.account-select #stripe form .credit-card-csv select {
+  width: 100%;
+}
+.account-select #stripe form .exp-month {
+  clear: both;
+}
+.hr-or {
+  padding-bottom: 2%;
+  line-height: 0.5;
+  text-align: center;
+}
+.hr-or span {
+  display: inline-block;
+  position: relative;
+}
+.hr-or:before,
+.hr-or:after {
+  content: "";
+  position: relative;
+  height: 5px;
+  border-bottom: 1px solid #f4f4f4;
+  border-top: 1px solid #f4f4f4;
+}
+.hr-or:before {
+  right: 100%;
+  margin-right: 15px;
+}
+.hr-or:after {
+  left: 100%;
+  margin-left: 15px;
 }
 .account-details .account-info .form-account-info {
   padding-top: 1%;

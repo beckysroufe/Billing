@@ -1,6 +1,19 @@
 // IE Polyfill for Modal Transitions
 var polyfilter_scriptpath = '/js/';
 
+// Datepicker
+jQuery(function($){
+    $('.pick-date').datepicker({
+      changeDate: true
+    })
+});
+
+// Collapse
+$('#demo').collapse({
+  toggle: true
+});
+
+/*
 // Modal
 $("#myModal").modal({
   show: false
@@ -20,16 +33,10 @@ $('#demo').collapse({
   toggle: true
 });
 
-// Datepicker
-jQuery(function($){
-    $('.pick-date').datepicker({
-      changeDate: true
-    })
-});
-
 // Tabs
-/* $('#myTab a').click(function (e) {
+$('#myTab a').click(function (e) {
   e.preventDefault()
   $(this).tab('show')
   $('#myTab a:first').tab('show')
-}) */
+})
+*/

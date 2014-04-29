@@ -20,7 +20,7 @@
   },
   "exportsOverride": {
     "backbone.wreqr": {
-      ".": "lib/amd/backbone.wreqr.js"
+      ".": "lib/backbone.wreqr.js"
     },
     "backbone.babysitter": {
       ".": "lib/amd/backbone.babysitter.js"

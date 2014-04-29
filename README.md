@@ -8,6 +8,20 @@
 1. Install grunt comand line app `$ sudo npm install -g grunt-cli`
 1. Install bower command line app `$ sudo npm install -g bower`
 
+## Sublime Text 3 Setup
+
+### While-you-type Javascript linting
+
+1. Install JSHint command line app `$ sudo npm install -g jshint`
+1. Install JSCS command line app `$sudo npm install -g jscs`
+1. Install Sublime Package Control
+   * Within Sublime Text, follow instructions here: https://sublime.wbond.net/installation
+1. Install SublimeLinter
+   * Within Sublime Text, pres Ctrl+Shift+P (PC) Cmd+Shift+P (Mac) and type/select "Package Control: Install Package"
+   * Type/select "SublimeLinter"
+   * Type/select "SublineLinter-JSHint"
+   * Type/select "SublimeLinter-JSCS"
+
 ## Run
 
 1. `$ npm install`

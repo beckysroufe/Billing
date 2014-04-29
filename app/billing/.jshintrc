@@ -42,7 +42,7 @@
   "quotmark": "single",
 
   // Prohibit trailing whitespace.
-  // (not working? see disallowTrailingWhitespace in jscsrc)
+  // (not working?)
   "trailing": true,
 
   // Prohibit use of explicitly undeclared variables.

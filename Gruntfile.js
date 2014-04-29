@@ -98,8 +98,8 @@ module.exports = function(grunt) {
       sourcemap_links: {
         command: [
           'cd dist/style',
-          'ln -s ../../app app',
-          'ln -s ../ dist'
+          'rm -f app && ln -s ../../app app',
+          'rm -f dist && ln -s ../ dist'
         ].join('&&')
       }
     },
@@ -164,7 +164,6 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.registerTask('dist-dev', [
-    'clean',
     'shell:sync_app',
     'shell:sync_engineui',
     'bower',

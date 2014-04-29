@@ -6,7 +6,23 @@
 1. Install latest MongoDB
 1. Ensure Mongo is running: `$ mongo` (Ctrl+C to quit)
 1. Install grunt comand line app `$ sudo npm install -g grunt-cli`
-1. Install bower command line app `$ sudo npm install -g bower`
+
+## Run
+
+1. `$ npm install`
+1. `$ grunt`
+1. `$ node server`
+1. Access `http://localhost:3000`
+
+## Developing App (front end)
+
+1. Start Billing (see **Run**)
+1. Start watch command `$ grunt watch` (required to be running continually during front end development)
+1. `app` folder is compiled to `dist`, which is also the web server root.  Accessing `http://localhost:3000` reaches `dist/index.html`.
+1. Install [LiveReload Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) to take advatage of automatic brower refreshing while editing .html and .less files (optional)
+1. Before committing any front end code, run `$ grunt jshint` and solve Javascript syntax issues, then `$ grunt jscs` and solve any style issues.
+
+**IMPORTANT**: `dist` and `temp` are transient folders and will be erased.
 
 ## Sublime Text 3 Setup
 
@@ -22,22 +38,6 @@
    * Type/select "SublineLinter-JSHint"
    * Type/select "SublimeLinter-JSCS"
 
-## Run
-
-1. `$ npm install`
-1. `$ grunt`
-1. `$ node server`
-1. Access `http://localhost:3000`
-
-## Developing App (front end)
-
-1. Start Billing (see **Run**)
-1. Start watch command `$ grunt watch` (required to be running continually during front end development)
-1. `app` folder is compiled to `dist`, which is also the web server root.  Accessing `http://localhost:3000` reaches `dist/index.html`.
-1. Install [LiveReload Chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) to take advatage of automatic brower refreshing when editing .html and .less files (optional)
-
-**IMPORTANT**: `dist` and `temp` are transient folders and will be erased.
-
 ## UI Toolkit Development
 
 1. Start development mode (see **Developing App**)
@@ -45,14 +45,6 @@
 1. Edit `engineui/index.html` with Bootstrap-compatible code (copy-paste from getbootstrap.com, for example)
 1. Edit appropriate less files in `engineui/less` to override Bootstrap styles
 1. Guideline: add custom classes if necessary, but attempt to stay as close to the Bootstrap class names as possible
-
-## Code Conventions
-
-Javascript: https://github.com/airbnb/javascript (Line width target is 80 characters, no more than 100)
-
-CSS property order: http://codeguide.co/#css-declaration-order
-
-HTML attribute order: http://codeguide.co/#html-syntax (see Attribute Order)
 
 ## REST API Usage
 

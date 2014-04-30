@@ -1,6 +1,6 @@
 define(function (require) {
   var Marionette = require('marionette'),
-      showTemplate = require('hgn!modules/menu/menu'),
+      showTemplate = require('hgn!modules/menu/menu.view'),
       ShowView;
 
   ShowView = Marionette.ItemView.extend({

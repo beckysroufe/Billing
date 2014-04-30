@@ -37,7 +37,7 @@ require([
   'modules/header/header.module',
   'modules/footer/footer.module',
   'modules/menu/menu.module',
-  'modules/dashboard/dashboard.module'
+  'modules/dash/dash.module'
 ],
 function (Marionette, app) {
   // Override templating method to use hgn templates

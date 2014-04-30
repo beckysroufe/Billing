@@ -20,22 +20,22 @@ define(function (require) {
       return Backbone.history.fragment;
     },
 
-    showInHeader: function (view) {
+    showHeader: function (view) {
       app.headerRegion.show(view);
     },
 
-    showInFooter: function (view) {
+    showFooter: function (view) {
       app.footerRegion.show(view);
     },
 
-    showInContent: function (view) {
+    showContent: function (view) {
       app.contentRegion.show(view);
 
-      // showing a view in the contentRegion will destroy the appLayout
+      // showg a view in the contentRegion will destroy the appLayout
       appLayoutShown = false;
     },
 
-    showInContentMenu: function (view) {
+    showContentMenu: function (view) {
       // don't re-render the layout if currently visible
       if (!appLayoutShown) {
         appLayout = new AppContentLayout();
@@ -52,7 +52,7 @@ define(function (require) {
       appLayoutShown = true;
     },
 
-    showInContentMain: function (view) {
+    showContentMain: function (view) {
       // don't re-render the layout if currently visible
       if (!appLayoutShown) {
         appLayout = new AppContentLayout();
@@ -73,11 +73,11 @@ define(function (require) {
   appRadio.reqres.setHandler('get:current:route', API.getCurrentRoute);
   appRadio.commands.setHandler('navigate', API.navigate);
   appRadio.commands.setHandler('add:initializer', API.addInitializer);
-  appRadio.commands.setHandler('show:in:header', API.showInHeader);
-  appRadio.commands.setHandler('show:in:footer', API.showInFooter);
-  appRadio.commands.setHandler('show:in:content', API.showInContent);
-  appRadio.commands.setHandler('show:in:content:menu', API.showInContentMenu);
-  appRadio.commands.setHandler('show:in:content:main', API.showInContentMain);
+  appRadio.commands.setHandler('show:header', API.showHeader);
+  appRadio.commands.setHandler('show:footer', API.showFooter);
+  appRadio.commands.setHandler('show:content', API.showContent);
+  appRadio.commands.setHandler('show:content:menu', API.showContentMenu);
+  appRadio.commands.setHandler('show:content:main', API.showContentMain);
 
   // No export--event API
 });

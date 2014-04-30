@@ -14,9 +14,7 @@
   "globals": {
     "define": false,
     "require": false,
-    "_": false,
-    "Backbone": false,
-    "Marionette": false
+    "_": false
   },
 
   // Force all variable names to use either camelCase style or UPPER_CASE

@@ -286,8 +286,8 @@ perspective effects (not including the modals and the overlay).
 			&:extend(.row);
 
 			> div {
-				text-align: left;
 				padding: 1% 0;
+				text-align: left;
 
 				> div {
 
@@ -340,9 +340,16 @@ perspective effects (not including the modals and the overlay).
 					.accounts-list {
 
 						.account {
+							margin-top: 0;
+							margin-bottom: 0;
+							padding: 0;
+							background-color: #fff;
+							border: none;
 
 							.account-logo {
 								&:extend(.col-xs-12, .col-md-2, .col-lg-2);
+
+								padding-left: 0;
 							}
 
 							.name {
@@ -465,6 +472,71 @@ perspective effects (not including the modals and the overlay).
 				padding: 1% 2.5%;
 				font-size: @font-size-h5;
 				background-color: @gray-even-lighter;
+			}
+
+			h4 {
+				margin-bottom: 0;
+				padding-bottom: 2%;
+				border-bottom: 1px @gray-lighter solid;
+			}
+
+			.api-name-description {
+				h4 {
+					a {
+						&:extend(.pull-right);
+					}
+				}
+
+				p {
+					.api-name-label {
+						&:after {
+							content: "\A";
+							white-space: pre;
+						}
+					}
+				}
+			}
+
+			.api-payment-method {
+				h4 {
+
+				}
+
+				p {
+					.payment-method-label {
+						a {
+							font-size: @font-size-h6;
+						}
+					}
+
+					.payment-method-types {
+						&:before {
+							content: "\A";
+							white-space: pre;
+						}
+					}
+
+					.pricing-label {
+						a {
+							font-size: @font-size-h6;
+						}
+					}
+				}
+
+				> table {
+					background-color: #fff;
+					margin-bottom: 0;
+
+					> tbody {
+
+						> tr {
+
+							> th {
+								background-color: @gray-lighter;
+							}
+						}
+					}
+				}
 			}
 		}
 	}

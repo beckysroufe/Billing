@@ -4,6 +4,17 @@
 .api-list {
   &:extend(.container-fluid);
 
+  clear: both;
+
+  h4 {
+    margin: 1% 0 0 -15px;
+    padding: 0 2% 0 0;
+
+    button {
+      &:extend(.btn, .btn-primary, .btn-xs);
+    }
+  }
+
   .api {
     &:extend(.bar all);
 

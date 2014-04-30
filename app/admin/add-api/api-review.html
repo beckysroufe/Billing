@@ -3,7 +3,7 @@
     <head>
       <meta charset="utf-8" />
       <title>Engine: Developer Billing</title>
-      <link href="../style/billing.css" rel="stylesheet" />
+      <link href="../../style/billing.css" rel="stylesheet" />
 
       <!-- Fonts -->
       <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -103,8 +103,54 @@
                     APIs
                   </h1>
 
-                  <button type="button" class="btn-add">Add API</button>
+                  <button type="button" class="btn-add md-trigger" data-modal="modal-adminApiReview">Add API</button>
                 </div><!-- /.row -->
+
+                <div class="md-modal md-effect-1" id="modal-adminApiReview">
+                  <div class="md-content">
+                    <div class="modal-controls">
+                      <a href="#" class="modal-previous">
+                        <i class="fa fa-long-arrow-left"></i>Previous
+                      </a>
+                      <a href="#" class="modal-close md-close">
+                        <i class="fa fa-times-circle"></i>
+                      </a>
+                    </div><!-- /.modal-controls -->
+
+                    <div class="md-content-container">
+                      <h3>Review &amp; Confirm</h3>
+                      <p>Review the product information below and confirm:</p>
+                      <div class="review-api">
+                        <div class="api-name-description">
+                          <h4>
+                            Name &amp; Description
+                            <a href="#" class="pull-right">
+                              Edit
+                            </a>
+                          </h4>
+                          <p>
+                            Data Access<br>
+                            This is an example API description.
+                          </p>
+                        </div><!-- /.api-name-description -->
+
+                        <div class="api-payment-method">
+                          <h4>
+                            Payment Methods &amp; Pricing
+                          </h4>
+                          <p>
+                            Data Access
+                          </p>
+                        </div><!-- /.api-name-description -->
+                        <button class="btn-submit-block">
+                          Add API Product
+                        </button>
+                      </div><!-- /.review-api -->
+
+                    </div><!-- /.md-content-container -->
+                  </div><!-- /.md-content -->
+                </div><!-- /.md-modal -->
+
                 <table>
                   <tr>
                     <th>
@@ -296,7 +342,9 @@
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="../lib/bootstrap.js"></script>
-        <script src="../lib/engine-plugins.js"></script>
+        <script src="../../lib/bootstrap.js"></script>
+        <script src="../../lib/engine-plugins.js"></script>
+        <script src="../../lib/modal.js"></script>
+        <script src="../../lib/bootstrap-datepicker.js"></script>
     </body>
 </html>

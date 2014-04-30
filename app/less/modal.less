@@ -147,16 +147,327 @@ perspective effects (not including the modals and the overlay).
   .md-content-container {
     margin: 0 auto;
     width: 55%;
-
-    .btn-tile {
-      width: 200px;
-      height: 200px;
-
-      .fa-circle {
-        color: orange;
-      }
-    }
   }
+}
+
+
+/* Widths of various modal processes button tiles */
+#modal-addAccount {
+	.btn-tile {
+		width: 30%;
+		height: 200px;
+	}
+}
+
+#modal-purchaseAPI {
+	.md-content-container {
+		.btn-tile {
+			width: 24.5%;
+			min-height: 150px;
+
+			> ul {
+				margin: 0;
+				text-align: left;
+
+				li {
+					margin: 0;
+					padding: 0;
+				}
+			}
+		}
+
+		.accounts-list {
+			.account {
+				.select-default {
+					&:extend(.col-xs-12, .col-md-1, .col-lg-1);
+				}
+
+				.account-logo {
+					&:extend(.col-xs-12, .col-md-2, .col-lg-2);
+				}
+
+				.name {
+					&:extend(.col-xs-12, .col-md-2, .col-lg-2);
+				}
+
+				.address {
+					&:extend(.col-xs-12, .col-md-3, .col-lg-3);
+				}
+
+				.balance {
+					&:extend(.col-xs-12, .col-md-2, .col-lg-2);
+				}
+
+				.type {
+					&:extend(.col-xs-12, .col-md-2, .col-lg-2);
+				}
+
+			}
+		}
+
+		#api-dataAccess {
+			> form {
+				&:extend(.container-fluid);
+
+				width: 75%;
+
+				.radio {
+					float: left;
+					margin-top: 0;
+					width: 48%;
+				}
+
+				.radio {
+					&:nth-child(even) {
+						padding-right: 2%;
+					}
+				}
+
+				> .container-fluid {
+					clear: both;
+
+					.bar {
+						margin-top: 0;
+						padding: 0 inherit;
+
+						&:hover {
+							background-color: @gray-even-lighter;
+							border-color: darken(@gray-even-lighter, 3%);
+						}
+
+						.recurring-settings {
+							&:extend(.row);
+
+							display: none;
+							padding-bottom: 20px;
+
+							> div {
+								&:extend(.col-xs-12, .col-md-6, .col-lg-6);
+							}
+
+							.settings-detail {
+
+								div {
+									&:extend(.row);
+
+									div {
+									&:extend(.col-xs-12, .col-md-4, .col-lg-4);
+
+									padding: 0;
+									color: #FF0000;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		form {
+			margin: 0 auto;
+			width: 35%;
+
+			> div {
+				h4 {
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+
+#modal-purchaseReview {
+	.md-content-container {
+		width: 75%;
+
+		.review-order {
+			&:extend(.row);
+
+			> div {
+				text-align: left;
+				padding: 1% 0;
+
+				> div {
+
+					> h4 {
+
+						> a {
+							margin-top: 1%;
+						}
+					}
+				}
+			}
+
+			.order-details {
+				&:extend(.col-xs-12, .col-md-7, .col-lg-7);
+
+				.api-type {
+					&:extend(.col-xs-12, .col-md-6, .col-lg-6);
+
+				}
+
+				.api-limit {
+					&:extend(.col-xs-12, .col-md-6, .col-lg-6);
+
+					> table {
+						font-size: @font-size-h5;
+
+						> tbody {
+
+							> tr {
+								&:nth-child(2n+1) {
+									background-color: none;
+								}
+
+								> td {
+									padding: 0;
+									border: 0;
+
+									&:nth-child(2n+1) {
+										font-weight: bold;
+									}
+								}
+							}
+						}
+					}
+				}
+
+				.api-payment {
+					&:extend(.col-xs-12, .col-md-12, .col-lg-12);
+
+					.accounts-list {
+
+						.account {
+
+							.account-logo {
+								&:extend(.col-xs-12, .col-md-2, .col-lg-2);
+							}
+
+							.name {
+								&:extend(.col-xs-12, .col-md-3, .col-lg-3);
+							}
+
+							.address {
+								&:extend(.col-xs-12, .col-md-3, .col-lg-3);
+							}
+
+							.balance {
+								&:extend(.col-xs-12, .col-md-2, .col-lg-2);
+							}
+
+							.type {
+								&:extend(.col-xs-12, .col-md-2, .col-lg-2);
+							}
+						}
+					}
+				}
+			}
+
+			.order-summary{
+				&:extend(.col-xs-12, .col-md-5, .col-lg-5);
+
+				background-color: @gray-even-lighter;
+
+				> table {
+					background-color: none;
+
+					> tbody {
+
+						> tr {
+
+							&:nth-child(odd) {
+
+								> td {
+									width: 80%;
+									background-color: transparent;
+								}
+							}
+
+							> td {
+
+								&:nth-child(even) {
+									color: @brand-primary;
+								}
+
+								border: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#modal-adminAddApi {
+	.md-content-container {
+		width: 45%;
+	}
+}
+
+#modal-adminApiType {
+	.md-content-container {
+		width: 55%;
+
+		.btn-tile {
+			width: 25%;
+			min-height: 150px;
+		}
+
+		.btn-submit-block {
+			margin: 2% auto 0 auto;
+			width: 76%;
+		}
+	}
+}
+
+#modal-adminApiPricing {
+	.md-content-container {
+		width: 30%;
+
+		form {
+			text-align: left;
+
+			.form-group {
+				margin: 0;
+				border-bottom: 1px @gray-lighter solid;
+
+				&:first-child {
+					border-top: 1px @gray-lighter solid;
+				}
+
+				.caret {
+					&:extend(.pull-right);
+
+					margin: 2.5% 2% 0 0;
+					color: @gray-light;
+				}
+			}
+
+			button {
+				margin-top: 4%;
+			}
+		}
+	}
+}
+
+#modal-adminApiReview {
+	.md-content-container {
+		width: 40%;
+
+		.review-api {
+			text-align: left;
+
+			> div {
+				margin-bottom: 2%;
+				padding: 1% 2.5%;
+				font-size: @font-size-h5;
+				background-color: @gray-even-lighter;
+			}
+		}
+	}
 }
 
 /* Individual modal styles with animations/transitions */

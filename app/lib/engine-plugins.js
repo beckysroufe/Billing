@@ -1,5 +1,7 @@
 // IE Polyfill for Modal Transitions
-var polyfilter_scriptpath = '/js/';
+$('#demo').collapse({
+  toggle: true
+});
 
 // Datepicker
 jQuery(function($){
@@ -8,35 +10,14 @@ jQuery(function($){
     })
 });
 
-// Collapse
-$('#demo').collapse({
-  toggle: true
+// Make Recurring
+$('.make-recurring').on("click", function() {
+    if ($(this).prop("checked")) {
+        $('.recurring-settings').fadeIn(100);
+    }
+    else {
+        $('.recurring-settings').fadeOut(100);
+    }
 });
 
-/*
-// Modal
-$("#myModal").modal({
-  show: false
-});
-
-// Alerts
-$(".alert").alert();
-
-// Tooltip
-$("[data-toggle='tooltip']").tooltip();
-
-// Dropdown
-$('.dropdown-toggle').dropdown();
-
-// Collapse
-$('#demo').collapse({
-  toggle: true
-});
-
-// Tabs
-$('#myTab a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-  $('#myTab a:first').tab('show')
-})
-*/
+// Settings Detail

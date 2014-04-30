@@ -4,7 +4,7 @@
 // Engine UI Mixins
 // --------------------------------------------------
 
-// GRADIENTS
+// Gradients
 // --------------------------------------------------
 
 #gradient {
@@ -14,8 +14,8 @@
   }
 }
 
-
-// WebKit-style focus
+// Focus Color
+// --------------------------------------------------
 .tab-focus() {
   // Default
   outline: thin dotted;
@@ -25,9 +25,12 @@
 }
 
 // Alerts
-// -------------------------
+// --------------------------------------------------
 .alert-variant(@background; @border; @text-color) {
   .alert-link {
     color: @text-color; // Previously color: darken(@text-color, 10%)
   }
 }
+
+// Buttons
+// --------------------------------------------------

@@ -14,13 +14,10 @@
 
 // Main Elements & Classes
 // --------------------------------------------------
+
 body {
   width: 100%;
   padding: 0;
-
-  // > div {
-  //   &:extend(.wrap);
-  // }
 
   > table {
     &:extend(.table all, .table-striped all);
@@ -31,7 +28,14 @@ body {
 .wrap {
     width: 100%;
     min-height: 100%;
-    height: 100%;
+    margin-bottom: -60px; /* equal to footer height */
+}
+
+.wrap {
+  &:after {
+    content: "";
+    display: block;
+  }
 }
 
 header {
@@ -234,7 +238,9 @@ a.nav-previous {
         }
 
         i {
+          width: 25px;
           padding-right: 1%;
+          text-align: center;
         }
 
       }
@@ -360,12 +366,16 @@ i.fa-frown-o {
 
 // Footer
 // --------------------------------------------------
+
+footer,
+.wrap:after {
+  height: 60px;
+}
+
 footer {
   position: relative;
   clear: both;
-  // margin-top: -60px;
   width: 100%;
-  height: 60px;
   color: #FFF;
   background-color: #393939;
 

@@ -4,6 +4,7 @@
   "description": "Generic Billing Module, supporting credit card, bitcoin, and other cryptocurrency payments.",
   "main": "server.js",
   "scripts": {
+    "install": "grunt",
     "test": "node server.js"
   },
   "repository": {

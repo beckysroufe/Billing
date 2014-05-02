@@ -23,7 +23,7 @@
       ".": "lib/backbone.wreqr.js"
     },
     "backbone.babysitter": {
-      ".": "lib/amd/backbone.babysitter.js"
+      ".": "lib/backbone.babysitter.js"
     },
     "bootstrap": {
       ".": "dist/js/bootstrap.js",

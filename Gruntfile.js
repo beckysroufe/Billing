@@ -8,7 +8,6 @@ module.exports = function(grunt) {
       app: 'app',
       billing: 'app/billing',
       less: 'app/less',
-      engineui: '../engine-ui',
 
       // Intermediate folders (transient)
       temp: 'temp',
@@ -84,25 +83,12 @@ module.exports = function(grunt) {
         ].join('&&') 
       },
 
-      sync_engineui: {
-        command: [
-          'mkdir -p <%- path.dist_vendor %>',
-          'rsync <%- path.engineui %> <%- path.dist_vendor %> ' +
-              '--update --delete --verbose --recursive ' +
-              '--exclude .git --exclude-from <%- path.engineui %>/.gitignore'
-        ].join('&&')
-      },
-
       sourcemap_links: {
         command: [
           'cd dist/style',
           'rm -f app && ln -s ../../app app',
           'rm -f dist && ln -s ../ dist'
         ].join('&&')
-      },
-
-      engineui_grunt: {
-        command: 'cd ../engine-ui && grunt'
       }
     },
 
@@ -110,14 +96,16 @@ module.exports = function(grunt) {
       options: {
         jshintrc: true
       },
-      all: ['Gruntfile.js', 'app/billing/**/*.js']
+
+      app: ['Gruntfile.js', 'app/billing/**/*.js']
     },
 
     jscs: {
       options: {
-        config: 'app/billing/.jscsrc'
+        config: '.jscsrc'
       },
-      all: ['Gruntfile.js', 'app/billing/**/*.js']
+
+      app: ['Gruntfile.js', 'app/billing/**/*.js']
     },
 
     watch: {
@@ -141,16 +129,6 @@ module.exports = function(grunt) {
         tasks: ['less:app']
       },
 
-      engineui_js: {
-        files: ['<%- path.engineui %>/js/**/*'],
-        tasks: ['shell:engineui_grunt', 'shell:sync_engineui']
-      },
-
-      engineui_less: {
-        files: ['<%- path.engineui %>/less/**/*'],
-        tasks: ['shell:sync_engineui']
-      },
-
       // Start livereload server at http://localhost:35729/livereload.js
       livereload: {
         options: {
@@ -162,9 +140,7 @@ module.exports = function(grunt) {
           '*.html',
           'views/*.html',
           'billing/**/*.html',
-          'style/*.css',
-          'vendor/engineui/style/*.css',
-          'vendor/engineui/*.html'
+          'style/*.css'
         ]
       }
     }
@@ -174,9 +150,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.registerTask('dist-dev', [
-    'shell:engineui_grunt',
     'shell:sync_app',
-    'shell:sync_engineui',
     'bower',
     'less',
     'shell:sourcemap_links'

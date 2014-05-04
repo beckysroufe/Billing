@@ -31,9 +31,6 @@ module.exports = function(grunt) {
       },
 
       precompile: {
-        options: {
-          sourceMapFilename: ''
-        },
         files: {
           '<%- path.temp %>/engine-ui-grid-precompile.less':
               '<%- path.less %>/engine-ui-grid.less'

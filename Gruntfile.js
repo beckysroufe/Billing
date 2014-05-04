@@ -7,7 +7,7 @@ module.exports = function(grunt) {
       app: 'app',
       billing: 'app/billing',
       less: 'app/less',
-      engineui: 'engineui',
+      engineui: '../engine-ui',
 
       // Intermediate folders (transient)
       temp: 'temp',

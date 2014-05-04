@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+  /* jshint camelcase:false */
 
   grunt.initConfig({
 
@@ -35,8 +36,8 @@ module.exports = function(grunt) {
           sourceMapFilename: ''
         },
         files: {
-          '<%- path.temp %>/engineui-grid-precompile.less':
-              '<%- path.less %>/engineui-grid.less'
+          '<%- path.temp %>/engine-ui-grid-precompile.less':
+              '<%- path.less %>/engine-ui-grid.less'
         }
       },
 
@@ -49,13 +50,6 @@ module.exports = function(grunt) {
         files: {
           '<%- path.dist_style %>/billing.css':
               '<%- path.less %>/billing.less'
-        }
-      },
-
-      engineui: {
-        files: {
-          '<%- path.dist_vendor %>/engineui/style/engineui.css':
-            '<%- path.dist_vendor %>/engineui/less/engineui.less'
         }
       }
     },
@@ -91,8 +85,12 @@ module.exports = function(grunt) {
       },
 
       sync_engineui: {
-        command: 'rsync <%- path.engineui %> <%- path.dist_vendor %> ' +
-                 '--update --delete --verbose --recursive '
+        command: [
+          'mkdir -p <%- path.dist_vendor %>',
+          'rsync <%- path.engineui %> <%- path.dist_vendor %> ' +
+              '--update --delete --verbose --recursive ' +
+              '--exclude .git --exclude-from <%- path.engineui %>/.gitignore'
+        ].join('&&')
       },
 
       sourcemap_links: {
@@ -101,6 +99,10 @@ module.exports = function(grunt) {
           'rm -f app && ln -s ../../app app',
           'rm -f dist && ln -s ../ dist'
         ].join('&&')
+      },
+
+      engineui_grunt: {
+        command: 'cd ../engine-ui && grunt'
       }
     },
 
@@ -132,13 +134,21 @@ module.exports = function(grunt) {
       },
 
       less: {
-        files: ['<%- path.less %>/**/*'],
+        files: [
+          '<%- path.less %>/**/*',
+          '<%- path.dist_vendor %>/engine-ui/less/**/*'
+        ],
         tasks: ['less:app']
       },
 
-      engineui: {
-        files: ['<%- path.engineui %>/**/*'],
-        tasks: ['shell:sync_engineui', 'less:engineui', 'less:app']
+      engineui_js: {
+        files: ['<%- path.engineui %>/js/**/*'],
+        tasks: ['shell:engineui_grunt', 'shell:sync_engineui']
+      },
+
+      engineui_less: {
+        files: ['<%- path.engineui %>/less/**/*'],
+        tasks: ['shell:sync_engineui']
       },
 
       // Start livereload server at http://localhost:35729/livereload.js
@@ -164,6 +174,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.registerTask('dist-dev', [
+    'shell:engineui_grunt',
     'shell:sync_app',
     'shell:sync_engineui',
     'bower',

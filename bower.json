@@ -10,16 +10,19 @@
     "tests"
   ],
   "dependencies": {
-    "marionette": "~1.6.4",
+    "marionette": "~1.7.0",
+    "backbone.wreqr": "~1.2.0",
     "requirejs": "~2.1.11",
     "requirejs-hogan-plugin": "~0.3.1",
-    "font-awesome": "~4.0.3",
-    "bootstrap": "~3.1.1",
-    "parsleyjs": "~1.2.4"
+    "parsleyjs": "~1.2.4",
+    "engine-ui": "https://github.com/LDEngine/engine-ui.git#933e8f9432051ee122ab327bf7fb3e0f7f2c0e55"
   },
   "exportsOverride": {
     "backbone.wreqr": {
       ".": "lib/backbone.wreqr.js"
+    },
+    "backbone.babysitter": {
+      ".": "lib/backbone.babysitter.js"
     },
     "bootstrap": {
       ".": "dist/js/bootstrap.js",

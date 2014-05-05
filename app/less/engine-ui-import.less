@@ -1,0 +1,75 @@
+/*
+ * This is an adaptation of engine-ui.less which imports the entire library
+ * by reference, except for basic styles applied to global HTML elements.
+ */
+
+// bootstrap.less
+// -----------------
+
+// Core variables and mixins
+@import "engine-ui/less/variables.less";
+@import (reference) "engine-ui/less/mixins.less";                // (reference)
+
+// Reset
+@import "engine-ui/less/normalize.less";
+@import "engine-ui/less/print.less";
+
+// Core CSS
+@import "engine-ui/less/scaffolding.less";
+@import "engine-ui/less/type.less";
+@import "engine-ui/less/code.less";
+// precompiled--see below
+@import (reference) "engine-ui/less/grid.less";                  // (reference)
+@import "engine-ui/less/tables.less";
+@import "engine-ui/less/forms.less";
+@import "engine-ui/less/buttons.less";
+
+// Components
+@import "engine-ui/less/component-animations.less";  // (reference)
+// font-awesome used instead--see below
+// @import (reference) "engine-ui/less/glyphicons.less";
+@import "engine-ui/less/dropdowns.less";             // (reference)
+@import "engine-ui/less/button-groups.less";         // (reference)
+@import "engine-ui/less/input-groups.less";          // (reference)
+@import "engine-ui/less/navs.less";                  // (reference)
+@import "engine-ui/less/navbar.less";                // (reference)
+@import (reference) "engine-ui/less/breadcrumbs.less";
+@import (reference) "engine-ui/less/pagination.less";
+@import (reference) "engine-ui/less/pager.less";
+@import (reference) "engine-ui/less/labels.less";
+@import (reference) "engine-ui/less/badges.less";
+@import (reference) "engine-ui/less/jumbotron.less";
+@import (reference) "engine-ui/less/thumbnails.less";
+@import "engine-ui/less/alerts.less";                // (reference)
+@import "engine-ui/less/progress-bars.less";         // (reference)
+@import (reference) "engine-ui/less/media.less";
+@import "engine-ui/less/list-group.less";            // (reference)
+@import "engine-ui/less/panels.less";
+@import (reference) "engine-ui/less/wells.less";
+@import "engine-ui/less/close.less";                 // (reference)
+// Custom component: Bars
+@import "engine-ui/less/bars.less";
+
+// Components w/ JavaScript
+@import "engine-ui/less/modals.less";                // (reference)
+@import "engine-ui/less/tooltip.less";               // (reference)
+@import (reference) "engine-ui/less/popovers.less";
+@import (reference) "engine-ui/less/carousel.less";
+
+// Utility classes
+@import (reference) "engine-ui/less/utilities.less";
+@import (reference) "engine-ui/less/responsive-utilities.less";
+
+
+// engine-ui
+// -----------------
+
+// engine-ui-grid.less is compiled to engine-ui-grid-precompile.less for import here
+@import "engine-ui-grid-precompile.less";
+
+// Fonts
+@import "font-awesome/less/font-awesome.less";
+@import "engine-ui/less/engine-ui-font.less";
+
+// paths must come after font-awesome to properly override
+@import "paths.less";

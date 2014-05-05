@@ -1,0 +1,258 @@
+@import "engine-ui-import.less";
+@import "document.less";
+@import "accounts.less";
+@import "accounts-detail.less";
+@import "admin-dashboard.less";
+@import "api.less";
+@import "api-detail.less";
+@import "dashboard.less";
+@import "datepicker.less";
+@import "mixins.less";
+@import "modal.less";
+@import "payments.less";
+@import "profile.less";
+@import "user-detail.less";
+@import "user-login.less";
+
+// Main Elements & Classes
+// --------------------------------------------------
+
+body {
+  width: 100%;
+  padding: 0;
+
+  > table {
+    &:extend(.table all, .table-striped all);
+    background-color: #FF0000;
+  }
+}
+
+.wrap {
+    width: 100%;
+    min-height: 100%;
+    margin-bottom: -60px; /* equal to footer height */
+}
+
+.wrap {
+  &:after {
+    content: "";
+    display: block;
+  }
+}
+
+header {
+  > nav {
+    > div {
+      &:extend(.container-fluid all);
+    }
+  }
+}
+
+main {
+  &:extend(.container-fluid all);
+
+  overflow:auto;
+  height: 100%;
+}
+
+a.nav-previous {
+  &:extend(.pull-right all);
+
+  margin: 2.5% 2% 0;
+  text-decoration: none;
+}
+
+footer {
+  p {
+    > a {
+      padding: 0 0.5%;
+
+      &:first-child {
+        padding-left: 1%;
+      }
+    }
+  }
+}
+
+// Social Network Styling
+// --------------------------------------------------
+
+.fa-twitter {
+  color: #55acee;
+}
+
+.fa-facebook-square {
+  color: #3b5998;
+}
+
+.fa-linkedin-square {
+  color: #0e76a8;
+}
+
+.fa-github {
+  color: #171515;
+}
+
+.fa-google-plus-square {
+  color: #dd4b39;
+}
+
+.social-google {
+  background-color: @brand-google;
+}
+
+.social-facebook {
+  background-color: @brand-facebook;
+}
+
+.social-twitter {
+  background-color: @brand-twitter;
+}
+
+.social-linkedin {
+  background-color: @brand-linkedin;
+}
+
+// Options Separator (---OR---)
+// --------------------------------------------------
+
+.hr-or {
+  padding-bottom: 2%;
+  line-height: 0.5em;
+  text-align: center;
+
+  span {
+    display: inline-block;
+    position: relative;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: relative;
+    height: 5px;
+    border-bottom: 1px solid @gray-lighter;
+    border-top: 1px solid @gray-lighter;
+  }
+
+  &:before {
+    right: 100%;
+    margin-right: 15px;
+  }
+
+  &:after {
+    left: 100%;
+    margin-left: 15px;
+  }
+}
+
+// Table Actions
+// --------------------------------------------------
+.table-actions {
+  //&:extend(.row);
+
+  display: block;
+  clear: both;
+
+  > h4 {
+    &:extend(.pull-left);
+
+    > button {
+      &:extend(.btn, .btn-success, .btn-xs);
+
+      margin-left: 1%;
+    }
+  }
+
+  .form-payments {
+    form {
+      .form-group {
+        text-align: right;
+      }
+    }
+  }
+
+  .table-actions-form {
+    &:extend(.pull-right all);
+
+    width: 50%;
+
+    form {
+
+      .form-group {
+        &:extend(.pull-left all);
+
+        > input,
+          div input,
+          select {
+            &:extend(.form-control all, .input-sm all);
+        }
+
+        > input,
+          div input {
+        }
+
+        .input-group {
+          input {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        }
+
+        .input-group-btn {
+          button {
+            &:extend(.input-sm all);
+
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Dropdown menus
+// --------------------------------------------------
+.avatar {
+  margin-top: -7px;
+}
+
+
+// Status Icon
+// --------------------------------------------------
+i.fa-smile-o {
+  color: @brand-success;
+}
+
+i.fa-meh-o {
+  color: @brand-warning;
+}
+
+i.fa-frown-o {
+  color: @brand-danger;
+}
+
+// Footer
+// --------------------------------------------------
+
+footer,
+.wrap:after {
+  height: 60px;
+}
+
+footer {
+  position: relative;
+  clear: both;
+  width: 100%;
+  color: #FFF;
+  background-color: #393939;
+
+  > div {
+    &:extend(.container-fluid all);
+
+    > p {
+      padding-top: 20px;
+    }
+  }
+}

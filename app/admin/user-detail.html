@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8" />
+      <title>Engine: Developer Billing</title>
+      <link href="../style/billing.css" rel="stylesheet" />
+
+      <!-- Fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    </head>
+    <body>
+        <div class="wrap">
+          <header>
+            <nav class="navbar navbar-default" role="navigation">
+              <div>
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#">Engine Developer Billing</a>
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div><!-- /.navbar-header -->
+                <div id="main-navigation" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav nav-pills navbar-right">
+                    <li>
+                      <a href="#">
+                        Tour
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        New Features
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        API Docs
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        Support
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        Contact
+                      </a>
+                    </li>
+                    <li class="dropdown avatar">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                        </span>
+                        becky@engine.co<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Account Settings</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Log Out</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div><!-- /#main-navigation -->
+              </div><!-- /.container-fluid -->
+            </nav>
+          </header>
+
+          <main>
+            <div class="dashboard-wrapper">
+              <div class="nav-dashboard-wrapper">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#left-nav-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+
+                <ul class="nav nav-dashboard list-group collapse navbar-collapse" id="left-nav-collapse" >
+                  <li class="list-group-item">
+                    <a href="#">
+                      <i class="fa fa-dashboard"></i>Dashboard
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#">
+                      <i class="fa fa-code-fork"></i>APIs
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#">
+                      <i class="fa fa-users"></i>Users
+                    </a>
+                  </li>
+                </ul><!-- /.nav-dashboard -->
+              </div><!-- /.nav-dashboard-wrapper -->
+
+              <div class="dashboard-content">
+                <h1 class="pull-left">
+                  David Johnston
+                </h1>
+                <a href="#" class="nav-previous">
+                  <i class="fa fa-list"></i> Back to List
+                </a>
+
+                <div class="user-info">
+                  <div class="user-avatar">
+                    <i class="fa fa-user fa-4x"></i>
+                  </div>
+                  <div class="user-data">
+                    <div class="register-date">
+                      <i class="fa fa-calendar"></i>Jan 01, 2014
+                    </div><!-- /.register-date -->
+
+                    <div class="email">
+                      <i class="fa fa-envelope"></i>david@engine.co
+                    </div><!-- /.email -->
+
+                    <div class="register-method">
+                      <i class="fa fa-google-plus"></i>Google+
+                    </div><!-- /.register-method -->
+                  </div><!-- /.user-data -->
+                </div><!-- /.user-info -->
+
+                <div class="api-list">
+                  <h4>
+                    Current APIs
+                    <button>
+                      Manage User
+                    </button>
+                  </h4>
+                  <div class="api">
+                    <div class="name">
+                      Data Access
+                    </div>
+                    <div class="status">
+                      <i class="fa fa-smile-o"></i>
+                    </div>
+                    <div class="data-usage">
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                          <span class="sr-only">20% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="billing-cycle">
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+                          <span class="sr-only">60% Complete (warning)</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="calls">
+                      1 / 100
+                    </div>
+                    <div class="queries">
+                      45
+                    </div>
+                    <div class="actions">
+                      <a href="#">
+                        <i class="fa fa-cog"></i>
+                      </a>
+                      <a href="#">
+                        <i class="fa fa-plus-circle"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="api">
+                    <div class="name">
+                      Data Access
+                    </div>
+                    <div class="status">
+                      <i class="fa fa-meh-o"></i>
+                    </div>
+                    <div class="data-usage">
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                          <span class="sr-only">40% Complete (success)</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="billing-cycle">
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                          <span class="sr-only">80% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="calls">
+                      1 / 100
+                    </div>
+                    <div class="queries">
+                      45
+                    </div>
+                    <div class="actions">
+                      <a href="#">
+                        <i class="fa fa-cog"></i>
+                      </a>
+                      <a href="#">
+                        <i class="fa fa-plus-circle"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="api">
+                    <div class="name">
+                      Data Access
+                    </div>
+                    <div class="status">
+                      <i class="fa fa-frown-o"></i>
+                    </div>
+                    <div class="data-usage">
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">20% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="billing-cycle">
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                          <span class="sr-only">60% Complete (warning)</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="calls">
+                      1 / 100
+                    </div>
+                    <div class="queries">
+                      45
+                    </div>
+                    <div class="actions">
+                      <a href="#">
+                        <i class="fa fa-cog"></i>
+                      </a>
+                      <a href="#">
+                        <i class="fa fa-plus-circle"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="api">
+                    <div class="name">
+                      Data Access
+                    </div>
+                    <div class="status">
+                      <i class="fa fa-smile-o"></i>
+                    </div>
+                    <div class="data-usage">
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                          <span class="sr-only">40% Complete (success)</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="billing-cycle">
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                          <span class="sr-only">80% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="calls">
+                      1 / 100
+                    </div>
+                    <div class="queries">
+                      45
+                    </div>
+                    <div class="actions">
+                      <a href="#">
+                        <i class="fa fa-cog"></i>
+                      </a>
+                      <a href="#">
+                        <i class="fa fa-plus-circle"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                </div><!-- /.api-list -->
+
+                <div class="table-actions">
+                  <h4>
+                    Payment History
+                  </h4>
+                  <div class="table-actions-form">
+                    <form class="form-inline" role="form">
+                      <div class="form-group col-md-3">
+                        <select class="form-control">
+                          <option selected>Filter by ...</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-1">
+                        <label for="startDate" class="control-label">From:</label>
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label class="sr-only" for="startDate">Start Date</label>
+                        <div class="input-group input-append date pick-date" id="dp3" data-date="01-01-2014" data-date-format="dd-mm-yyyy">
+                          <input class="form-control span2" size="16" type="text" placeholder="Start">
+                          <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div><!-- /.input-group -->
+                      </div><!-- /.form-group -->
+
+                      <div class="form-group col-md-3">
+                        <label class="sr-only" for="startDate">Start Date</label>
+                        <div class="input-group input-append date pick-date" id="datepicker2" data-date="01-01-2014" data-date-format="dd-mm-yyyy">
+                          <input type="text" class="form-control" placeholder="End">
+                          <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div><!-- /.input-group -->
+                      </div><!-- /.form-group -->
+                      <div class="form-group col-md-2">
+                        <button type="submit" class="btn btn-default btn-sm">Go</button>
+                      </div><!-- /.form-group -->
+                    </form>
+                  </div><!-- /.table-actions-form -->
+                </div><!-- /.table-actions -->
+
+                <table>
+                  <tr>
+                    <th>
+                      Date
+                    </th>
+                    <th>
+                      Status
+                    </th>
+                    <th>
+                      Amount
+                    </th>
+                    <th>
+                      Payment Method
+                    </th>
+                    <th>
+                      Confirmation Number
+                    </th>
+                    <th>
+                      API Limit
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      Mar 03, 2014
+                    </td>
+                    <td>
+                      <i class="fa fa-smile-o"></i>
+                    </td>
+                    <td>
+                      3 BTC
+                    </td>
+                    <td>
+                      <i class="fa fa-btc"></i> Bitcoin - devBitcoin1
+                    </td>
+                    <td>
+                      ABCD123456789
+                    </td>
+                    <td>
+                      1
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Apr 12, 2014
+                    </td>
+                    <td>
+                      <i class="fa fa-meh-o"></i>
+                    </td>
+                    <td>
+                      3 BTC
+                    </td>
+                    <td>
+                      <i class="fa fa-btc"></i> Bitcoin - devBitcoin1
+                    </td>
+                    <td>
+                      ABCD123456789
+                    </td>
+                    <td>
+                      1
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      May 26, 2014
+                    </td>
+                    <td>
+                      <i class="fa fa-frown-o"></i>
+                    </td>
+                    <td>
+                      3 BTC
+                    </td>
+                    <td>
+                      <i class="fa fa-btc"></i> Bitcoin - devBitcoin1
+                    </td>
+                    <td>
+                      ABCD123456789
+                    </td>
+                    <td>
+                      1
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Jun 30, 2014
+                    </td>
+                    <td>
+                      <i class="fa fa-smile-o"></i>
+                    </td>
+                    <td>
+                      3 BTC
+                    </td>
+                    <td>
+                      <i class="fa fa-btc"></i> Bitcoin - devBitcoin1
+                    </td>
+                    <td>
+                      ABCD123456789
+                    </td>
+                    <td>
+                      1
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Jul 01, 2014
+                    </td>
+                    <td>
+                      <i class="fa fa-meh-o"></i>
+                    </td>
+                    <td>
+                      3 BTC
+                    </td>
+                    <td>
+                      <i class="fa fa-btc"></i> Bitcoin - devBitcoin1
+                    </td>
+                    <td>
+                      ABCD123456789
+                    </td>
+                    <td>
+                      1
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Aug 25, 2014
+                    </td>
+                    <td>
+                      <i class="fa fa-frown-o"></i>
+                    </td>
+                    <td>
+                      3 BTC
+                    </td>
+                    <td>
+                      <i class="fa fa-btc"></i> Bitcoin - devBitcoin1
+                    </td>
+                    <td>
+                      ABCD123456789
+                    </td>
+                    <td>
+                      1
+                    </td>
+                  </tr>
+                </table>
+              </div><!-- /.dashboard-content -->
+            </div><!-- /.dashboard-wrapper -->
+          </main>
+        </div><!-- / #wrap -->
+
+        <footer>
+          <div>
+            <p>
+              Copyright &copy; 2014 Engine, Inc.
+              <a href="">
+                Legal
+              </a>
+              <a href="">
+                Terms of Service
+              </a>
+              <a href="">
+                Privacy
+              </a>
+              <a href="">
+                Contact
+              </a>
+            </p>
+          </div>
+        </footer>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../lib/bootstrap.js"></script>
+        <script src="../lib/engine-plugins.js"></script>
+    </body>
+</html>

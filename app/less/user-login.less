@@ -1,0 +1,166 @@
+.user-login,
+.feature-highlight-1,
+.feature-highlight-2 {            // For landing page register / login
+  &:extend(.row all);
+
+  padding: 4% inherit;
+}
+
+.user-login {
+  min-height: 85vh;
+  background-color: @gray-even-lighter;
+
+  .billing-highlight,
+  .user-account-form {
+    &:extend(.col-xs-12, .col-md-6, .col-lg-6);
+
+  }
+
+  .user-account-form {
+
+    div {
+      &:extend(.row);
+
+      .form-create-account,
+      .form-user-login {
+        &:extend(.col-xs-12, .col-md-6, .col-lg-6);
+
+        button.btn-create-account,
+        button.btn-user-login {
+          &:extend(.btn, .btn-lg, .btn-block);
+
+          margin: 0 auto;
+          text-transform: uppercase;
+          background: none;
+          
+          &:active {
+            &:extend(.btn-primary);
+          }
+        }
+      }
+
+      .tab-content,
+      .tab-pane {
+        margin: 0;
+      }
+
+      .tab-content {
+
+        .tab-pane {
+
+          #register-form {
+            &:extend(.col-xs-12, .col-md-12, .col-lg-12);
+
+            padding-top: 2%;
+
+            form {
+
+              .hr-or {
+                padding-top: 2%;
+              }
+
+              > button {
+                &:extend(.btn-lg);
+
+                text-transform: uppercase;
+              }
+
+              .form-group {
+                margin-left: 0;
+                margin-right: 0;
+
+                > .checkbox {
+                  margin: 0 0 0 0.5%;
+                  padding-top: 0;
+                }
+
+                .forgot-password {
+                  text-align: right;
+
+                  i {
+                    padding-right: 1%;
+                  }
+                }
+              }
+
+              .social-accounts {
+                > button {
+                  &:extend(.btn-lg);
+
+                  float: left;
+                  margin: 0 1% 2% 2%;
+                  width: 47%;
+                  text-align: left;
+
+                  > i {
+                    padding-right: 10px;
+                    text-align: left;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.feature-highlight-1 {
+  text-align: center;
+  background-color: @brand-primary-lighter;
+
+  h1 {
+    padding-bottom: 3%;
+  }
+
+  > div {
+    &:extend(.col-xs-12, .col-md-4, .col-lg-4);
+
+    text-align: left;
+
+    img {
+      width: 50%;
+      border-radius: 50%;
+    }
+  }
+}
+
+.feature-highlight-2 {
+  background-color: #fff;
+
+  > div {
+    &:extend(.col-xs-12, .col-md-6, .col-lg-6);
+  }
+
+  .feature-images {
+    .image-container {
+      margin: 0 auto;
+      width: 75%;
+
+      img {
+        float: left;
+        margin: 2%;
+        width: 225px;
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+
+        &:nth-child(odd) {
+          clear: both;
+        }
+      }
+    }
+  }
+
+  .feature-copy {
+    height: 150px;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+}

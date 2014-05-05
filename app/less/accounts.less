@@ -1,0 +1,174 @@
+// Accounts View
+// --------------------------------------------------
+
+.accounts-list {
+  &:extend(.container-fluid);
+
+  .account {
+    &:extend(.bar all);
+
+    .select-default {
+      &:extend(.col-md-1);
+
+      &:before {
+      content: "\f006";
+      margin: auto 0.5em auto -0.25em;
+      font-family: FontAwesome;
+      font-size: @font-size-h4;
+      color: @gray-light;
+      vertical-align: middle;
+      }
+
+    }
+
+    .account-logo, // REMINDER: REMOVE THIS LABEL
+    .name,
+    .address,
+    .balance,
+    .type {
+      &:before {
+        white-space: pre;
+        font-size: @font-size-h6;
+        text-transform: uppercase;
+      }
+    }
+
+    .account-logo {
+      &:extend(.col-md-1);
+
+      &:before {
+        content: "Logo\A";
+      }
+
+      vertical-align: middle;
+    }
+
+    .name {
+      &:extend(.col-md-2);
+
+      &:before {
+        content: "Name\A";
+      }
+    }
+
+    .address {
+      &:extend(.col-md-2);
+
+      &:before {
+        content: "Address\A";
+      }
+    }
+
+    .balance {
+      &:extend(.col-md-2);
+
+      &:before {
+        content: "Balance\A";
+      }
+
+      &:after {
+        content: "BTC";
+      }
+    }
+
+    .type {
+      &:extend(.col-md-2);
+
+      &:before {
+        content: "Type\A";
+      }
+    }
+
+    .actions {
+      &:extend(.col-md-2);
+
+      > a {
+        &:extend(.pull-right);
+        padding-left: 0.5em;
+        font-size: @font-size-h4;
+        color: @gray-light;
+      }
+    }
+
+    // REMOVE: START - Logo demonstration purposes only
+    .account-logo {
+      .fa-stack {
+        i.fa-circle {
+          color: orange;
+        }
+
+        i.fa-btc {
+          margin-top: -1px;
+        }
+      }
+    }
+    // REMOVE: END
+
+  }
+
+  .account-default {
+    .select-default {
+      &:before {
+        content: "\f005";
+        color: @brand-warning;
+      }
+    }
+  }
+}
+
+.account-select {
+  padding: 3% 5%;
+  text-align: left;
+
+  p {
+    padding-bottom: 2%;
+  }
+
+  > form {
+    padding-top: 1%;
+  }
+
+  #stripe {
+    form {
+      &:extend(.row);
+
+      .form-group {
+        padding-bottom: 1%;
+      }
+
+      .credit-card-number,
+      .name-on-card,
+      .exp-month,
+      .exp-year,
+      .credit-card-csv {
+
+        input,
+        select {
+          width: 100%;
+        }
+      }
+
+      .credit-card-number {
+        &:extend(.col-xs-12, .col-md-6, .col-lg-6);
+      }
+
+      .name-on-card {
+        &:extend(.col-xs-12, .col-md-6, .col-lg-6);
+      }
+
+      .exp-month {
+        &:extend(.col-xs-12, .col-md-4, .col-lg-4);
+
+        clear: both;
+      }
+
+      .exp-year {
+        &:extend(.col-xs-12, .col-md-4, .col-lg-4);
+      }
+
+      .credit-card-csv {
+        &:extend(.col-xs-12, .col-md-4, .col-lg-4s);
+      }
+    }
+  }
+}

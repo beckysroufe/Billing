@@ -1,0 +1,43 @@
+// Derived from AirBnB + LinkedIn Idiomatic + Crockford
+// https://github.com/airbnb/javascript
+// https://github.com/linkedin/idiomatic.js (Idiomatic fork with Crockford inner spacing)
+// http://javascript.crockford.com/code.html
+{
+  "requireSpaceAfterKeywords": ["if", "else", "for", "while", "do", "switch", "return", "try", "catch"],
+  "requireMultipleVarDecl": true,
+  "requireParenthesesAroundIIFE": true,
+  "requireSpacesInFunctionExpression": {
+    "beforeOpeningCurlyBrace": true
+  },
+  "disallowSpacesInNamedFunctionExpression": {
+    "beforeOpeningRoundBrace": true
+  },
+  "requireSpacesInAnonymousFunctionExpression": {
+    "beforeOpeningRoundBrace": true
+  },
+  "disallowSpaceAfterObjectKeys": true,
+  "disallowSpacesInsideArrayBrackets": true,
+  "disallowSpacesInsideParentheses": true,
+  "disallowEmptyBlocks": true,
+  "requireSpacesInsideObjectBrackets": "allButNested",
+  "requireCommaBeforeLineBreak": true,
+  "requireOperatorBeforeLineBreak": ["?", "+", "-", "/", "*", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<=", "&&", "||"],
+  "requireSpaceAfterBinaryOperators": ["?", "+", "-", "/", "*", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<=", "&&", "||"],
+  "requireSpaceAfterBinaryOperators": ["?", "+", "-", "/", "*", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<=", "&&", "||"],
+  "disallowRightStickedOperators": [":", ","],
+  "requireLeftStickedOperators": [","],
+  "requireSpaceAfterPrefixUnaryOperators": ["}"],
+  "disallowSpaceAfterPrefixUnaryOperators": ["++", "--", "+", "-", "~", "!"],
+  "disallowSpaceBeforePostfixUnaryOperators": ["++", "--"],
+  "disallowKeywords": ["with", "eval"],
+  "disallowMultipleLineStrings": true,
+  "disallowMultipleLineBreaks": true,
+  "requireLineFeedAtFileEnd": true,
+  "safeContextKeyword": ["self"],
+  "requireDotNotation": true
+
+  // TODO: enforce space between closing bracket and "else", as in "} else" but not "}else"
+  
+  // TODO: bug report: showing warning for lines containing only whitespace
+  // "disallowTrailingWhitespace": true,
+}

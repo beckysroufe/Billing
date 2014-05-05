@@ -1,0 +1,71 @@
+// Payments View
+// --------------------------------------------------
+
+// Purchase API
+.payment-offerings {
+  &:extend(.row);
+
+  .single-payment,
+  .subscription {
+    float: left;
+    margin: 1%;
+    padding: 1%;
+    width: 46%;
+    // &:extend(.col-md-6);
+
+    > h4 {
+      margin-top: 0;
+      padding: 2.5% 1%;
+      text-align: center;
+    }
+
+    > ul {
+      &:extend(.key-points);
+      padding-left: 2em;
+      list-style-type: none;
+
+      > li {
+        padding: 0.5em 0;
+        font-size: @font-size-h5;
+
+        &:before {
+          padding-right: 1%;
+          content: "\f058";
+          font-family: FontAwesome;
+          font-size: @font-size-h3;
+          color: @brand-primary;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    > button {
+      margin: auto 1% auto auto;
+    }
+  }
+
+  .single-payment {
+    > h4 {
+      background-color: @gray-even-lighter;
+    }
+  }
+
+  .subscription {
+    border: 1px @input-border solid;
+    .tab-focus();
+
+    > h4 {
+      background-color: @brand-primary;
+    }
+  }
+
+}
+
+.key-points {
+  height: 300px;
+}
+
+// Search Results
+.search-keyword {
+  color: @brand-primary;
+}

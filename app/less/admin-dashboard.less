@@ -1,0 +1,38 @@
+// Admin Dashboard View
+// --------------------------------------------------
+
+.modules {
+  &:extend(.col-xs-12 all, .col-md-8 all, .col-lg-8 all);
+
+  .api-list {
+    &:extend(.row all);
+  }
+}
+
+.recent-activity {
+  &:extend(.col-xs-12 all, .col-md-4 all, .col-lg-4 all);
+
+  .activity-feed {
+    &:extend(.row);
+
+    .feed-item {
+      &:extend(.row);
+
+      i {
+        &:extend(.col-md-1, .col-lg-1);
+      }
+
+      p {
+        &:extend(.col-md-10, .col-lg-11);
+
+        .time {
+          &:extend(.small);
+
+          display: block;
+          color: @gray-lighter;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}

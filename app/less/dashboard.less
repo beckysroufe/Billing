@@ -1,0 +1,191 @@
+// Dashboard Styling
+// --------------------------------------------------
+
+.dashboard-wrapper {     // contains sidebar navigation + dashboard content
+  &:extend(.row all);
+
+  height: 100%;
+}
+
+.dashboard-content {
+  &:extend(.container-fluid all, .col-xs-12 all, .col-md-9 all, .col-lg-9 all);
+
+  padding: 0 15px;
+  height: 100%;
+
+  h1 {
+    // &:extend(.pull-left);
+  }
+
+  h3 {
+    clear: both;
+  }
+
+  h4 {
+    // border-bottom: 1px @gray-even-lighter solid;
+
+    > a {
+      font-size: @font-size-h6;
+    }
+  }
+
+  table
+   {
+    &:extend(.table all, .table-striped all);
+  }
+
+  .dashboard-accounts,
+  .dashboard-api {
+    &:extend(.col-xs-12 all, .col-md-6 all, .col-lg-6 all);
+  }
+
+  .dashboard-api {
+    .api-list {
+      &:extend(.row all);
+
+      .api {
+        .name {
+          &:extend(.col-md-2 all);
+
+        }
+
+        .status {
+          &:extend(.col-md-2 all);
+
+        }
+
+        .data-usage {
+          &:extend(.col-md-3 all);
+
+        }
+
+        .billing-cycle {
+          &:extend(.col-md-3 all);
+
+        }
+
+        .actions {
+          &:extend(.col-md-2 all);
+
+        }
+      }
+    }
+  }
+
+  .dashboard-accounts {
+    .accounts-list {
+      .account {
+        .select-default {
+          &:extend(.col-md-1 all);
+
+        }
+
+        .name {
+          &:extend(.col-md-3 all);
+
+        }
+
+        .address {
+          &:extend(.col-md-3 all);
+
+        }
+
+        .balance {
+          &:extend(.col-md-2 all);
+
+        }
+
+        .actions {
+          &:extend(.col-md-3 all);
+
+        }
+      }
+    }
+  }
+}
+
+// Nav variations
+// --------------------------------------------------
+.nav-dashboard-wrapper {
+  &:extend(.col-xs-12 all, .col-md-3 all, .col-lg-3 all);
+
+  padding: 0;
+  height: 100%;
+  background-color: @gray-even-lighter;
+
+  .nav-dashboard {
+    padding: 0;
+    height: 100%;
+    background-color: @gray-even-lighter;
+  }
+
+  .list-group {
+    margin-bottom: 0;
+
+    > .list-group-item {
+      padding: 0;
+      background-color: @gray-even-lighter;
+      border-radius: 0;
+      border: none;
+    }
+
+    > li:first-child {
+        > a {
+          border-top: 0;
+        }
+      }
+
+    > li {
+      > a {
+        margin-bottom: 1px;
+        padding: 20px;
+        color: @gray-light;
+        font-size: @font-size-h4;
+        border-top: 1px @gray-lightest solid;
+        border-bottom: 1px @gray-lighter solid;
+        border-right: none;
+
+        &:hover, .active {
+          color: @brand-primary;
+          background-color: #fff;
+        }
+
+        i {
+          width: 25px;
+          padding-right: 1%;
+          text-align: center;
+        }
+
+      }
+
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+// Dashboard Content Subnavigation with Search (e.g. Payments - Purchase, Single, Subs, etc.)
+// -------------------------------------------------
+.nav-secondary {
+  &:extend(.pull-left);
+
+  padding: 20px;
+
+  a {
+    color: @gray-darker;
+  }
+
+  form {
+    width: 150px;
+
+    button {
+      background-color: #fff;
+    }
+  }
+}
+
+.nav-secondary-form {
+  margin: 2.25% auto;
+  width: 200px;
+}

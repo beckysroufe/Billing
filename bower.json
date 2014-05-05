@@ -15,7 +15,7 @@
     "requirejs": "~2.1.11",
     "requirejs-hogan-plugin": "~0.3.1",
     "parsleyjs": "~1.2.4",
-    "engine-ui": "https://github.com/ianmstew/engine-ui.git#33492bbd5692e773666c997490b0b1e5a41d104d"
+    "engine-ui": "https://github.com/LDEngine/engine-ui.git#933e8f9432051ee122ab327bf7fb3e0f7f2c0e55"
   },
   "exportsOverride": {
     "backbone.wreqr": {

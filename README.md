@@ -38,14 +38,6 @@
    * Type/select "SublineLinter-JSHint"
    * Type/select "SublimeLinter-JSCS"
 
-## UI Toolkit Development
-
-1. Start development mode (see **Developing App**)
-1. Open `http://localhost:3000/assets/vendor/engineui/`
-1. Edit `engineui/index.html` with Bootstrap-compatible code (copy-paste from getbootstrap.com, for example)
-1. Edit appropriate less files in `engineui/less` to override Bootstrap styles
-1. Guideline: add custom classes if necessary, but attempt to stay as close to the Bootstrap class names as possible
-
 ## REST API Usage
 
 Get all bills:

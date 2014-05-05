@@ -1,42 +1,67 @@
 define(function (require) {
   var appRadio = require('app.radio'),
       dashRadio = require('modules/dash/dash.radio'),
+      MainController = require('common/main/main.controller'),
       DashController = require('modules/dash/dash.controller'),
-      DashRouter,
+      DashRouter = require('modules/dash/dash.router'),
       API,
-      dashController;
+      dashController,
+      mainController;
 
-  DashRouter = Backbone.Marionette.AppRouter.extend({
-    appRoutes: {
-      'dash': 'showDashboard'
-    }
+  mainController = new MainController({
+    name: 'Dashboard',
+    radio: dashRadio
   });
 
-  dashController = new DashController({ name: 'Dashboard' });
+  dashController = new DashController();
 
   API = {
-    _initialize: function () {
-      new DashRouter({
-        controller: API
-      });
+    priv: {
+      _showInContent: function (view) {
+        mainController.showInContent(view);
+      },
+
+      _actionView: function () {
+        return dashController.actionView();
+      }
     },
 
-    showDashboard: function () {
-      dashController.showDashboard();
-      appRadio.vent.trigger('module:activated', 'dash');
-      appRadio.commands.execute('navigate', 'dash');
+    pub: {
+      showDashboard: function () {
+        dashController.showDashboard();
+        appRadio.vent.trigger('module:activated', 'dash');
+        appRadio.commands.execute('navigate', 'dash');
+      }    
     },
 
-    showMain: function (view) {
-      appRadio.commands.execute('show:content:main', view);
+    evtFwd: {
+      _showInMain: function (mainView) {
+        appRadio.commands.execute('region:content-main:showin', mainView);
+      },
+
+      _alertEntities: function () {
+        return appRadio.reqres.request('alert:entities');
+      }
     }
   };
 
-  appRadio.vent.on('dash:show', API.showDashboard);
-  appRadio.commands.execute('add:initializer', API._initialize);
+  // private events
+  dashRadio.commands.setHandler('region:content:showin', API.priv._showInContent);
+  dashRadio.reqres.setHandler('action:view', API.priv._actionView);
 
-  // module->app event forwarding
-  dashRadio.commands.setHandler('show:main', API.showMain);
+  // public events
+  appRadio.vent.on('dash:showDashboard', API.pub.showDashboard);
+
+  // module -> app forwarded events
+  dashRadio.commands.setHandler('region:main:showin', API.evtFwd._showInMain);
+  dashRadio.reqres.setHandler('alert:entities', API.evtFwd._alertEntities);
+
+  // register module with app
+  appRadio.commands.execute('initializer:add', function () {
+    new DashRouter({
+      controller: API.pub
+    });
+  });
 
   // No export--event API only
 });

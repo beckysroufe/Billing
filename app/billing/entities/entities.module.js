@@ -2,6 +2,7 @@ define(function (require) {
   var appRadio = require('app.radio'),
       ApiCollection = require('entities/account/account.collection'),
       AccountCollection = require('entities/account/account.collection'),
+      AlertCollection = require('entities/alert/alert.collection'),
       API;
 
   function initializeApis() {
@@ -17,6 +18,15 @@ define(function (require) {
       { name: 'account one' },
       { name: 'account two' },
       { name: 'account three' }
+    ];
+  }
+
+  function initializeAlerts() {
+    return [
+      { message: 'alert danger', state: 'danger' },
+      { message: 'alert warn', state: 'warn' },
+      { message: 'alert info', state: 'info' },
+      { message: 'alert success', state: 'success' }
     ];
   }
 
@@ -61,11 +71,15 @@ define(function (require) {
       });
 
       return promise;
+    },
+
+    getAlertEntities: function () {
+      return new AlertCollection(initializeAlerts());
     }
   };
 
   appRadio.reqres.setHandler('api:entities', API.getApiEntities);
   appRadio.reqres.setHandler('account:entities', API.getAccountEntities);
-
+  appRadio.reqres.setHandler('alert:entities', API.getAlertEntities);
   // No export--event API only
 });

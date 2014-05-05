@@ -6,7 +6,7 @@ define(function (require) {
   menuController = {
     showMenu: function () {
       var menuView = new MenuView();
-      appRadio.commands.execute('show:content:menu', menuView);
+      appRadio.commands.execute('region:content-menu:showin', menuView);
     }
   };
 

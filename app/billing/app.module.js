@@ -16,26 +16,26 @@ define(function (require) {
       Backbone.history.navigate(route, options);
     },
 
-    getCurrentRoute: function () {
+    currentRoute: function () {
       return Backbone.history.fragment;
     },
 
-    showHeader: function (view) {
+    showInHeader: function (view) {
       app.headerRegion.show(view);
     },
 
-    showFooter: function (view) {
+    showInFooter: function (view) {
       app.footerRegion.show(view);
     },
 
-    showContent: function (view) {
+    showInContent: function (view) {
       app.contentRegion.show(view);
 
       // showg a view in the contentRegion will destroy the appLayout
       appLayoutShown = false;
     },
 
-    showContentMenu: function (view) {
+    showInContentMenu: function (view) {
       // don't re-render the layout if currently visible
       if (!appLayoutShown) {
         appLayout = new AppContentLayout();
@@ -52,7 +52,7 @@ define(function (require) {
       appLayoutShown = true;
     },
 
-    showContentMain: function (view) {
+    showInContentMain: function (view) {
       // don't re-render the layout if currently visible
       if (!appLayoutShown) {
         appLayout = new AppContentLayout();
@@ -70,14 +70,14 @@ define(function (require) {
     }
   };
 
-  appRadio.reqres.setHandler('get:current:route', API.getCurrentRoute);
+  appRadio.reqres.setHandler('route:current', API.currentRoute);
   appRadio.commands.setHandler('navigate', API.navigate);
-  appRadio.commands.setHandler('add:initializer', API.addInitializer);
-  appRadio.commands.setHandler('show:header', API.showHeader);
-  appRadio.commands.setHandler('show:footer', API.showFooter);
-  appRadio.commands.setHandler('show:content', API.showContent);
-  appRadio.commands.setHandler('show:content:menu', API.showContentMenu);
-  appRadio.commands.setHandler('show:content:main', API.showContentMain);
+  appRadio.commands.setHandler('initializer:add', API.addInitializer);
+  appRadio.commands.setHandler('region:header:showin', API.showInHeader);
+  appRadio.commands.setHandler('region:footer:showin', API.showInFooter);
+  appRadio.commands.setHandler('region:content:showin', API.showInContent);
+  appRadio.commands.setHandler('region:content-menu:showin', API.showInContentMenu);
+  appRadio.commands.setHandler('region:content-main:showin', API.showInContentMain);
 
   // No export--event API
 });

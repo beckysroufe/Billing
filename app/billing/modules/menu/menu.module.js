@@ -18,7 +18,7 @@ define(function (require) {
   // TODO: show menu automatically as needed but not if already showing,
   // because the menu will be closed when switching to static pages
   // (entire content area will be swapped out)
-  appRadio.commands.execute('add:initializer', API.showMenu);
+  appRadio.commands.execute('initializer:add', API.showMenu);
 
   // No export--event API only
 });

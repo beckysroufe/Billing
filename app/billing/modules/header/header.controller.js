@@ -6,7 +6,7 @@ define(function (require) {
   headerController = {
     showHeader: function () {
       var headerView = new HeaderView();
-      appRadio.commands.execute('show:header', headerView);
+      appRadio.commands.execute('region:header:showin', headerView);
     }
   };
 

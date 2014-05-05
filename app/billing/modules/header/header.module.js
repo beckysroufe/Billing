@@ -9,7 +9,7 @@ define(function (require) {
     }
   };
 
-  appRadio.commands.execute('add:initializer', API.showHeader);
+  appRadio.commands.execute('initializer:add', API.showHeader);
 
   // No export--event API only
 });

@@ -34,6 +34,7 @@ require([
   'marionette',
   'app',
   'app.module',
+  'entities/entities.module',
   'modules/header/header.module',
   'modules/footer/footer.module',
   'modules/menu/menu.module',

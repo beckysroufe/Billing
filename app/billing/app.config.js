@@ -1,7 +1,7 @@
 define(function (require) {
   
   var config = {
-    indexEvent: 'dash:show',
+    indexEvent: 'dash:showDashboard',
     debugRadio: {
       app: true
     }

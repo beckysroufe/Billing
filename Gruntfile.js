@@ -82,7 +82,8 @@ module.exports = function(grunt) {
 
       sourcemap_links: {
         command: [
-          'cd dist/style',
+          'mkdir -p <%- path.dist_style %>',
+          'cd <%- path.dist_style %>',
           'rm -f app && ln -s ../../app app',
           'rm -f dist && ln -s ../ dist'
         ].join('&&')

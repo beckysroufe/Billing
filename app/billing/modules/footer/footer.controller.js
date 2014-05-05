@@ -6,7 +6,7 @@ define(function (require) {
   footerController = {
     showFooter: function () {
       var footerView = new FooterView();
-      appRadio.commands.execute('show:footer', footerView);
+      appRadio.commands.execute('region:footer:showin', footerView);
     }
   };
 

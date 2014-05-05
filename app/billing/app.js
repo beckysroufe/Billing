@@ -1,5 +1,6 @@
 define(function (require) {
-  var Marionette = require('marionette'),
+  var Backbone = require('backbone'),
+      Marionette = require('marionette'),
       appConfig = require('app.config'),
       appRadio = require('app.radio'),
       app = new Marionette.Application();
@@ -16,7 +17,7 @@ define(function (require) {
       Backbone.history.start();
 
       // navigate to index if root url
-      if (appRadio.reqres.request('get:current:route') === '') {
+      if (appRadio.reqres.request('route:current') === '') {
         appRadio.vent.trigger(appConfig.indexEvent);
       }
     }

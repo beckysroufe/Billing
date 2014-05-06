@@ -14,39 +14,47 @@ define(function (require) {
    * @param {string} options.name Module name (displayed in main layout)
    */
   ShowController = Marionette.Controller.extend({
+
     showDashboard: function () {
-      var dashLayout,
+      var fetchingApis = dashRadio.reqres.request('api:entities'),
+          fetchingAccounts = dashRadio.reqres.request('account:entities'),
+          dashLayout,
           accountsView,
           apisView;
 
       dashLayout = new DashLayout();
 
-      accountsView = new DashPanelView({
-        itemView: AccountView,
-        title: 'Accounts',
-        action: {
-          href: '#testAccountHref',
-          label: 'Account Action',
-          event: 'test:account:action'
-        }
-      });
+      $.when(fetchingApis, fetchingAccounts).done(function (apis, accounts) {
 
-      apisView = new DashPanelView({
-        itemView: ApiView,
-        title: 'APIs',
-        action: {
-          href: '#testApiHref',
-          label: 'API Action',
-          event: 'test:api:action'
-        }
-      });
+        apisView = new DashPanelView({
+          itemView: ApiView,
+          collection: apis,
+          title: 'APIs',
+          action: {
+            href: '#testApiHref',
+            label: 'API Action',
+            trigger: 'api:action:test'
+          }
+        });
 
-      dashLayout.on('render', function () {
-        dashLayout.apisRegion.show(apisView);
-        dashLayout.accountsRegion.show(accountsView);
-      });
+        accountsView = new DashPanelView({
+          itemView: AccountView,
+          collection: accounts,
+          title: 'Accounts',
+          action: {
+            href: '#testAccountHref',
+            label: 'Account Action',
+            trigger: 'account:action:test'
+          }
+        });
 
-      dashRadio.commands.execute('region:content:showin', dashLayout);
+        dashLayout.on('render', function () {
+          dashLayout.apisRegion.show(apisView);
+          dashLayout.accountsRegion.show(accountsView);
+        });
+
+        dashRadio.commands.execute('region:content:showin', dashLayout);
+      });
     },
 
     actionView: function () {

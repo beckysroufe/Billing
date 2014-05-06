@@ -100,7 +100,7 @@ module.exports = function(grunt) {
 
     jscs: {
       options: {
-        config: '.jscsrc'
+        config: 'app/billing/.jscsrc'
       },
 
       app: ['Gruntfile.js', 'app/billing/**/*.js']

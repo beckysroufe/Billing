@@ -16,17 +16,17 @@ define(function (require) {
   dashController = new DashController();
 
   API = {
-    priv: {
-      _showInContent: function (view) {
+    module: {
+      showInContent: function (view) {
         mainController.showInContent(view);
       },
 
-      _actionView: function () {
+      actionView: function () {
         return dashController.actionView();
       }
     },
 
-    pub: {
+    app: {
       showDashboard: function () {
         dashController.showDashboard();
         appRadio.vent.trigger('module:activated', 'dash');
@@ -35,31 +35,41 @@ define(function (require) {
     },
 
     evtFwd: {
-      _showInMain: function (mainView) {
+      showInMain: function (mainView) {
         appRadio.commands.execute('region:content-main:showin', mainView);
       },
 
-      _alertEntities: function () {
+      alertEntities: function () {
         return appRadio.reqres.request('alert:entities');
+      },
+
+      apiEntities: function () {
+        return appRadio.reqres.request('api:entities');
+      },
+
+      accountEntities: function () {
+        return appRadio.reqres.request('account:entities');
       }
     }
   };
 
-  // private events
-  dashRadio.commands.setHandler('region:content:showin', API.priv._showInContent);
-  dashRadio.reqres.setHandler('action:view', API.priv._actionView);
+  // module events
+  dashRadio.commands.setHandler('region:content:showin', API.module.showInContent);
+  dashRadio.reqres.setHandler('action:view', API.module.actionView);
 
-  // public events
-  appRadio.vent.on('dash:showDashboard', API.pub.showDashboard);
+  // app events
+  appRadio.vent.on('dash:showDashboard', API.app.showDashboard);
 
   // module -> app forwarded events
-  dashRadio.commands.setHandler('region:main:showin', API.evtFwd._showInMain);
-  dashRadio.reqres.setHandler('alert:entities', API.evtFwd._alertEntities);
+  dashRadio.commands.setHandler('region:main:showin', API.evtFwd.showInMain);
+  dashRadio.reqres.setHandler('alert:entities', API.evtFwd.alertEntities);
+  dashRadio.reqres.setHandler('api:entities', API.evtFwd.apiEntities);
+  dashRadio.reqres.setHandler('account:entities', API.evtFwd.accountEntities);
 
   // register module with app
   appRadio.commands.execute('initializer:add', function () {
     new DashRouter({
-      controller: API.pub
+      controller: API.app
     });
   });
 

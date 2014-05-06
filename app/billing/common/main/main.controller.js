@@ -21,25 +21,27 @@ define(function (require) {
     _alerts: null,
 
     _showMain: function (showFn) {
-      var alerts = moduleRadio.reqres.request('alert:entities'),
+      var fetchingAlerts = moduleRadio.reqres.request('alert:entities'),
           actionView = moduleRadio.reqres.request('action:view'),
           alertsView,
           self = this;
 
-      this._alerts = alerts;
+      $.when(fetchingAlerts).done(function (alerts) {
+        self._alerts = alerts;
 
-      alertsView = new AlertsView({
-        collection: this._alerts
+        alertsView = new AlertsView({
+          collection: self._alerts
+        });
+
+        self._mainLayout = new MainLayout({ title: self.options.name });
+        self._mainLayout.on('render', function () {
+          self._mainLayout.alertRegion.show(alertsView);
+          self._mainLayout.actionRegion.show(actionView);
+          if (showFn) showFn();
+        });
+
+        moduleRadio.commands.execute('region:main:showin', self._mainLayout);
       });
-
-      this._mainLayout = new MainLayout({ title: this.options.name });
-      this._mainLayout.on('render', function () {
-        self._mainLayout.alertRegion.show(alertsView);
-        self._mainLayout.actionRegion.show(actionView);
-        if (showFn) showFn();
-      });
-
-      moduleRadio.commands.execute('region:main:showin', this._mainLayout);
     },
 
     showInContent: function (contentView) {

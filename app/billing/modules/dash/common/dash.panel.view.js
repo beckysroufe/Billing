@@ -8,7 +8,7 @@ define(function (require) {
    * Reusable composite view for dash panels
    * @constructor
    * @param {function(new:Marionette.ItemView)} options.itemView A Marionette ItemView class
-   * @param {Object} options.action { href: <string>, label: <string>, event: <event string> }
+   * @param {Object} options.action { href: <string>, label: <string>, trigger: <event string> }
    * @param {string} options.title
    */
 	DashPanelView = Marionette.CompositeView.extend({
@@ -22,7 +22,7 @@ define(function (require) {
 
 	  actionClicked: function (evt) {
 	  	evt.preventDefault();
-	  	dashRadio.vent.trigger(this.options.action.event);
+	  	dashRadio.vent.trigger(this.options.action.trigger);
 	  },
 
 	  serializeData: function () {

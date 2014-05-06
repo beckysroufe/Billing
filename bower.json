@@ -15,6 +15,7 @@
     "requirejs": "~2.1.11",
     "requirejs-hogan-plugin": "~0.3.1",
     "parsleyjs": "~1.2.4",
+    "backbone-computedfields": "~0.0.7",
     "engine-ui": "https://github.com/LDEngine/engine-ui.git#966762ffe38ce5bbcc28e3e8a727444896136878"
   },
   "exportsOverride": {

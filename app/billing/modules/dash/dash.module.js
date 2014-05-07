@@ -1,6 +1,6 @@
 define(function (require) {
-  var appRadio = require('app.radio'),
-      dashRadio = require('modules/dash/dash.radio'),
+  var appBus = require('app.bus'),
+      dashBus = require('modules/dash/dash.bus'),
       MainController = require('common/main/main.controller'),
       DashController = require('modules/dash/dash.controller'),
       DashRouter = require('modules/dash/dash.router'),
@@ -10,7 +10,7 @@ define(function (require) {
 
   mainController = new MainController({
     name: 'Dashboard',
-    radio: dashRadio
+    bus: dashBus
   });
 
   dashController = new DashController();
@@ -29,45 +29,45 @@ define(function (require) {
     app: {
       showDashboard: function () {
         dashController.showDashboard();
-        appRadio.vent.trigger('module:activated', 'dash');
-        appRadio.commands.execute('navigate', 'dash');
+        appBus.vent.trigger('module:activated', 'dash');
+        appBus.commands.execute('navigate', 'dash');
       }    
     },
 
     evtFwd: {
       showInMain: function (mainView) {
-        appRadio.commands.execute('region:content-main:showin', mainView);
+        appBus.commands.execute('region:content-main:showin', mainView);
       },
 
       alertEntities: function () {
-        return appRadio.reqres.request('alert:entities');
+        return appBus.reqres.request('alert:entities');
       },
 
       apiEntities: function () {
-        return appRadio.reqres.request('api:entities');
+        return appBus.reqres.request('api:entities');
       },
 
       accountEntities: function () {
-        return appRadio.reqres.request('account:entities');
+        return appBus.reqres.request('account:entities');
       }
     }
   };
 
   // module events
-  dashRadio.commands.setHandler('region:content:showin', API.module.showInContent);
-  dashRadio.reqres.setHandler('action:view', API.module.actionView);
+  dashBus.commands.setHandler('region:content:showin', API.module.showInContent);
+  dashBus.reqres.setHandler('action:view', API.module.actionView);
 
   // app events
-  appRadio.vent.on('dash:showDashboard', API.app.showDashboard);
+  appBus.vent.on('dash:showDashboard', API.app.showDashboard);
 
   // module -> app forwarded events
-  dashRadio.commands.setHandler('region:main:showin', API.evtFwd.showInMain);
-  dashRadio.reqres.setHandler('alert:entities', API.evtFwd.alertEntities);
-  dashRadio.reqres.setHandler('api:entities', API.evtFwd.apiEntities);
-  dashRadio.reqres.setHandler('account:entities', API.evtFwd.accountEntities);
+  dashBus.commands.setHandler('region:main:showin', API.evtFwd.showInMain);
+  dashBus.reqres.setHandler('alert:entities', API.evtFwd.alertEntities);
+  dashBus.reqres.setHandler('api:entities', API.evtFwd.apiEntities);
+  dashBus.reqres.setHandler('account:entities', API.evtFwd.accountEntities);
 
   // register module with app
-  appRadio.commands.execute('initializer:add', function () {
+  appBus.commands.execute('initializer:add', function () {
     new DashRouter({
       controller: API.app
     });

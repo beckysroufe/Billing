@@ -2,7 +2,7 @@ define(function (require) {
   var Backbone = require('backbone'),
       Marionette = require('marionette'),
       appConfig = require('app.config'),
-      appRadio = require('app.radio'),
+      appBus = require('app.bus'),
       app = new Marionette.Application();
 
   // app regions found in index.html
@@ -17,8 +17,8 @@ define(function (require) {
       Backbone.history.start();
 
       // navigate to index if root url
-      if (appRadio.reqres.request('route:current') === '') {
-        appRadio.vent.trigger(appConfig.indexEvent);
+      if (appBus.reqres.request('route:current') === '') {
+        appBus.vent.trigger(appConfig.indexEvent);
       }
     }
   });

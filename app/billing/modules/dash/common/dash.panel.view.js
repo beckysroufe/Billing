@@ -1,7 +1,7 @@
 define(function (require) {
 	var Marionette = require('marionette'),
 			template = require('hgn!modules/dash/common/dash.panel.view'),
-			dashRadio = require('modules/dash/dash.radio'),
+			dashBus = require('modules/dash/dash.bus'),
 			DashPanelView;
 
   /**
@@ -22,7 +22,7 @@ define(function (require) {
 
 	  actionClicked: function (evt) {
 	  	evt.preventDefault();
-	  	dashRadio.vent.trigger(this.options.action.trigger);
+	  	dashBus.vent.trigger(this.options.action.trigger);
 	  },
 
 	  serializeData: function () {

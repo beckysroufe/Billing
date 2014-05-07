@@ -4,7 +4,7 @@ define(function (require) {
       DashPanelView = require('modules/dash/common/dash.panel.view'),
       AccountView = require('modules/dash/accounts/dash.account.view'),
       ApiView = require('modules/dash/apis/dash.api.view'),
-      dashRadio = require('modules/dash/dash.radio'),   
+      dashBus = require('modules/dash/dash.bus'),   
       ActionView = require('modules/dash/action/dash.action.view'),   
       ShowController;
 
@@ -16,8 +16,8 @@ define(function (require) {
   ShowController = Marionette.Controller.extend({
 
     showDashboard: function () {
-      var fetchingApis = dashRadio.reqres.request('api:entities'),
-          fetchingAccounts = dashRadio.reqres.request('account:entities'),
+      var fetchingApis = dashBus.reqres.request('api:entities'),
+          fetchingAccounts = dashBus.reqres.request('account:entities'),
           dashLayout,
           accountsView,
           apisView;
@@ -53,7 +53,7 @@ define(function (require) {
           dashLayout.accountsRegion.show(accountsView);
         });
 
-        dashRadio.commands.execute('region:content:showin', dashLayout);
+        dashBus.commands.execute('region:content:showin', dashLayout);
       });
     },
 

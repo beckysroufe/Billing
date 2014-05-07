@@ -1,6 +1,6 @@
 define(function (require) {
   var Wreqr = require('backbone.wreqr'),
-      dashRadio = new Wreqr.Channel('dash');
+      appBus = new Wreqr.Channel('app');
 
-  return dashRadio;
+  return appBus;
 });

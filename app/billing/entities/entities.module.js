@@ -1,5 +1,5 @@
 define(function (require) {
-  var appRadio = require('app.radio'),
+  var appBus = require('app.bus'),
       ApiCollection = require('entities/api/api.collection'),
       AccountCollection = require('entities/account/account.collection'),
       AlertCollection = require('entities/alert/alert.collection'),
@@ -53,9 +53,9 @@ define(function (require) {
   };
 
   // public api
-  appRadio.reqres.setHandler('api:entities', API.apiEntities);
-  appRadio.reqres.setHandler('account:entities', API.accountEntities);
-  appRadio.reqres.setHandler('alert:entities', API.alertEntities);
+  appBus.reqres.setHandler('api:entities', API.apiEntities);
+  appBus.reqres.setHandler('account:entities', API.accountEntities);
+  appBus.reqres.setHandler('alert:entities', API.alertEntities);
 
   // No export--event API only
 });

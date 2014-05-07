@@ -1,7 +1,7 @@
 define(function (require) {
   var Backbone = require('backbone'),
       AppContentLayout = require('app.content.layout'),
-      appRadio = require('app.radio'),
+      appBus = require('app.bus'),
       app = require('app'),
       appLayout,
       appLayoutShown = false,
@@ -70,14 +70,14 @@ define(function (require) {
     }
   };
 
-  appRadio.reqres.setHandler('route:current', API.currentRoute);
-  appRadio.commands.setHandler('navigate', API.navigate);
-  appRadio.commands.setHandler('initializer:add', API.addInitializer);
-  appRadio.commands.setHandler('region:header:showin', API.showInHeader);
-  appRadio.commands.setHandler('region:footer:showin', API.showInFooter);
-  appRadio.commands.setHandler('region:content:showin', API.showInContent);
-  appRadio.commands.setHandler('region:content-menu:showin', API.showInContentMenu);
-  appRadio.commands.setHandler('region:content-main:showin', API.showInContentMain);
+  appBus.reqres.setHandler('route:current', API.currentRoute);
+  appBus.commands.setHandler('navigate', API.navigate);
+  appBus.commands.setHandler('initializer:add', API.addInitializer);
+  appBus.commands.setHandler('region:header:showin', API.showInHeader);
+  appBus.commands.setHandler('region:footer:showin', API.showInFooter);
+  appBus.commands.setHandler('region:content:showin', API.showInContent);
+  appBus.commands.setHandler('region:content-menu:showin', API.showInContentMenu);
+  appBus.commands.setHandler('region:content-main:showin', API.showInContentMain);
 
   // No export--event API
 });

@@ -1,5 +1,5 @@
 define(function (require) {
-  var appRadio = require('app.radio'),
+  var appBus = require('app.bus'),
       menuController = require('modules/menu/menu.controller'),
       API;
 
@@ -16,9 +16,9 @@ define(function (require) {
     }
   };
 
-  appRadio.vent.on('module:activated', API.setActiveItem);
+  appBus.vent.on('module:activated', API.setActiveItem);
 
-  appRadio.commands.execute('initializer:add', API.showMenu);
+  appBus.commands.execute('initializer:add', API.showMenu);
 
   // No export--event API only
 });

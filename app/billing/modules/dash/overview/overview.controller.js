@@ -1,28 +1,28 @@
 define(function (require) {
-  var Marionette = require('marionette'),
-      DashLayout = require('modules/dash/dash.layout'),
-      DashPanelView = require('modules/dash/common/dash.panel.view'),
-      AccountView = require('modules/dash/accounts/dash.account.view'),
-      ApiView = require('modules/dash/apis/dash.api.view'),
-      dashBus = require('modules/dash/dash.bus'),   
-      ActionView = require('modules/dash/action/dash.action.view'),   
-      ShowController;
+  var Marionette      = require('marionette'),
+      OverviewLayout  = require('modules/dash/overview/overview.layout'),
+      AccountView     = require('modules/dash/overview/account/account.view'),
+      ApiView         = require('modules/dash/overview/api/api.view'),
+      ActionView      = require('modules/dash/overview/action/action.view'),   
+      DashPanelView   = require('modules/dash/common/dash.panel.view'),
+      dashBus         = require('modules/dash/dash.bus'),   
+      OverviewController;
 
   /**
-   * Dashboard top level controller
+   * Overviewboard top level controller
    * @constructor
    * @param {string} options.name Module name (displayed in main layout)
    */
-  ShowController = Marionette.Controller.extend({
+  OverviewController = Marionette.Controller.extend({
 
-    showDashboard: function () {
+    showOverview: function () {
       var fetchingApis = dashBus.reqres.request('api:entities'),
           fetchingAccounts = dashBus.reqres.request('account:entities'),
           dashLayout,
           accountsView,
           apisView;
 
-      dashLayout = new DashLayout();
+      dashLayout = new OverviewLayout();
 
       $.when(fetchingApis, fetchingAccounts).done(function (apis, accounts) {
 
@@ -62,5 +62,5 @@ define(function (require) {
     }
   });
 
-  return ShowController;
+  return OverviewController;
 });

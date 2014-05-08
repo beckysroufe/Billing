@@ -1,6 +1,6 @@
 define(function (require) {
   var Marionette = require('marionette'),
-      template = require('hgn!modules/dash/action/dash.action.view'),
+      template = require('hgn!modules/dash/overview/action/action.view'),
       ActionView;
 
   ActionView = Marionette.ItemView.extend({

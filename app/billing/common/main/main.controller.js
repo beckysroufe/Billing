@@ -2,7 +2,7 @@ define(function (require) {
   var Marionette = require('marionette'),
       MainLayout = require('common/main/main.layout'),
       AlertsView = require('common/alert/alerts.view'),
-      moduleBus,
+      dashBus = require('modules/dash/dash.bus'),
       MainController;
 
   /**
@@ -13,16 +13,12 @@ define(function (require) {
    */
   MainController = Marionette.Controller.extend({
 
-    initialize: function () {
-      moduleBus = this.options.bus;
-    },
-
     _mainLayout: null,
     _alerts: null,
 
     _showMain: function (showFn) {
-      var fetchingAlerts = moduleBus.reqres.request('alert:entities'),
-          actionView = moduleBus.reqres.request('action:view'),
+      var fetchingAlerts = dashBus.reqres.request('alert:entities'),
+          actionView = dashBus.reqres.request('action:view'),
           alertsView,
           self = this;
 
@@ -40,7 +36,7 @@ define(function (require) {
           if (showFn) showFn();
         });
 
-        moduleBus.commands.execute('region:main:showin', self._mainLayout);
+        dashBus.commands.execute('region:main:showin', self._mainLayout);
       });
     },
 

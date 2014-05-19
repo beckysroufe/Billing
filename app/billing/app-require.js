@@ -37,7 +37,7 @@ require.config({
 require([
   'marionette',
   'app',
-  'app.module',
+  'debug/event.debugger',
   'entities/entities.module',
   'modules/header/header.module',
   'modules/footer/footer.module',

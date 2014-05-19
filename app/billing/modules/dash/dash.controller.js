@@ -1,12 +1,11 @@
 define(function (require) {
-  var appBus = require('app.bus'),
-      dashBus = require('modules/dash/dash.bus'),
+  var appChannel = require('app.channel'),
       ModuleController = require('lib/module.controller'),
       MainController = require('common/main/main.controller'),
       OverviewController = require('modules/dash/overview/overview.controller'),
-      DashModuleController;
+      DashController;
 
-  DashModuleController = ModuleController.extend({
+  DashController = ModuleController.extend({
 
     routes: {
       'dash': 'showDashboard'
@@ -23,8 +22,7 @@ define(function (require) {
         'action:view': 'getActionView'
       },
       commands: {
-        'region:content:showin': 'showInContent',
-        'region:main:showin': 'showInMain'
+        'region:content:showin': 'showInContent'
       }
     },
 
@@ -40,11 +38,11 @@ define(function (require) {
     overviewController: null,
 
     initialize: function () {
-      DashModuleController.__super__.initialize.apply(this, arguments);
+      DashController.__super__.initialize.apply(this, arguments);
 
       this.mainController = new MainController({
         name: 'Dashboard',
-        moduleBus: dashBus
+        moduleChannel: this.moduleChannel
       });
 
       this.overviewController = new OverviewController();
@@ -55,21 +53,17 @@ define(function (require) {
     },
 
     getActionView: function () {
-      return this.overviewController.actionView();
+      return this.overviewController.getActionView();
     },
 
     showDashboard: function () {
       this.overviewController.showOverview();
-      appBus.vent.trigger('module:activated', 'dash');
-      appBus.commands.execute('navigate', 'dash');
-    },
-
-    showInMain: function (mainView) {
-      appBus.commands.execute('region:content-main:showin', mainView);
+      appChannel.vent.trigger('module:activated', 'dash');
+      appChannel.commands.execute('navigate', 'dash');
     }
   });
 
-  return DashModuleController;
+  return DashController;
 
   // No export--event API only
 });

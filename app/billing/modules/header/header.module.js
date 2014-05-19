@@ -1,5 +1,5 @@
 define(function (require) {
-  var appBus = require('app.bus'),
+  var appChannel = require('app.channel'),
       headerController = require('modules/header/header.controller'),
       API;
 
@@ -9,7 +9,7 @@ define(function (require) {
     }
   };
 
-  appBus.commands.execute('initializer:add', API.showHeader);
+  appChannel.commands.execute('initializer:add', API.showHeader);
 
   // No export--event API only
 });

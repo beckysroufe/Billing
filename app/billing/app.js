@@ -2,26 +2,35 @@ define(function (require) {
   var Backbone = require('backbone'),
       Marionette = require('marionette'),
       appConfig = require('app.config'),
-      appBus = require('app.bus'),
-      app = new Marionette.Application();
+      appChannel = require('app.channel'),
+      AppController = require('app.controller'),
+      App;
 
-  // app regions found in index.html
-  app.addRegions({
-    headerRegion: '#header-region',
-    contentRegion: '#content-region',
-    footerRegion: '#footer-region'
-  });
+  App = Marionette.Application.extend({
 
-  app.on('initialize:after', function () {
-    if (Backbone.history) {
-      Backbone.history.start();
+    regions: {
+      headerRegion: '#header-region',
+      contentRegion: '#content-region',
+      footerRegion: '#footer-region'
+    },
 
-      // navigate to index if root url
-      if (appBus.reqres.request('route:current') === '') {
-        appBus.vent.trigger(appConfig.indexEvent);
-      }
+    initialize: function () {
+      this.appController = new AppController({
+        app: this
+      });
+
+      this.on('initialize:after', function () {
+        if (Backbone.history) {
+          Backbone.history.start();
+
+          // navigate to index if root url
+          if (appChannel.reqres.request('route:current') === '') {
+            appChannel.vent.trigger(appConfig.indexEvent);
+          }
+        }
+      });
     }
-  });
+  })
 
-  return app;
+  return new App();
 });

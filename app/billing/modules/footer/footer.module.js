@@ -1,5 +1,5 @@
 define(function (require) {
-  var appBus = require('app.bus'),
+  var appChannel = require('app.channel'),
       footerController = require('modules/footer/footer.controller'),
       API;
 
@@ -9,7 +9,7 @@ define(function (require) {
     }
   };
 
-  appBus.commands.execute('initializer:add', API.showFooter);
+  appChannel.commands.execute('initializer:add', API.showFooter);
 
   // No export--event API only
 });

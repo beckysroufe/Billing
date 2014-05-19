@@ -1,16 +1,15 @@
 define(function (require) {
   var Marionette = require('marionette'),
-      appBus = require('app.bus'),
+      Wreqr = require('backbone.wreqr'),
+      appChannel = require('app.channel'),
       ModuleController;
 
   ModuleController = Marionette.Controller.extend({
 
-    moduleBus: null,
+    moduleChannel: null,
     router: null,
 
-    initialize: function () {
-      this.moduleBus = this.options.moduleBus;
-      
+    initialize: function () {      
       if (this.routes) {
         this.router = new (Marionette.AppRouter.extend({
           appRoutes: this.routes,
@@ -18,8 +17,15 @@ define(function (require) {
         }))();
       }
 
-      this._initEvents(this.appEvents, appBus);
-      this._initEvents(this.moduleEvents, this.moduleBus);
+      // can be used optionally without a module (only runs on app events)
+      if (this.options.module) {
+        this.moduleChannel = Wreqr.radio.channel(this.options.module.moduleName);
+        this._initEvents(this.moduleEvents, this.moduleChannel);
+      } else if (this.moduleEvents) {
+        throw new Error('To use moduleEvents, please supply a module instance to options');
+      }
+
+      this._initEvents(this.appEvents, appChannel);
       this._initForwardEvents(this.forwardEvents);
     },
 
@@ -53,18 +59,18 @@ define(function (require) {
       var self = this;
 
       _.each(events.vent, function (name) {
-        self.moduleBus.vent.on(name, function () {
-          appBus.vent.trigger.apply(appBus.vent, [name].concat(arguments));
+        self.moduleChannel.vent.on(name, function () {
+          appChannel.vent.trigger.apply(appChannel.vent, [name].concat(arguments));
         });
       });
       _.each(events.commands, function (name) {
-        self.moduleBus.commands.setHandler(name, function () {
-          appBus.commands.execute.apply(appBus.commands, [name].concat(arguments));
+        self.moduleChannel.commands.setHandler(name, function () {
+          appChannel.commands.execute.apply(appChannel.commands, [name].concat(arguments));
         });
       });
       _.each(events.reqres, function (name) {
-        self.moduleBus.reqres.setHandler(name, function () {
-          return appBus.reqres.request.apply(appBus.reqres, [name].concat(arguments));
+        self.moduleChannel.reqres.setHandler(name, function () {
+          return appChannel.reqres.request.apply(appChannel.reqres, [name].concat(arguments));
         });
       });
     },

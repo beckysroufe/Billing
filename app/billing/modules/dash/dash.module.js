@@ -1,14 +1,13 @@
 define(function (require) {
   var Module = require('lib/module'),
-      DashModuleController = require('modules/dash/dash.module.controller'),
-      dashBus = require('modules/dash/dash.bus'),
+      DashController = require('modules/dash/dash.controller'),
+      dashChannel = require('modules/dash/dash.channel'),
       app = require('app'),
       DashModule,
       dash;
 
   DashModule = Module.extend({
-    ModuleController: DashModuleController,
-    moduleBus: dashBus
+    moduleControllerClass: DashController
   });
 
   dash = app.module('dash', DashModule);

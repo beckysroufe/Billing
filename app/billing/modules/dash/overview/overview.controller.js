@@ -5,7 +5,7 @@ define(function (require) {
       ApiView         = require('modules/dash/overview/api/api.view'),
       ActionView      = require('modules/dash/overview/action/action.view'),   
       DashPanelView   = require('modules/dash/common/dash.panel.view'),
-      dashBus         = require('modules/dash/dash.bus'),   
+      dashChannel     = require('modules/dash/dash.channel'),   
       OverviewController;
 
   /**
@@ -16,8 +16,8 @@ define(function (require) {
   OverviewController = Marionette.Controller.extend({
 
     showOverview: function () {
-      var fetchingApis = dashBus.reqres.request('api:entities'),
-          fetchingAccounts = dashBus.reqres.request('account:entities'),
+      var fetchingApis = dashChannel.reqres.request('api:entities'),
+          fetchingAccounts = dashChannel.reqres.request('account:entities'),
           dashLayout,
           accountsView,
           apisView;
@@ -53,11 +53,11 @@ define(function (require) {
           dashLayout.accountsRegion.show(accountsView);
         });
 
-        dashBus.commands.execute('region:content:showin', dashLayout);
+        dashChannel.commands.execute('region:content:showin', dashLayout);
       });
     },
 
-    actionView: function () {
+    getActionView: function () {
       return new ActionView();
     }
   });

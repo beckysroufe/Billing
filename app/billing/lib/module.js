@@ -5,12 +5,10 @@ define(function (require) {
   Module = Marionette.Module.extend({
     startWithParent: false,
     controller: null,
-    moduleBus: null,
 
     onStart: function () {
-      if (!this.moduleBus) throw new Error('Must supply moduleBus');
-      this.controller = new this.ModuleController({
-        moduleBus: this.moduleBus
+      this.controller = new this.moduleControllerClass({
+        module: this
       });
     },
 

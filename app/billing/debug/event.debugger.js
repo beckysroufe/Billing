@@ -4,7 +4,7 @@ define(function (require) {
       channels;
 
   channels = {
-    'app': appChannel,
+    'app ': appChannel,
     'dash': dashChannel
   };
 

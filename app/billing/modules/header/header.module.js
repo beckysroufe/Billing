@@ -1,15 +1,16 @@
 define(function (require) {
-  var appChannel = require('app.channel'),
-      headerController = require('modules/header/header.controller'),
-      API;
+  var Module = require('lib/module'),
+      HeaderController = require('modules/header/header.controller'),
+      app = require('app'),
+      HeaderModule,
+      header;
 
-  API = {
-    showHeader: function () {
-      headerController.showHeader();
-    }
-  };
+  HeaderModule = Module.extend({
+    moduleControllerClass: HeaderController
+  });
 
-  appChannel.commands.execute('initializer:add', API.showHeader);
+  header = app.module('header', HeaderModule);
+  header.start();
 
-  // No export--event API only
+  return header;
 });

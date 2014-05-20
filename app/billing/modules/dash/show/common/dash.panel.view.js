@@ -1,6 +1,6 @@
 define(function (require) {
 	var Marionette = require('marionette'),
-			template = require('hgn!modules/dash/common/dash.panel.view'),
+			template = require('hgn!modules/dash/show/common/dash.panel.view'),
 			dashChannel = require('modules/dash/dash.channel'),
 			DashPanelView;
 

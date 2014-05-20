@@ -7,7 +7,6 @@ define(function (require) {
   AppController = ModuleController.extend({
 
     initialize: function () {
-      AppController.__super__.initialize.apply(this, arguments);
       this.app = this.options.app;
     },
 
@@ -30,8 +29,8 @@ define(function (require) {
     appLayout: null,
     appLayoutShown: false,
 
-    addInitializer: function (init) {
-      this.app.addInitializer(init);
+    addInitializer: function (initializer) {
+      this.app.addInitializer(initializer);
     },
 
     navigate: function (route, options) {

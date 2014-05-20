@@ -13,12 +13,17 @@ define(function (require) {
    */
   MainController = Marionette.Controller.extend({
 
+    initialize: function () {
+      this.moduleChannel = this.options.moduleChannel;
+    },
+
+    moduleChannel: null,
     _mainLayout: null,
     _alerts: null,
 
     _showMain: function (showFn) {
-      var fetchingAlerts = appChannel.reqres.request('alert:entities'),
-          actionView = appChannel.reqres.request('action:view'),
+      var fetchingAlerts = this.moduleChannel.reqres.request('alert:entities'),
+          actionView = this.moduleChannel.reqres.request('action:view'),
           alertsView,
           self = this;
 

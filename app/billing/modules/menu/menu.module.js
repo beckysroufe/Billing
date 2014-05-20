@@ -1,24 +1,16 @@
 define(function (require) {
-  var appChannel = require('app.channel'),
-      menuController = require('modules/menu/menu.controller'),
-      API;
+  var Module = require('lib/module'),
+      MenuController = require('modules/menu/menu.controller'),
+      app = require('app'),
+      MenuModule,
+      menu;
 
-  API = {
-    showMenu: function () {
-      menuController.showMenu();
-    },
+  MenuModule = Module.extend({
+    moduleControllerClass: MenuController
+  });
 
-    // TODO: show menu automatically as needed but not if already showing,
-    // because the menu will be closed when switching to static pages
-    // (entire content area will be swapped out)
-    setActiveItem: function (name) {
-      console.log('menu item ' + name + ' activated');
-    }
-  };
+  menu = app.module('menu', MenuModule);
+  menu.start();
 
-  appChannel.vent.on('module:activated', API.setActiveItem);
-
-  appChannel.commands.execute('initializer:add', API.showMenu);
-
-  // No export--event API only
+  return menu;
 });

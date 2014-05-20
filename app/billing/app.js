@@ -4,33 +4,28 @@ define(function (require) {
       appConfig = require('app.config'),
       appChannel = require('app.channel'),
       AppController = require('app.controller'),
-      App;
+      app = new Marionette.Application();
 
-  App = Marionette.Application.extend({
+  app.addRegions({
+    headerRegion: '#header-region',
+    contentRegion: '#content-region',
+    footerRegion: '#footer-region'
+  });
 
-    regions: {
-      headerRegion: '#header-region',
-      contentRegion: '#content-region',
-      footerRegion: '#footer-region'
-    },
+  app.on('initialize:after', function () {
+    if (Backbone.history) {
+      Backbone.history.start();
 
-    initialize: function () {
-      this.appController = new AppController({
-        app: this
-      });
-
-      this.on('initialize:after', function () {
-        if (Backbone.history) {
-          Backbone.history.start();
-
-          // navigate to index if root url
-          if (appChannel.reqres.request('route:current') === '') {
-            appChannel.vent.trigger(appConfig.indexEvent);
-          }
-        }
-      });
+      // navigate to index if root url
+      if (appChannel.reqres.request('route:current') === '') {
+        appChannel.vent.trigger(appConfig.indexEvent);
+      }
     }
-  })
+  });
 
-  return new App();
+  app.appController = new AppController({
+    app: app
+  });
+
+  return app;
 });

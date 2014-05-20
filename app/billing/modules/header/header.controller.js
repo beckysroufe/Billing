@@ -1,14 +1,14 @@
 define(function (require) {
-  var HeaderView = require('modules/header/header.view'),
-      appChannel = require('app.channel'),
-      headerController;
+  var headerShowController = require('modules/header/show/header.show.controller'),
+      ModuleController = require('lib/module.controller'),
+      HeaderController;
 
-  headerController = {
-    showHeader: function () {
-      var headerView = new HeaderView();
-      appChannel.commands.execute('region:header:showin', headerView);
+  HeaderController = ModuleController.extend({
+
+    initialize: function () {
+      headerShowController.showHeader();
     }
-  };
+  });
 
-  return headerController;
+  return HeaderController;
 });

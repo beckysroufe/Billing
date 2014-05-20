@@ -1,8 +1,7 @@
 define(function (require) {
-  var appChannel = require('app.channel'),
-      ModuleController = require('lib/module.controller'),
+  var ModuleController = require('lib/module.controller'),
       MainController = require('common/main/main.controller'),
-      OverviewController = require('modules/dash/overview/overview.controller'),
+      DashShowController = require('modules/dash/show/dash.show.controller'),
       DashController;
 
   DashController = ModuleController.extend({
@@ -35,17 +34,15 @@ define(function (require) {
     },
 
     mainController: null,
-    overviewController: null,
+    dashShowController: null,
 
     initialize: function () {
-      DashController.__super__.initialize.apply(this, arguments);
-
       this.mainController = new MainController({
         name: 'Dashboard',
         moduleChannel: this.moduleChannel
       });
 
-      this.overviewController = new OverviewController();
+      this.dashShowController = new DashShowController();
     },
 
     showInContent: function (view) {
@@ -53,17 +50,15 @@ define(function (require) {
     },
 
     getActionView: function () {
-      return this.overviewController.getActionView();
+      return this.dashShowController.getActionView();
     },
 
     showDashboard: function () {
-      this.overviewController.showOverview();
-      appChannel.vent.trigger('module:activated', 'dash');
-      appChannel.commands.execute('navigate', 'dash');
+      this.dashShowController.showDash();
+      this.appChannel.vent.trigger('module:activated', 'dash');
+      this.appChannel.commands.execute('navigate', 'dash');
     }
   });
 
   return DashController;
-
-  // No export--event API only
 });

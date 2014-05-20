@@ -6,10 +6,11 @@ define(function (require) {
 
   ModuleController = Marionette.Controller.extend({
 
+    appChannel: null,
     moduleChannel: null,
     router: null,
 
-    initialize: function () {      
+    constructor: function (options) {
       if (this.routes) {
         this.router = new (Marionette.AppRouter.extend({
           appRoutes: this.routes,
@@ -18,15 +19,19 @@ define(function (require) {
       }
 
       // can be used optionally without a module (only runs on app events)
-      if (this.options.module) {
-        this.moduleChannel = Wreqr.radio.channel(this.options.module.moduleName);
+      if (options.module) {
+        this.moduleChannel = Wreqr.radio.channel(options.module.moduleName);
         this._initEvents(this.moduleEvents, this.moduleChannel);
       } else if (this.moduleEvents) {
         throw new Error('To use moduleEvents, please supply a module instance to options');
       }
+      
+      this.appChannel = appChannel;
 
       this._initEvents(this.appEvents, appChannel);
       this._initForwardEvents(this.forwardEvents);
+
+      ModuleController.__super__.constructor.apply(this, arguments);
     },
 
     _initEvents: function (events, bus) {

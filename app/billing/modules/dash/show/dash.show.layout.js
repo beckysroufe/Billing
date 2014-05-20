@@ -1,6 +1,6 @@
 define(function (require) {
   var Marionette = require('marionette'),
-      template = require('hgn!modules/dash/overview/overview.layout'),
+      template = require('hgn!modules/dash/show/dash.show.layout'),
       DashLayout;
 
   /**

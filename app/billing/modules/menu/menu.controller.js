@@ -1,14 +1,24 @@
 define(function (require) {
-  var MenuView = require('modules/menu/menu.view'),
-      appChannel = require('app.channel'),
-      menuController;
+  var menuListController = require('modules/menu/list/menu.list.controller'),
+      ModuleController = require('lib/module.controller'),
+      MenuController;
 
-  menuController = {
-    showMenu: function () {
-      var menuView = new MenuView();
-      appChannel.commands.execute('region:content-menu:showin', menuView);
+  MenuController = ModuleController.extend({
+
+    appEvents: {
+      vent: {
+        'module:activated': 'setActiveItem'
+      }
+    },
+
+    initialize: function () {
+      menuListController.showMenu();
+    },
+
+    setActiveItem: function () {
+      console.log('menu item ' + name + ' activated');
     }
-  };
+  });
 
-  return menuController;
+  return MenuController;
 });

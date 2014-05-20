@@ -1,14 +1,14 @@
 define(function (require) {
-  var FooterView = require('modules/footer/footer.view'),
-      appChannel = require('app.channel'),
-      footerController;
+  var footerShowController = require('modules/footer/show/footer.show.controller'),
+      ModuleController = require('lib/module.controller'),
+      FooterController;
 
-  footerController = {
-    showFooter: function () {
-      var footerView = new FooterView();
-      appChannel.commands.execute('region:footer:showin', footerView);
+  FooterController = ModuleController.extend({
+
+    initialize: function () {
+      footerShowController.showFooter();
     }
-  };
+  });
 
-  return footerController;
+  return FooterController;
 });

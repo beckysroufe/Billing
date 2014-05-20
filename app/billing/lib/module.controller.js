@@ -6,7 +6,6 @@ define(function (require) {
 
   ModuleController = Marionette.Controller.extend({
 
-    appChannel: null,
     moduleChannel: null,
     router: null,
 

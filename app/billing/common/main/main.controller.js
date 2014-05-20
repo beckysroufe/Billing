@@ -22,7 +22,7 @@ define(function (require) {
     _alerts: null,
 
     _showMain: function (showFn) {
-      var fetchingAlerts = this.moduleChannel.reqres.request('alert:entities'),
+      var fetchingAlerts = appChannel.reqres.request('alert:entities'),
           actionView = this.moduleChannel.reqres.request('action:view'),
           alertsView,
           self = this;

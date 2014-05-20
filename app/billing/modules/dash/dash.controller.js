@@ -2,6 +2,7 @@ define(function (require) {
   var ModuleController = require('lib/module.controller'),
       MainController = require('common/main/main.controller'),
       DashShowController = require('modules/dash/show/dash.show.controller'),
+      appChannel = require('app.channel'),
       DashController;
 
   DashController = ModuleController.extend({
@@ -55,8 +56,8 @@ define(function (require) {
 
     showDashboard: function () {
       this.dashShowController.showDash();
-      this.appChannel.vent.trigger('module:activated', 'dash');
-      this.appChannel.commands.execute('navigate', 'dash');
+      appChannel.vent.trigger('module:activated', 'dash');
+      appChannel.commands.execute('navigate', 'dash');
     }
   });
 

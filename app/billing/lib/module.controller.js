@@ -25,8 +25,6 @@ define(function (require) {
       } else if (this.moduleEvents) {
         throw new Error('To use moduleEvents, please supply a module instance to options');
       }
-      
-      this.appChannel = appChannel;
 
       this._initEvents(this.appEvents, appChannel);
       this._initForwardEvents(this.forwardEvents);

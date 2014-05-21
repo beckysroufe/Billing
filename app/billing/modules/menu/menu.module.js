@@ -1,24 +1,16 @@
 define(function (require) {
-  var appRadio = require('app.radio'),
-      menuController = require('modules/menu/menu.controller'),
-      API;
+  var Module = require('lib/module'),
+      MenuController = require('modules/menu/menu.controller'),
+      app = require('app'),
+      MenuModule,
+      menu;
 
-  API = {
-    showMenu: function () {
-      menuController.showMenu();
-    },
+  MenuModule = Module.extend({
+    moduleControllerClass: MenuController
+  });
 
-    setActiveItem: function (name) {
-      console.log('menu item ' + name + ' activated');
-    }
-  };
+  menu = app.module('menu', MenuModule);
+  menu.start();
 
-  appRadio.vent.on('module:activated', API.setActiveItem);
-
-  // TODO: show menu automatically as needed but not if already showing,
-  // because the menu will be closed when switching to static pages
-  // (entire content area will be swapped out)
-  appRadio.commands.execute('add:initializer', API.showMenu);
-
-  // No export--event API only
+  return menu;
 });

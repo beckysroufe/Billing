@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   /* jshint camelcase:false */
 
   grunt.initConfig({
@@ -82,7 +82,8 @@ module.exports = function(grunt) {
 
       sourcemap_links: {
         command: [
-          'cd dist/style',
+          'mkdir -p <%- path.dist_style %>',
+          'cd <%- path.dist_style %>',
           'rm -f app && ln -s ../../app app',
           'rm -f dist && ln -s ../ dist'
         ].join('&&')
@@ -99,7 +100,7 @@ module.exports = function(grunt) {
 
     jscs: {
       options: {
-        config: '.jscsrc'
+        config: 'app/billing/.jscsrc'
       },
 
       app: ['Gruntfile.js', 'app/billing/**/*.js']

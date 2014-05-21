@@ -1,15 +1,16 @@
 define(function (require) {
-  var appRadio = require('app.radio'),
-      headerController = require('modules/header/header.controller'),
-      API;
+  var Module = require('lib/module'),
+      HeaderController = require('modules/header/header.controller'),
+      app = require('app'),
+      HeaderModule,
+      header;
 
-  API = {
-    showHeader: function () {
-      headerController.showHeader();
-    }
-  };
+  HeaderModule = Module.extend({
+    moduleControllerClass: HeaderController
+  });
 
-  appRadio.commands.execute('add:initializer', API.showHeader);
+  header = app.module('header', HeaderModule);
+  header.start();
 
-  // No export--event API only
+  return header;
 });

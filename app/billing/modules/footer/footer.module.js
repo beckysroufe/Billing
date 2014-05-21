@@ -1,15 +1,16 @@
 define(function (require) {
-  var appRadio = require('app.radio'),
-      footerController = require('modules/footer/footer.controller'),
-      API;
+  var Module = require('lib/module'),
+      FooterController = require('modules/footer/footer.controller'),
+      app = require('app'),
+      FooterModule,
+      footer;
 
-  API = {
-    showFooter: function () {
-      footerController.showFooter();
-    }
-  };
+  FooterModule = Module.extend({
+    moduleControllerClass: FooterController
+  });
 
-  appRadio.commands.execute('add:initializer', API.showFooter);
+  footer = app.module('footer', FooterModule);
+  footer.start();
 
-  // No export--event API only
+  return footer;
 });

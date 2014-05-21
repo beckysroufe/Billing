@@ -1,42 +1,16 @@
 define(function (require) {
-  var appRadio = require('app.radio'),
-      dashRadio = require('modules/dash/dash.radio'),
+  var Module = require('lib/module'),
       DashController = require('modules/dash/dash.controller'),
-      DashRouter,
-      API,
-      dashController;
+      app = require('app'),
+      DashModule,
+      dash;
 
-  DashRouter = Backbone.Marionette.AppRouter.extend({
-    appRoutes: {
-      'dash': 'showDashboard'
-    }
+  DashModule = Module.extend({
+    moduleControllerClass: DashController
   });
 
-  dashController = new DashController({ name: 'Dashboard' });
+  dash = app.module('dash', DashModule);
+  dash.start();
 
-  API = {
-    _initialize: function () {
-      new DashRouter({
-        controller: API
-      });
-    },
-
-    showDashboard: function () {
-      dashController.showDashboard();
-      appRadio.vent.trigger('module:activated', 'dash');
-      appRadio.commands.execute('navigate', 'dash');
-    },
-
-    showMain: function (view) {
-      appRadio.commands.execute('show:content:main', view);
-    }
-  };
-
-  appRadio.vent.on('dash:show', API.showDashboard);
-  appRadio.commands.execute('add:initializer', API._initialize);
-
-  // module->app event forwarding
-  dashRadio.commands.setHandler('show:main', API.showMain);
-
-  // No export--event API only
+  return dash;
 });

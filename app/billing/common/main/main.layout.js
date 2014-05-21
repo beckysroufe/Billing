@@ -1,6 +1,6 @@
 define(function (require) {
   var Marionette = require('marionette'),
-      template = require('hgn!common/main.layout'),
+      template = require('hgn!common/main/main.layout'),
       MainLayout;
 
   /**
@@ -11,13 +11,9 @@ define(function (require) {
   MainLayout = Marionette.Layout.extend({
     template: template,
 
-    ui: {
-      title: '.js-main-title'
-    },
-
     regions: {
-      alertsRegion: '.js-main-alerts',
-      actionsRegion: '.js-main-actions',
+      alertRegion: '.js-main-alerts',
+      actionRegion: '.js-main-actions',
       contentRegion: '.js-main-content'
     },
 

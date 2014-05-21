@@ -1,10 +1,11 @@
 define(function (require) {
-  var Marionette = require('marionette'),
+  var Backbone = require('backbone'),
+      Marionette = require('marionette'),
       appConfig = require('app.config'),
-      appRadio = require('app.radio'),
+      appChannel = require('app.channel'),
+      AppController = require('app.controller'),
       app = new Marionette.Application();
 
-  // app regions found in index.html
   app.addRegions({
     headerRegion: '#header-region',
     contentRegion: '#content-region',
@@ -16,10 +17,14 @@ define(function (require) {
       Backbone.history.start();
 
       // navigate to index if root url
-      if (appRadio.reqres.request('get:current:route') === '') {
-        appRadio.vent.trigger(appConfig.indexEvent);
+      if (appChannel.reqres.request('route:current') === '') {
+        appChannel.vent.trigger(appConfig.indexEvent);
       }
     }
+  });
+
+  app.appController = new AppController({
+    app: app
   });
 
   return app;

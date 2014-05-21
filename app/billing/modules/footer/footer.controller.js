@@ -1,14 +1,14 @@
 define(function (require) {
-  var FooterView = require('modules/footer/footer.view'),
-      appRadio = require('app.radio'),
-      footerController;
+  var footerShowController = require('modules/footer/show/footer.show.controller'),
+      ModuleController = require('lib/module.controller'),
+      FooterController;
 
-  footerController = {
-    showFooter: function () {
-      var footerView = new FooterView();
-      appRadio.commands.execute('show:footer', footerView);
+  FooterController = ModuleController.extend({
+
+    initialize: function () {
+      footerShowController.showFooter();
     }
-  };
+  });
 
-  return footerController;
+  return FooterController;
 });

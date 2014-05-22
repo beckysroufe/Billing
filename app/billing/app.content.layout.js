@@ -6,6 +6,9 @@ define(function (require) {
   AppLayout = Marionette.Layout.extend({
     template: template,
 
+    tagName: 'div',
+    className: 'dashboard-wrapper',
+
     regions: {
       menuRegion: '#menu-region',
       mainRegion: '#main-region'
